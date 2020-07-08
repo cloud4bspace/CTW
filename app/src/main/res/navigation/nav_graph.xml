@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/welcome_fragment">
+
+    <fragment
+        android:id="@+id/welcome_fragment"
+        android:name="space.cloud4b.ctw.WelcomeFragment"
+        android:label="@string/register_fragment_label"
+        tools:layout="@layout/welcome_fragment">
+
+        <action
+            android:id="@+id/action_WelcomeFragment_to_DashboardFragment"
+            app:destination="@id/dashboard_fragment" />
+        <action
+            android:id="@+id/action_WelcomeFragment_to_RegisterFragment"
+            app:destination="@id/register_Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dashboard_fragment"
+        android:name="space.cloud4b.ctw.DashboardFragment"
+        android:label="@string/dashboard_fragment_label"
+        tools:layout="@layout/dashboard_fragment">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/welcome_fragment" />
+        <action
+            android:id="@+id/action_dashboard_fragment_to_itemslistFragment"
+            app:destination="@id/itemslistFragment" />
+        <action
+            android:id="@+id/action_dashboard_fragment_to_additemFragment"
+            app:destination="@id/additemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/register_Fragment"
+        android:name="space.cloud4b.ctw.RegisterFragment"
+        android:label="@string/register_fragment_label"
+        tools:layout="@layout/register_fragment">
+        <action
+            android:id="@+id/action_RegisterFragment_to_DashboardFragment"
+            app:destination="@id/dashboard_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemslistFragment"
+        android:name="space.cloud4b.ctw.ItemslistFragment"
+        android:label="ItemslistFragment" >
+        <action
+            android:id="@+id/action_itemslistFragment_to_viewitemFragment"
+            app:destination="@id/viewitemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/additemFragment"
+        android:name="space.cloud4b.ctw.AdditemFragment"
+        android:label="AdditemFragment" />
+    <fragment
+        android:id="@+id/viewitemFragment"
+        android:name="space.cloud4b.ctw.ViewitemFragment"
+        android:label="ViewitemFragment" />
+</navigation>

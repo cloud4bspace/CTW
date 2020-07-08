@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Cake To Work</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="welcome_fragment_label">Welcome Fragment</string>
+    <string name="dashboard_fragment_label">Dashboard Fragment</string>
+    <string name="register_fragment_label">Register Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="tv_welcome_msg">Welcome To CTW</string>
+    <string name="bu_register">Register</string>
+    <string name="bu_dashboard">open Dashboard</string>
+    <string name="back_to_dashboard">back to dashboard</string>
+    <string name="tv_register_msg">Welcome to Register Fragment!</string>
+    <string name="et_UserEmail">E-Mail</string>
+    <string name="etBenutzerName">Benutzername</string>
+    <string name="datum">Datum</string>
+    <string name="img1desc">cake</string>
+    <string name="wer">Wer</string>
+    <string name="organisation">Organisation</string>
+    <string name="grund">Grund</string>
+    <string name="userbild">Profilbild</string>
+    <string name="miUserInfo">User Info</string>
+    <string name="tvLabelBenutzername">Benutzername</string>
+    <!-- The order of these is important, don't reorder without changing Contacts.java --> <skip />
+    <!-- Instant Message protocols/providers from android.provider.Contacts -->
+    <string-array name="spOrgs">
+        <item>Stadt Zürich</item>
+        <item>Swiss</item>
+        <item>Schweizer Radio &amp; Fernsehen </item>
+        <item>UBS</item>
+    </string-array>
+    <!-- The order of these is important, don't reorder without changing Contacts.java --> <skip />
+    <!-- Instant Message protocols/providers from android.provider.Contacts -->
+    <string-array name="spTeams">
+        <item>Finanzkontrolle</item>
+        <item>OIZ</item>
+        <item>Schutz &amp; Rettung</item>
+        <item>Stadtpolizei</item>
+    </string-array>
+</resources>
