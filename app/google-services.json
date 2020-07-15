@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "379173883948",
+    "firebase_url": "https://androidctw.firebaseio.com",
+    "project_id": "androidctw",
+    "storage_bucket": "androidctw.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:379173883948:android:7260b0f4f6e3217a6a8189",
+        "android_client_info": {
+          "package_name": "space.cloud4b.ctw"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "379173883948-8ehrdrspvu4fuavueo4tfb67u8to1l6t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB549wN523tqfMIwQx29UROTj0O_VYHwIE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "379173883948-8ehrdrspvu4fuavueo4tfb67u8to1l6t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

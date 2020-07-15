@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.welcome_fragment.*
 
 
@@ -21,6 +23,8 @@ class WelcomeFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         println("Welcome Fragment onCreateView")
+
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.welcome_fragment, container, false)
     }
@@ -28,9 +32,8 @@ class WelcomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val preferences = this.requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE)
-        println(preferences.getString("Username", ""))
-        if(preferences.getString("Username", "") == "") {
-            findNavController().navigate(R.id.action_WelcomeFragment_to_RegisterFragment)
+        if(preferences.getString("UserStatus", "") != "OK") {
+            findNavController().navigate(R.id.action_welcome_fragment_to_registerStepOneFragment)
         } else {
             tv_register_title.text = preferences.getString("Username", "")
             findNavController().navigate(R.id.action_WelcomeFragment_to_DashboardFragment)

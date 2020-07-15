@@ -1,32 +1,25 @@
 package space.cloud4b.ctw
 
-import android.annotation.SuppressLint
+import android.content.Context
 import android.os.AsyncTask
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ListView
-import android.widget.ProgressBar
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.itemslist_fragment.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
-import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.uiThread
+import kotlinx.android.synthetic.main.welcome_fragment.*
 import org.json.JSONObject
 import space.cloud4b.ctw.services.CustomAdapterOne
 import java.net.URL
-import java.util.concurrent.Executors
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class ItemslistFragment : Fragment() {
     var dataList = ArrayList<HashMap<String, String>>()
+
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -46,6 +39,11 @@ class ItemslistFragment : Fragment() {
         }*/
     }
 
+   fun onResume(view: View, savedInstanceState: Bundle?) {
+       super.onResume()
+       fetchJsonData().execute()
+   }
+
     inner class fetchJsonData() : AsyncTask<String, Void, String>() {
         override fun onPreExecute() {
             super.onPreExecute()
@@ -57,16 +55,15 @@ class ItemslistFragment : Fragment() {
 
           /*  return URL("https://cloud4b.space/caketowork/jsonlist03.php?TAC=1234567890")
                 .readText(Charsets.UTF_8)*/
-            return URL("https://cloud4b.space/caketowork/jsonlist03.php")
+            val preferences = requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE)
+            println("Read Pref TeamAccessCode = " + preferences.getString("TeamAccessCode", ""))
+            return URL("https://cloud4b.space/caketowork/jsonlist03.php?TAC=" + preferences.getString("TeamAccessCode", ""))
                 .readText(Charsets.UTF_8)
         }
 
         // das hier gehört wohl zu URL-Auslesen
         override fun onPostExecute(result: String?) {
             super.onPostExecute(result)
-
-
-
             val jsonObj = JSONObject(result)
             val usersArr = jsonObj.getJSONArray("eintraege")
             println(usersArr.length())
@@ -87,3 +84,5 @@ class ItemslistFragment : Fragment() {
     }
 
 }
+
+

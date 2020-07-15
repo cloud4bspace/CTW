@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdditemStepTwoFragment">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:foregroundGravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="Znüni anmelden"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="Mehrfachauswahl möglich.." />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="Getränkeangebot"
+            android:textColor="@color/secondaryColor"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:id="@+id/llReasonsLineOne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/ibWine"
+                style="@android:style/Widget.DeviceDefault.ImageButton"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icn_wine" />
+
+            <ImageButton
+                android:id="@+id/ibLimmo"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:contentDescription="Geburtstag"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icn_food" />
+
+            <ImageButton
+                android:id="@+id/ibBeer"
+                style="@android:style/Widget.DeviceDefault.ImageButton"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icn_beers" />
+
+            <ImageButton
+                android:id="@+id/ibCocktails"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icn_cocktail" />
+
+            <ImageButton
+                android:id="@+id/ibChampagne"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icn_champagne" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="Speisen"
+            android:textColor="@color/secondaryColor"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/ibCroissant"
+                style="@android:style/Widget.DeviceDefault.ImageButton"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icn_croissant" />
+
+            <ImageButton
+                android:id="@+id/ibTarte"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icn_tart" />
+
+            <ImageButton
+                android:id="@+id/ibCrisps"
+                style="@android:style/Widget.DeviceDefault.ImageButton"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icn_chips" />
+
+            <ImageButton
+                android:id="@+id/ibSandwich"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icn_sandwich" />
+
+            <ImageButton
+                android:id="@+id/ibVeggies"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icn_vegetable" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvReason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textAlignment="center"
+            android:textColor="@color/secondaryColor"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/buAddItemGotoStepFour"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="weiter"
+            android:textAllCaps="true" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

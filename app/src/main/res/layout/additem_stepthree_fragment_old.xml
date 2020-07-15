@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdditemStepThreeFragment">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:foregroundGravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="Znüni anmelden"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="Grund angeben"
+            android:textColor="@color/secondaryColor"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:id="@+id/llReasonsLineOne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/ibWedding"
+                style="@android:style/Widget.DeviceDefault.ImageButton"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icn_wedding" />
+
+            <ImageButton
+                android:id="@+id/ibBirthday"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:contentDescription="Geburtstag"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icn_birthdaycake" />
+
+            <ImageButton
+                android:id="@+id/ibHoliday"
+                style="@android:style/Widget.DeviceDefault.ImageButton"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icn_beach" />
+
+            <ImageButton
+                android:id="@+id/ibGoodbye"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icn_goodbye" />
+
+            <ImageButton
+                android:id="@+id/ibNewborn"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icn_schnuller" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/ibRetirement"
+                style="@android:style/Widget.DeviceDefault.ImageButton"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icn_retirement" />
+
+            <ImageButton
+                android:id="@+id/ibGraduation"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:contentDescription="Geburtstag"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icn_graduation" />
+
+            <ImageButton
+                android:id="@+id/ibFirstprize"
+                style="@android:style/Widget.DeviceDefault.ImageButton"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icn_medal" />
+
+            <ImageButton
+                android:id="@+id/ibJackpot"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icn_jackpot" />
+
+            <ImageButton
+                android:id="@+id/ibSecret"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icn_secret" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvFandB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textAlignment="center"
+            android:textColor="@color/secondaryColor"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/buAddItemGotoStepThree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="weiter"
+            android:textAllCaps="true" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

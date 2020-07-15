@@ -8,6 +8,11 @@
         android:title="@string/action_settings"
         app:showAsAction="never" />
     <item
+        android:id="@+id/action_additem"
+        android:orderInCategory="1"
+        android:title="Neuer Eintrag"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/miUserInfo"
         android:title="@string/miUserInfo" />
 </menu>

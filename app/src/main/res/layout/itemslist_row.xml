@@ -13,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:background="@color/colorDivider"
         android:elevation="10dp"
         android:orientation="horizontal"
         android:paddingBottom="5dp">
@@ -26,8 +25,8 @@
             android:paddingStart="5dp"
             android:paddingEnd="5dp"
             android:text="@string/datum"
-            android:textColorHighlight="@color/colorIconsText"
-            android:textColorLink="@color/colorTextSecondary"
+            android:textColorHighlight="@color/secondaryTextColor"
+            android:textColorLink="@color/primaryColor"
             android:textSize="18sp"
             android:textStyle="bold" />
 

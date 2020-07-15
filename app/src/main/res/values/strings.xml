@@ -30,8 +30,8 @@
     <string-array name="spOrgs">
         <item>Stadt Zürich</item>
         <item>Swiss</item>
-        <item>Schweizer Radio &amp; Fernsehen </item>
-        <item>UBS</item>
+        <item>Radio Beromünster</item>
+        <item>Stadtpolizei</item>
     </string-array>
     <!-- The order of these is important, don't reorder without changing Contacts.java --> <skip />
     <!-- Instant Message protocols/providers from android.provider.Contacts -->

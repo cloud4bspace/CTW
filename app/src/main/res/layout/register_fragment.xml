@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterFragment">
+    tools:context=".RegisterStepTwoFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -64,8 +64,17 @@
             android:singleLine="true" />
 
         <Button
-            android:id="@+id/bu_saveregister"
-            android:layout_width="wrap_content"
+            android:id="@+id/buRegisterStepTwo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="10dp"
+            android:text="Überprüfen" />
+
+        <Button
+            android:id="@+id/buBackToRegisterStepOne"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_marginBottom="24dp"

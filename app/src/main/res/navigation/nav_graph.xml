@@ -15,8 +15,11 @@
             android:id="@+id/action_WelcomeFragment_to_DashboardFragment"
             app:destination="@id/dashboard_fragment" />
         <action
-            android:id="@+id/action_WelcomeFragment_to_RegisterFragment"
-            app:destination="@id/register_Fragment" />
+            android:id="@+id/action_welcome_fragment_to_registerStepOneFragment"
+            app:destination="@id/registerStepOneFragment" />
+        <action
+            android:id="@+id/action_welcome_fragment_to_additemFragment"
+            app:destination="@id/additemFragment" />
     </fragment>
     <fragment
         android:id="@+id/dashboard_fragment"
@@ -33,15 +36,12 @@
         <action
             android:id="@+id/action_dashboard_fragment_to_additemFragment"
             app:destination="@id/additemFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/register_Fragment"
-        android:name="space.cloud4b.ctw.RegisterFragment"
-        android:label="@string/register_fragment_label"
-        tools:layout="@layout/register_fragment">
         <action
-            android:id="@+id/action_RegisterFragment_to_DashboardFragment"
-            app:destination="@id/dashboard_fragment" />
+            android:id="@+id/action_dashboard_fragment_to_entrylistFragment"
+            app:destination="@id/entrylistFragment" />
+        <action
+            android:id="@+id/action_dashboard_fragment_to_websiteOneFragment"
+            app:destination="@id/websiteOneFragment" />
     </fragment>
     <fragment
         android:id="@+id/itemslistFragment"
@@ -54,9 +54,62 @@
     <fragment
         android:id="@+id/additemFragment"
         android:name="space.cloud4b.ctw.AdditemFragment"
-        android:label="AdditemFragment" />
+        android:label="AdditemFragment" >
+        <action
+            android:id="@+id/action_additemFragment_to_additemStepTwoFragment"
+            app:destination="@id/additemStepTwoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/viewitemFragment"
         android:name="space.cloud4b.ctw.ViewitemFragment"
         android:label="ViewitemFragment" />
+    <fragment
+        android:id="@+id/entrylistFragment"
+        android:name="space.cloud4b.ctw.EntrylistFragment"
+        android:label="EntrylistFragment" />
+    <fragment
+        android:id="@+id/registerStepOneFragment"
+        android:name="space.cloud4b.ctw.RegisterStepOneFragment"
+        android:label="register_stepone_fragment"
+        tools:layout="@layout/register_stepone_fragment" >
+        <action
+            android:id="@+id/action_registerStepOneFragment_to_registerStepTwoFragment"
+            app:destination="@id/registerStepTwoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerStepTwoFragment"
+        android:name="space.cloud4b.ctw.RegisterStepTwoFragment"
+        android:label="register_steptwo_fragment"
+        tools:layout="@layout/register_steptwo_fragment" >
+        <action
+            android:id="@+id/action_registerStepTwoFragment_to_dashboard_fragment"
+            app:destination="@id/dashboard_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/websiteOneFragment"
+        android:name="space.cloud4b.ctw.WebsiteOneFragment"
+        android:label="WebsiteOneFragment" />
+    <fragment
+        android:id="@+id/additemStepTwoFragment"
+        android:name="space.cloud4b.ctw.AdditemStepTwoFragment"
+        android:label="AdditemStepTwoFragment" >
+        <argument
+            android:name="datum"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_additemStepTwoFragment_to_additemStepThreeFragment"
+            app:destination="@id/additemStepThreeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/additemStepThreeFragment"
+        android:name="space.cloud4b.ctw.AdditemStepThreeFragment"
+        android:label="additem_stepthree_fragment"
+        tools:layout="@layout/additem_stepthree_fragment_old" >
+        <argument
+            android:name="datum"
+            app:argType="string" />
+        <argument
+            android:name="reason"
+            app:argType="string" />
+    </fragment>
 </navigation>
