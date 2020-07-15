@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Ferien">Ferien</string>
+    <string name="Geburtstag">Geburtstag</string>
+    <string name="Geheimnis">Geheinmis</string>
+    <string name="Abschied">Abschied</string>
+    <string name="Nachwuchs">Nachwuchs</string>
+    <string name="Abschluss">Abschluss</string>
+    <string name="Hochzeit">Hochzeit</string>
+    <string name="Auszeichnung">Auszeichnung</string>
+    <string name="Befoerderung">Beförderung</string>
+    <string name="Pensionierung">Pensionierung</string>
+    <string name="Lottogewinn">Lottogewinn</string>
+</resources>

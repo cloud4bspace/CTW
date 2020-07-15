@@ -8,9 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.CalendarView
+import android.widget.*
 import androidx.navigation.fragment.findNavController
 import com.android.volley.Request
 import com.android.volley.Response
@@ -53,6 +51,27 @@ class AdditemFragment : Fragment() {
         val sdf = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
         val kal = Calendar.getInstance()
 
+        // Set a SeekBar change listener
+        sbTageszeit.progress = 1
+        interpreteProgress(sbTageszeit.progress)
+        sbTageszeit.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, b: Boolean) {
+                // Display the current progress of SeekBar
+               // tvTageszeit.text = "Progress : $progress"
+                interpreteProgress(progress)
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar) {
+                // Do something
+               // Toast.makeText(activity,"start tracking",Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar) {
+                // Do something
+               // Toast.makeText(activity,"stop tracking",Toast.LENGTH_SHORT).show()
+            }
+        })
         kal.set(current.year, current.monthValue-1, current.dayOfMonth)
         dpDate.minDate = kal.timeInMillis
         checkDateAvailability(current.year, current.monthValue-1, current.dayOfMonth)
@@ -62,6 +81,30 @@ class AdditemFragment : Fragment() {
         }
         buAddItemGotoStepTwo.setOnClickListener {
             findNavController().navigate(R.id.action_additemFragment_to_additemStepTwoFragment)
+        }
+
+    }
+
+    fun interpreteProgress(progress : Int) {
+        when(progress) {
+            1 -> {
+                tvTageszeit.text = "Znüni (Vormittag)"
+                ivAM.clearColorFilter()
+                ivPM.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY)
+                ivApero.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY)
+            }
+            2 -> {
+                tvTageszeit.text = "Zvieri (Nachmittag)"
+                ivPM.clearColorFilter()
+                ivAM.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY)
+                ivApero.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY)
+            }
+            3 -> {
+                tvTageszeit.text = "Apéro (Abend)"
+                ivApero.clearColorFilter()
+                ivPM.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY)
+                ivAM.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY)
+            }
         }
 
     }
