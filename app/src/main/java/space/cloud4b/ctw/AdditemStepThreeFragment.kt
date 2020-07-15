@@ -5,12 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import kotlinx.android.synthetic.main.additem_stepthree_fragment.*
 import kotlinx.android.synthetic.main.additem_steptwo_fragment.*
+import kotlinx.android.synthetic.main.additem_steptwo_fragment.tvReason
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class AdditemStepThreeFragment : Fragment() {
+
+    var beverageList : MutableList<String> = arrayListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -20,7 +25,7 @@ class AdditemStepThreeFragment : Fragment() {
 
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.additem_stepthree_fragment_old, container, false)
+        return inflater.inflate(R.layout.additem_stepthree_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,40 +39,89 @@ class AdditemStepThreeFragment : Fragment() {
           llReasonsLineOne.getChildAt(i).setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
       }
   }*/
-        ibGoodbye.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-        ibBirthday.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-        ibFirstprize.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-        ibGraduation.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-        ibHoliday.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-        ibJackpot.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-        ibNewborn.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-        ibRetirement.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-        ibSecret.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-        ibWedding.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
+        ibWine.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
+        ibLimmo.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
+        ibBeer.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
+        ibCocktails.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
+        ibChampagne.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
+        ibCroissant.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
+        ibTarte.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
+        ibCrisps.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
+        ibSandwich.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
+        ibVeggies.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
 
 
-        ibGoodbye.setOnClickListener() {
-            if(tvReason.text.toString().equals("Abschied"))  {
-                ibGoodbye.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-                tvReason.setText("")
+        ibWine.setOnClickListener() {
+            if(beverageList.contains("Wein"))  {
+                ibWine.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
+                beverageList.remove("Wein")
             } else {
-                ibGoodbye.clearColorFilter()
-                tvReason.setText("Abschied")
-                ibBirthday.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-                ibFirstprize.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-                ibGraduation.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-                ibHoliday.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-                ibJackpot.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-                ibNewborn.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-                ibRetirement.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-                ibSecret.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-                ibWedding.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
+                ibWine.clearColorFilter()
+                beverageList.add("Wein")
             }
+            generateTvOutput()
+        }
+        ibLimmo.setOnClickListener() {
+            if(beverageList.contains("Limmo"))  {
+                ibLimmo.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
+                beverageList.remove("Limmo")
+            } else {
+                ibLimmo.clearColorFilter()
+                beverageList.add("Limmo")
+            }
+            generateTvOutput()
+        }
+        ibBeer.setOnClickListener() {
+            if(beverageList.contains("Bier"))  {
+                ibBeer.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
+                beverageList.remove("Bier")
+            } else {
+                ibBeer.clearColorFilter()
+                beverageList.add("Bier")
+            }
+            generateTvOutput()
+        }
+        ibCocktails.setOnClickListener() {
+            if(beverageList.contains("Cocktails"))  {
+                ibCocktails.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
+                beverageList.remove("Cocktails")
+            } else {
+                ibCocktails.clearColorFilter()
+                beverageList.add("Cocktails")
+            }
+            generateTvOutput()
         }
 
-
+        ibChampagne.setOnClickListener() {
+            var button : ImageButton = it as ImageButton // TODO Casting wie dieses braucht es
+            if(beverageList.contains(button.contentDescription.toString()))  {
+                button.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
+                beverageList.remove(button.contentDescription.toString())
+            } else {
+                button.clearColorFilter()
+                beverageList.add(button.contentDescription.toString())
+            }
+            generateTvOutput()
+        }
+    }
+    fun stringContains(searchString : String) : Boolean {
+        var string = tvFandB.text
+        return string.indexOf(searchString)>=0
     }
 
+    fun generateTvOutput() {
+        var outputString : String? = null
+        var counter : Int = 1
+        for(beverage in beverageList) {
+            when (counter) {
+                1 -> outputString = beverage
+                beverageList.size -> outputString += " & $beverage"
+                else -> outputString += ", $beverage"
+            }
+            counter++
+        }
+        tvFandB.setText(outputString)
+    }
 
 
 }

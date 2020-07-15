@@ -104,7 +104,7 @@
         android:id="@+id/additemStepThreeFragment"
         android:name="space.cloud4b.ctw.AdditemStepThreeFragment"
         android:label="additem_stepthree_fragment"
-        tools:layout="@layout/additem_stepthree_fragment_old" >
+        tools:layout="@layout/additem_stepthree_fragment" >
         <argument
             android:name="datum"
             app:argType="string" />

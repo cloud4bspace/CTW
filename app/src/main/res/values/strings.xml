@@ -25,6 +25,7 @@
     <string name="userbild">Profilbild</string>
     <string name="miUserInfo">User Info</string>
     <string name="tvLabelBenutzername">Benutzername</string>
+    <string name="champagne">Champagner</string>
     <!-- The order of these is important, don't reorder without changing Contacts.java --> <skip />
     <!-- Instant Message protocols/providers from android.provider.Contacts -->
     <string-array name="spOrgs">

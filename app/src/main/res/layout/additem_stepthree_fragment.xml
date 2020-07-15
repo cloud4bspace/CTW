@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdditemStepTwoFragment">
+    tools:context=".AdditemStepThreeFragment">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -88,6 +88,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_weight="1"
+                android:contentDescription="@string/champagne"
                 android:scaleType="fitCenter"
                 android:src="@drawable/icn_champagne" />
 
@@ -152,7 +153,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tvReason"
+            android:id="@+id/tvFandB"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
