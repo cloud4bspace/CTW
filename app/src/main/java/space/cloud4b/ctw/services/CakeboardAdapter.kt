@@ -1,13 +1,11 @@
 package space.cloud4b.ctw.services
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.ImageView
-import android.widget.ProgressBar
-import android.widget.TextView
+import android.widget.*
 import kotlinx.android.synthetic.main.entry_cell.view.*
 import org.jetbrains.anko.coroutines.experimental.asReference
 import space.cloud4b.ctw.R
@@ -38,9 +36,18 @@ class CakeboardAdapter(var entries: MutableList<CakeboardEntry>, var context: Co
         view.tvEntryDate.text = date.format(
             DateTimeFormatter.ofLocalizedDate(
                 FormatStyle.LONG))
-        view.tvReason.text = entry.ListReason
+        view.tvName.text = entry.MemberName
+        var icnName = IconMapper().getIcnName(entry.ListReason)
+        view.ivReason.setImageResource(context.getResources().getIdentifier("space.cloud4b.ctw:drawable/$icnName",null,null))
+        val lp = LinearLayout.LayoutParams(60, 60)
+        lp.setMargins(10, 10, 10, 10)
+        view.ivReason.setLayoutParams(lp)
 
-        view.ivReason.setImageResource(R.drawable.ic_baseline_cake_24)
+        icnName = IconMapper().getIcnName(entry.ListDaytime)
+        view.ivDayTime.setImageResource(context.getResources().getIdentifier("space.cloud4b.ctw:drawable/$icnName",null,null))
+        view.ivDayTime.setLayoutParams(lp)
+
+
 
         return view
     }

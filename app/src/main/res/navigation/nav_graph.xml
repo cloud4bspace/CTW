@@ -93,12 +93,12 @@
         android:id="@+id/additemStepTwoFragment"
         android:name="space.cloud4b.ctw.AdditemStepTwoFragment"
         android:label="AdditemStepTwoFragment" >
-        <argument
-            android:name="datum"
-            app:argType="string" />
         <action
             android:id="@+id/action_additemStepTwoFragment_to_additemStepThreeFragment"
             app:destination="@id/additemStepThreeFragment" />
+        <argument
+            android:name="newEntryArray"
+            app:argType="string[]" />
     </fragment>
     <fragment
         android:id="@+id/additemStepThreeFragment"
@@ -106,10 +106,18 @@
         android:label="additem_stepthree_fragment"
         tools:layout="@layout/additem_stepthree_fragment" >
         <argument
-            android:name="datum"
-            app:argType="string" />
+            android:name="newEntryArray"
+            app:argType="string[]" />
+        <action
+            android:id="@+id/action_additemStepThreeFragment_to_additemStepFourFragment"
+            app:destination="@id/additemStepFourFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/additemStepFourFragment"
+        android:name="space.cloud4b.ctw.AdditemStepFourFragment"
+        android:label="AdditemStepFourFragment" >
         <argument
-            android:name="reason"
-            app:argType="string" />
+            android:name="newEntryArray"
+            app:argType="string[]" />
     </fragment>
 </navigation>

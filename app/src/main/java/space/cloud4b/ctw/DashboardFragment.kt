@@ -3,12 +3,13 @@ package space.cloud4b.ctw
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.android.volley.Request
 import com.android.volley.Response
@@ -16,14 +17,16 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.beust.klaxon.Klaxon
 import kotlinx.android.synthetic.main.dashboard_fragment.*
-import kotlinx.android.synthetic.main.entry_cell.view.*
 import kotlinx.android.synthetic.main.entrylist_fragment.*
-import kotlinx.android.synthetic.main.register_fragment.*
 import space.cloud4b.ctw.model.Cakeboard
+import space.cloud4b.ctw.model.Monthlyboard
 import space.cloud4b.ctw.services.CakeboardAdapter
+import space.cloud4b.ctw.services.IconMapper
+import space.cloud4b.ctw.services.MonthlyboardAdapter
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
+
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -34,11 +37,28 @@ class DashboardFragment : Fragment() {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        println("Dashboard Fregment onCreateView")
+        // das nächste Znüni anzeigen
+        setNextEntry()
+
+        val preferences = requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE)
+        var teamAccessCode = preferences.getString("TeamAccessCode", "")
+        val requestQueue = Volley.newRequestQueue(activity)
+        var url = "https://cloud4b.space/caketowork/ctwmonthsummary.php"
+        url += "?TAC=$teamAccessCode"
+        Log.i("monthlySQL", url)
+        // define a request
+        val request = StringRequest(Request.Method.GET, url,
+            Response.Listener<String> { response ->
+                val entry : Monthlyboard? = Klaxon().parse<Monthlyboard>(response)
+                val adapter = activity?.let { MonthlyboardAdapter(entry?.monthlyboard!!, it) }
+                lvMonthlyReason.adapter = adapter
+            },
+            Response.ErrorListener {
+                it.message?.let { it1 -> Log.e("VOLLEYERROR", it1) }
+            })
+        //add the call to the request queue
+        requestQueue.add(request)
         // Inflate the layout for this fragment
-       setNextEntry()
-
-
         return inflater.inflate(R.layout.dashboard_fragment, container, false)
     }
 
@@ -70,6 +90,7 @@ class DashboardFragment : Fragment() {
         }
     }
 
+
     fun setNextEntry() {
         var url = "https://cloud4b.space/caketowork/ctwnextentry.php"
         val preferences = requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE)
@@ -80,14 +101,38 @@ class DashboardFragment : Fragment() {
         val request = StringRequest(
             Request.Method.GET, url,
             Response.Listener<String> { response ->
+
                 println("Response: $response")
                 var responseList = response.split("|")
-                var date = LocalDate.parse(responseList[0])
+                var date = LocalDate.parse(responseList[1])
                 tvNextEvent.text = date.format(
                     DateTimeFormatter.ofLocalizedDate(
                         FormatStyle.LONG))
-                tvVonWem.text = responseList[1]
-                tvWarum.text = responseList[2]
+                tvVonWem.text = responseList[2]
+
+                //tvTZeit.text = getTagesZeitString(responseList[3].toInt())
+                // alle Icons auflisten
+                val lp = LinearLayout.LayoutParams(60, 60)
+                lp.setMargins(10, 10, 10, 10)
+
+                var imageViewTime = ImageView(activity)
+                imageViewTime.setImageResource(getResources().getIdentifier("space.cloud4b.ctw:drawable/${IconMapper().getIcnName(responseList[4])}",null,null))
+                llContainerTop.addView(imageViewTime,20,20)
+                imageViewTime.setLayoutParams(lp)
+
+                var imageViewReason = ImageView(activity)
+                imageViewReason.setImageResource(getResources().getIdentifier("space.cloud4b.ctw:drawable/${IconMapper().getIcnName(responseList[3])}",null,null))
+                llContainerTop.addView(imageViewReason, 20, 20)
+                imageViewReason.setLayoutParams(lp)
+
+                for(x in 7 until responseList.size) {
+                    var newImage = ImageView(activity)
+                    newImage.setImageResource(getResources().getIdentifier("space.cloud4b.ctw:drawable/${IconMapper().getIcnName(responseList[x])}",null,null))
+                    llIcnContainer.addView(newImage, 20, 20)
+                    newImage.setLayoutParams(lp)
+                }
+
+
             },
             Response.ErrorListener {
                 it.message?.let { it1 -> Log.e("VOLLEYERROR", it1) }
@@ -95,4 +140,8 @@ class DashboardFragment : Fragment() {
         //add the call to the request queue
         requestQueue.add(request)
     }
+
+
+
+
 }

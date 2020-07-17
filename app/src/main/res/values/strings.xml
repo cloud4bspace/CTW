@@ -34,6 +34,7 @@
     <string name="ibDescAbschluss">Abschluss</string>
     <string name="Geheimnis_old">Geheimnis</string>
     <string name="JustForFun">einfach so</string>
+    <string name="Gemuese">Gemüse</string>
     <!-- The order of these is important, don't reorder without changing Contacts.java --> <skip />
     <!-- Instant Message protocols/providers from android.provider.Contacts -->
     <string-array name="spOrgs">

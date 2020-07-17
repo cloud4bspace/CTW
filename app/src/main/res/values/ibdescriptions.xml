@@ -11,4 +11,19 @@
     <string name="Befoerderung">Beförderung</string>
     <string name="Pensionierung">Pensionierung</string>
     <string name="Lottogewinn">Lottogewinn</string>
+    <string name="Gipfeli">Gipfeli</string>
+    <string name="Wein">Wein</string>
+    <string name="Limonade">Limonade</string>
+    <string name="Bier">Bier</string>
+    <string name="Cocktails">Cocktails</string>
+    <string name="Champagner">Champagner</string>
+    <string name="Kuchen">Kuchen</string>
+    <string name="Chips">Chips</string>
+    <string name="Sandwich">Sandwich</string>
+    <string name="Tee">Tee</string>
+    <string name="Kaffee">Kaffee</string>
+    <string name="Wasser">Mineral</string>
+    <string name="Sushi">Sushi</string>
+    <string name="Fruechte">Früchte</string>
+    <string name="Burger">Burger</string>
 </resources>

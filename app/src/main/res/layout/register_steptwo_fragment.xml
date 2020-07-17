@@ -35,7 +35,9 @@
             android:ems="10"
             android:hint="Zugangscode"
             android:inputType="textPersonName"
-            android:singleLine="true" />
+            android:padding="5dp"
+            android:singleLine="true"
+            android:text="1234567890" />
 
         <Button
             android:id="@+id/buRegisterFinal"

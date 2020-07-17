@@ -36,13 +36,19 @@
             android:padding="5dp">
 
             <ImageView
+                android:id="@+id/ivDayTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_baseline_cake_24" />
+
+            <ImageView
                 android:id="@+id/ivReason"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/ic_baseline_cake_24" />
 
             <TextView
-                android:id="@+id/tvReason"
+                android:id="@+id/tvName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"

@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.additem_stepthree_fragment.*
 import kotlinx.android.synthetic.main.additem_steptwo_fragment.*
 import kotlinx.android.synthetic.main.additem_steptwo_fragment.tvReason
@@ -14,7 +16,7 @@ import kotlinx.android.synthetic.main.additem_steptwo_fragment.tvReason
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class AdditemStepThreeFragment : Fragment() {
-
+    val args: AdditemStepThreeFragmentArgs by navArgs()
     var beverageList : MutableList<String> = arrayListOf()
 
     override fun onCreateView(
@@ -30,78 +32,46 @@ class AdditemStepThreeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        /*  for(i in 0 until llReasonsLineOne.childCount) {
-      if(llReasonsLineOne.getChildAt(i).id == ibGoodbye.id){
-
-      } else {
-
-          llReasonsLineOne.getChildAt(i).setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-      }
-  }*/
-        ibWine.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-        ibLimmo.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-        ibBeer.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-        ibCocktails.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-        ibChampagne.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-        ibCroissant.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-        ibTarte.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-        ibCrisps.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-        ibSandwich.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-        ibVeggies.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
+        var newEntryArray = args.newEntryArray
 
 
-        ibWine.setOnClickListener() {
-            if(beverageList.contains("Wein"))  {
-                ibWine.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-                beverageList.remove("Wein")
-            } else {
-                ibWine.clearColorFilter()
-                beverageList.add("Wein")
-            }
-            generateTvOutput()
+        buAddItemGotoStepFour.setOnClickListener() {
+            newEntryArray[3] = getBeverageStringList()
+            val action = AdditemStepThreeFragmentDirections.actionAdditemStepThreeFragmentToAdditemStepFourFragment(newEntryArray)
+            findNavController().navigate(action)
         }
-        ibLimmo.setOnClickListener() {
-            if(beverageList.contains("Limmo"))  {
-                ibLimmo.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-                beverageList.remove("Limmo")
-            } else {
-                ibLimmo.clearColorFilter()
-                beverageList.add("Limmo")
+        // alle ImageButtons (Beverages)
+        for(i in 0 until glBeverages.childCount) {
+            var imageButton : ImageButton = glBeverages.getChildAt(i) as ImageButton
+            imageButton.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
+
+            imageButton.setOnClickListener() {
+                if(beverageList.contains(imageButton.contentDescription.toString()))  {
+                    imageButton.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
+                    beverageList.remove(imageButton.contentDescription.toString())
+                } else {
+                    imageButton.clearColorFilter()
+                    beverageList.add(imageButton.contentDescription.toString())
+                }
+                generateTvOutput()
             }
-            generateTvOutput()
-        }
-        ibBeer.setOnClickListener() {
-            if(beverageList.contains("Bier"))  {
-                ibBeer.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-                beverageList.remove("Bier")
-            } else {
-                ibBeer.clearColorFilter()
-                beverageList.add("Bier")
-            }
-            generateTvOutput()
-        }
-        ibCocktails.setOnClickListener() {
-            if(beverageList.contains("Cocktails"))  {
-                ibCocktails.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-                beverageList.remove("Cocktails")
-            } else {
-                ibCocktails.clearColorFilter()
-                beverageList.add("Cocktails")
-            }
-            generateTvOutput()
         }
 
-        ibChampagne.setOnClickListener() {
-            var button : ImageButton = it as ImageButton // TODO Casting wie dieses braucht es
-            if(beverageList.contains(button.contentDescription.toString()))  {
-                button.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
-                beverageList.remove(button.contentDescription.toString())
-            } else {
-                button.clearColorFilter()
-                beverageList.add(button.contentDescription.toString())
+        // alle ImageButtons (Food) abdunkeln
+        for(i in 0 until glFood.childCount) {
+            var imageButton : ImageButton = glFood.getChildAt(i) as ImageButton
+            imageButton.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
+
+            imageButton.setOnClickListener() {
+                if(beverageList.contains(imageButton.contentDescription.toString()))  {
+                    imageButton.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
+                    beverageList.remove(imageButton.contentDescription.toString())
+                } else {
+                    imageButton.clearColorFilter()
+                    beverageList.add(imageButton.contentDescription.toString())
+                }
+                generateTvOutput()
             }
-            generateTvOutput()
         }
     }
     fun stringContains(searchString : String) : Boolean {
@@ -121,6 +91,20 @@ class AdditemStepThreeFragment : Fragment() {
             counter++
         }
         tvFandB.setText(outputString)
+    }
+
+    fun getBeverageStringList() : String {
+        var beverageStringList : String = ""
+        var counter : Int = 1
+        for(beverage in beverageList) {
+            if(counter == 1) {
+                beverageStringList += beverage
+            } else {
+                beverageStringList += "|$beverage"
+            }
+            counter++
+        }
+        return beverageStringList
     }
 
 

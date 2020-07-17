@@ -33,6 +33,7 @@ import kotlin.collections.ArrayList
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class AdditemFragment : Fragment() {
+    var newEntryArray = Array<String>(10){"9999"}
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -80,27 +81,33 @@ class AdditemFragment : Fragment() {
             checkDateAvailability(year, monthindex+1, day)
         }
         buAddItemGotoStepTwo.setOnClickListener {
-            findNavController().navigate(R.id.action_additemFragment_to_additemStepTwoFragment)
+            val action = AdditemFragmentDirections.actionAdditemFragmentToAdditemStepTwoFragment(newEntryArray)
+            findNavController().navigate(action)
+           // findNavController().navigate(R.id.action_additemFragment_to_additemStepTwoFragment)
         }
 
     }
 
     fun interpreteProgress(progress : Int) {
+        //newEntryArray[1] = progress.toString() // Tageszeit speichern
         when(progress) {
             1 -> {
                 tvTageszeit.text = "Znüni (Vormittag)"
+                newEntryArray[1] = "1"
                 ivAM.clearColorFilter()
                 ivPM.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY)
                 ivApero.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY)
             }
             2 -> {
                 tvTageszeit.text = "Zvieri (Nachmittag)"
+                newEntryArray[1] = "2"
                 ivPM.clearColorFilter()
                 ivAM.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY)
                 ivApero.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY)
             }
             3 -> {
                 tvTageszeit.text = "Apéro (Abend)"
+                newEntryArray[1] = "3"
                 ivApero.clearColorFilter()
                 ivPM.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY)
                 ivAM.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY)
@@ -108,8 +115,11 @@ class AdditemFragment : Fragment() {
         }
 
     }
+
+    // TODO Datum auch auf Tage am Weekend prüfen...
     fun checkDateAvailability(year : Int, month : Int, day : Int) {
         val date = LocalDate.of(year, month, day)
+        newEntryArray[0] = date.toString() // das Datum bei Index 0 speichern
         val preferences = requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE)
         val tac = preferences.getString("TeamAccessCode", "")
         var url = "https://cloud4b.space/caketowork/checkdateavailability.php"
