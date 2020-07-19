@@ -22,25 +22,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:text="Znüni anmelden"
+            android:text="Znüni anmelden (Schritt 2/4)"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/textView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
             android:text="Grund angeben"
             android:textColor="@color/secondaryColor"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
+
+        <View
+            android:id="@+id/divider7"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
 
         <androidx.gridlayout.widget.GridLayout
             android:id="@+id/glReasonIcns"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:textAlignment="center"
             app:columnCount="4"
             app:rowCount="3">
@@ -159,28 +164,6 @@
                 android:src="@drawable/icn_dinosaur" />
         </androidx.gridlayout.widget.GridLayout>
 
-        <LinearLayout
-            android:id="@+id/llReasonsLineOne"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-        </LinearLayout>
-
         <TextView
             android:id="@+id/tvReason"
             android:layout_width="match_parent"
@@ -191,12 +174,44 @@
             android:textColor="@color/primaryDarkColor"
             android:textSize="30sp" />
 
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="Bemerkungen"
+            android:textColor="@color/secondaryColor"
+            android:textSize="14sp" />
+
+        <View
+            android:id="@+id/divider5"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+
+        <EditText
+            android:id="@+id/etInfos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            android:singleLine="false" />
+
         <Button
             android:id="@+id/buAddItemGotoStepThree"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="weiter"
             android:textAllCaps="true" />
+
+        <LinearLayout
+            android:id="@+id/llReasonsLineOne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        </LinearLayout>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,7 +29,12 @@ class CakeboardAdapter(var entries: MutableList<CakeboardEntry>, var context: Co
             view = oldView
         }
         val entry:CakeboardEntry = getItem(index)
-        view.tvMemberName.text = entry.MemberName
+        var infoText = entry.ListFoodAndBev
+        if(!entry.ListDescription.isEmpty()){
+            infoText += "\n" + entry.ListDescription
+        }
+
+        view.tvInfos.text = infoText.trim()
         view.tvEntryId.text = "#${entry.entryId.toString()}"
         view.tvEntryDate.text = entry.entryDate.toString()
         var date = LocalDate.parse(entry.entryDate.toString())

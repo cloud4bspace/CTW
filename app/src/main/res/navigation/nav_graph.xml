@@ -17,9 +17,6 @@
         <action
             android:id="@+id/action_welcome_fragment_to_registerStepOneFragment"
             app:destination="@id/registerStepOneFragment" />
-        <action
-            android:id="@+id/action_welcome_fragment_to_additemFragment"
-            app:destination="@id/additemFragment" />
     </fragment>
     <fragment
         android:id="@+id/dashboard_fragment"
@@ -42,6 +39,9 @@
         <action
             android:id="@+id/action_dashboard_fragment_to_websiteOneFragment"
             app:destination="@id/websiteOneFragment" />
+        <action
+            android:id="@+id/action_dashboard_fragment_to_teamlistFragment"
+            app:destination="@id/teamlistFragment" />
     </fragment>
     <fragment
         android:id="@+id/itemslistFragment"
@@ -57,7 +57,8 @@
         android:label="AdditemFragment" >
         <action
             android:id="@+id/action_additemFragment_to_additemStepTwoFragment"
-            app:destination="@id/additemStepTwoFragment" />
+            app:destination="@id/additemStepTwoFragment"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
     <fragment
         android:id="@+id/viewitemFragment"
@@ -95,7 +96,8 @@
         android:label="AdditemStepTwoFragment" >
         <action
             android:id="@+id/action_additemStepTwoFragment_to_additemStepThreeFragment"
-            app:destination="@id/additemStepThreeFragment" />
+            app:destination="@id/additemStepThreeFragment"
+            app:enterAnim="@android:anim/fade_in" />
         <argument
             android:name="newEntryArray"
             app:argType="string[]" />
@@ -110,7 +112,8 @@
             app:argType="string[]" />
         <action
             android:id="@+id/action_additemStepThreeFragment_to_additemStepFourFragment"
-            app:destination="@id/additemStepFourFragment" />
+            app:destination="@id/additemStepFourFragment"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
     <fragment
         android:id="@+id/additemStepFourFragment"
@@ -119,5 +122,12 @@
         <argument
             android:name="newEntryArray"
             app:argType="string[]" />
+        <action
+            android:id="@+id/action_additemStepFourFragment_to_dashboard_fragment"
+            app:destination="@id/dashboard_fragment" />
     </fragment>
+    <fragment
+        android:id="@+id/teamlistFragment"
+        android:name="space.cloud4b.ctw.TeamlistFragment"
+        android:label="TeamlistFragment" />
 </navigation>

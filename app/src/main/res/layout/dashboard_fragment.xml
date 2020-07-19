@@ -8,8 +8,9 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        android:gravity="start|top"
         android:orientation="vertical"
         android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,12 +19,19 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dashboard"
+            android:textSize="24sp" />
+
+        <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:text="was kommt "
+            android:text="what's next"
             android:textColor="@color/secondaryColor" />
 
         <View
@@ -69,12 +77,17 @@
                 android:layout_height="wrap_content"
                 android:textSize="18sp" />
 
+            <View
+                android:id="@+id/divider4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
             <LinearLayout
                 android:id="@+id/llIcnContainer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="5dp"></LinearLayout>
+                android:orientation="horizontal"></LinearLayout>
 
         </LinearLayout>
 
@@ -84,11 +97,65 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:text="diesen Monat"
+            android:text="Links"
             android:textColor="@color/secondaryColor" />
 
         <View
             android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+
+        <androidx.gridlayout.widget.GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            app:columnCount="5"
+            app:rowCount="1">
+
+            <ImageButton
+                android:id="@+id/ibHelp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/icn_help" />
+
+            <ImageButton
+                android:id="@+id/ibSettings"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/icn_settings" />
+
+            <ImageButton
+                android:id="@+id/ibAddItem"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/icn_addone" />
+
+            <ImageButton
+                android:id="@+id/ibMeinTeam"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/icn_myteam" />
+
+            <ImageButton
+                android:id="@+id/ibShowList"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/icn_list" />
+
+        </androidx.gridlayout.widget.GridLayout>
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="in diesem Monat"
+            android:textColor="@color/secondaryColor" />
+
+        <View
+            android:id="@+id/divider12"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="?android:attr/listDivider" />
@@ -106,49 +173,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_margin="5dp"
-                android:text="Button" />
-
-            <Button
-                android:id="@+id/buEntryListView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_marginStart="28dp"
-                android:background="@color/ic_launcher_background"
-                android:padding="10dp"
-                android:text="Entry List View" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/buListView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="68dp"
-                android:text="buListView" />
-
-            <Button
-                android:id="@+id/buWebOne"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="Website One" />
         </LinearLayout>
 
     </LinearLayout>

@@ -34,6 +34,7 @@ class AdditemStepTwoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         var newEntryArray = args.newEntryArray
         buAddItemGotoStepThree.setOnClickListener {
+            newEntryArray[3] = etInfos.text.toString().trim()
             val action = AdditemStepTwoFragmentDirections.actionAdditemStepTwoFragmentToAdditemStepThreeFragment(newEntryArray)
             findNavController().navigate(action)
         }

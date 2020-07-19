@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:text="Znüni anmelden"
+            android:text="Znüni anmelden (Schritt 3/4)"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textSize="24sp" />
 
@@ -37,7 +37,13 @@
             android:layout_marginBottom="10dp"
             android:text="Getränkeangebot"
             android:textColor="@color/secondaryColor"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
+
+        <View
+            android:id="@+id/divider8"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
 
         <androidx.gridlayout.widget.GridLayout
             android:id="@+id/glBeverages"
@@ -124,7 +130,13 @@
             android:layout_marginBottom="10dp"
             android:text="Speisen"
             android:textColor="@color/secondaryColor"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
+
+        <View
+            android:id="@+id/divider9"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
 
         <androidx.gridlayout.widget.GridLayout
             android:id="@+id/glFood"

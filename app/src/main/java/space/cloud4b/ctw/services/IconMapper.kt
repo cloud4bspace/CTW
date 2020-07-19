@@ -38,4 +38,12 @@ class IconMapper {
             else -> return "icn_secret"
         }
     }
+    fun getText(string : String) : String {
+        when (string) {
+            "1" -> return "Znüni (Vormittag)"
+            "2" -> return "Zvieri (Nachmittag)"
+            "3" -> return "Apéro"
+            else -> return "???"
+        }
+    }
 }

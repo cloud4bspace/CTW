@@ -8,6 +8,7 @@
     tools:context=".AdditemStepFourFragment">
 
     <LinearLayout
+        android:id="@+id/llSummaryContainer"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:foregroundGravity="center_horizontal"
@@ -26,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:text="Znüni anmelden"
+            android:text="Znüni anmelden (Schritt 4/4)"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textSize="24sp" />
 
@@ -37,7 +38,7 @@
             android:layout_marginBottom="10dp"
             android:text="Zusammenfassung"
             android:textColor="@color/secondaryColor"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/textView5"
@@ -46,7 +47,25 @@
             android:layout_marginBottom="10dp"
             android:text="Speisen"
             android:textColor="@color/secondaryColor"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvWer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/tvFuerWen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <View
+            android:id="@+id/divider10"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
 
         <TextView
             android:id="@+id/tvDatumTageszeit"
@@ -66,6 +85,12 @@
             android:layout_height="wrap_content"
             android:text="TextView" />
 
+        <View
+            android:id="@+id/divider11"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+
         <LinearLayout
             android:id="@+id/llFood"
             android:layout_width="match_parent"
@@ -80,6 +105,14 @@
             android:layout_height="wrap_content"
             android:text="speichern"
             android:textAllCaps="true" />
+
+        <Button
+            android:id="@+id/buShowDashboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dashboard öffnen"
+            android:textAllCaps="true"
+            android:visibility="invisible" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

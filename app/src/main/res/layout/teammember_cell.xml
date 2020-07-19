@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/tvEntryDate"
+            android:id="@+id/tvMemberName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/primaryLightColor"
@@ -36,19 +36,13 @@
             android:padding="5dp">
 
             <ImageView
-                android:id="@+id/ivDayTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_baseline_cake_24" />
-
-            <ImageView
-                android:id="@+id/ivReason"
+                android:id="@+id/ivMemberIcn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/ic_baseline_cake_24" />
 
             <TextView
-                android:id="@+id/tvName"
+                android:id="@+id/tvMemberEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"

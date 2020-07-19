@@ -36,7 +36,7 @@ class AdditemStepThreeFragment : Fragment() {
 
 
         buAddItemGotoStepFour.setOnClickListener() {
-            newEntryArray[3] = getBeverageStringList()
+            newEntryArray[4] = getBeverageStringList()
             val action = AdditemStepThreeFragmentDirections.actionAdditemStepThreeFragmentToAdditemStepFourFragment(newEntryArray)
             findNavController().navigate(action)
         }

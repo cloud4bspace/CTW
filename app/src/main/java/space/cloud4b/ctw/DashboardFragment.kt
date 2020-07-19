@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.core.view.marginStart
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.android.volley.Request
@@ -69,16 +70,16 @@ class DashboardFragment : Fragment() {
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }*/
 
-        llWatsNext.setOnClickListener() {
+        ibAddItem.setOnClickListener() {
             findNavController().navigate(R.id.action_dashboard_fragment_to_additemFragment)
         }
-        buListView.setOnClickListener {
-            findNavController().navigate(R.id.action_dashboard_fragment_to_itemslistFragment)
-        }
-        buEntryListView.setOnClickListener {
+        ibShowList.setOnClickListener {
             findNavController().navigate(R.id.action_dashboard_fragment_to_entrylistFragment)
         }
-        buWebOne.setOnClickListener {
+        ibMeinTeam.setOnClickListener(){
+            findNavController().navigate(R.id.action_dashboard_fragment_to_teamlistFragment)
+        }
+        ibHelp.setOnClickListener {
             findNavController().navigate(R.id.action_dashboard_fragment_to_websiteOneFragment)
         }
        // tvNextEvent.text = "17. Juni 2020"
@@ -124,13 +125,34 @@ class DashboardFragment : Fragment() {
                 imageViewReason.setImageResource(getResources().getIdentifier("space.cloud4b.ctw:drawable/${IconMapper().getIcnName(responseList[3])}",null,null))
                 llContainerTop.addView(imageViewReason, 20, 20)
                 imageViewReason.setLayoutParams(lp)
-
+                var newRow : LinearLayout = LinearLayout(activity)
                 for(x in 7 until responseList.size) {
-                    var newImage = ImageView(activity)
-                    newImage.setImageResource(getResources().getIdentifier("space.cloud4b.ctw:drawable/${IconMapper().getIcnName(responseList[x])}",null,null))
-                    llIcnContainer.addView(newImage, 20, 20)
-                    newImage.setLayoutParams(lp)
+
+                    newRow.orientation = LinearLayout.HORIZONTAL;
+
+                    if(x<19) {
+                        var newImage = ImageView(activity)
+                        newImage.setImageResource(getResources().getIdentifier("space.cloud4b.ctw:drawable/${IconMapper().getIcnName(responseList[x])}",null,null))
+                        llIcnContainer.addView(newImage, 20, 20)
+                        newImage.setLayoutParams(lp)
+                    } else {
+                        if(x == 19) {
+                            llWatsNext.addView(newRow)
+                        }
+                        var newImage = ImageView(activity)
+                        newImage.setImageResource(getResources().getIdentifier("space.cloud4b.ctw:drawable/${IconMapper().getIcnName(responseList[x])}",null,null))
+                        newRow.addView(newImage, 20, 20)
+                        newImage.setLayoutParams(lp)
+                    }
                 }
+
+            /*    var newRow = LinearLayout(activity)
+                llWatsNext.addView(newRow)
+                var newImage = ImageView(activity)
+                newImage.setImageResource(getResources().getIdentifier("space.cloud4b.ctw:drawable/${IconMapper().getIcnName(responseList[1])}",null,null))
+
+                newRow.addView(newImage, 20, 20)
+                newImage.setLayoutParams(lp)*/
 
 
             },

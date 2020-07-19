@@ -118,7 +118,7 @@ class AdditemFragment : Fragment() {
 
     // TODO Datum auch auf Tage am Weekend prüfen...
     fun checkDateAvailability(year : Int, month : Int, day : Int) {
-        val date = LocalDate.of(year, month, day)
+        val date = LocalDate.of(year, month+1, day)
         newEntryArray[0] = date.toString() // das Datum bei Index 0 speichern
         val preferences = requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE)
         val tac = preferences.getString("TeamAccessCode", "")
