@@ -31,6 +31,32 @@
             android:text="Bitte registriere Dich für eine Organisation und ein Team"
             android:textColor="@color/secondaryColor" />
 
+        <RadioGroup
+            android:id="@+id/rgSex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableBottom="@drawable/icn_male"
+                android:scaleX="0.6"
+                android:scaleY="0.6" />
+
+            <RadioButton
+                android:id="@+id/rbFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginRight="20dp"
+                android:drawableBottom="@drawable/icn_female"
+                android:scaleX="0.6"
+                android:scaleY="0.6" />
+
+        </RadioGroup>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,32 +80,28 @@
 
         </LinearLayout>
 
-        <RadioGroup
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="5dp">
 
-            <RadioButton
-                android:id="@+id/radioButton2"
-                android:layout_width="wrap_content"
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:src="@drawable/icn_fun" />
+
+            <EditText
+                android:id="@+id/etAlias"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:drawableBottom="@drawable/icn_female"
-                android:scaleX="0.6"
-                android:scaleY="0.6" />
+                android:layout_margin="5dp"
+                android:ems="10"
+                android:hint="@string/etAlias"
+                android:inputType="textPersonName" />
 
-            <RadioButton
-                android:id="@+id/radioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginRight="20dp"
-                android:drawableBottom="@drawable/icn_male"
-                android:scaleX="0.6"
-                android:scaleY="0.6" />
-
-        </RadioGroup>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -123,7 +145,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:dropDownWidth="wrap_content"
-                android:entries="@array/spOrgs"
                 android:minHeight="40dp"
                 android:spinnerMode="dialog" />
 

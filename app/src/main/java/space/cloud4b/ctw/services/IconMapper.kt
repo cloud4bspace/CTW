@@ -35,6 +35,8 @@ class IconMapper {
             "1" -> return "icn_am"
             "2" -> return "icn_pm"
             "3" -> return "icn_afternoon"
+            "male" -> return "icn_male"
+            "female" -> return "icn_female"
             else -> return "icn_secret"
         }
     }

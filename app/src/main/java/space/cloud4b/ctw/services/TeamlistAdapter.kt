@@ -36,10 +36,12 @@ class TeamlistAdapter(var entries: MutableList<TeamMember>, var context: Context
         view.tvMemberEmail.text = entry.MemberEmail
 
         var icnName = IconMapper().getIcnName("2")
-        view.ivMemberIcn.setImageResource(context.getResources().getIdentifier("space.cloud4b.ctw:drawable/$icnName",null,null))
+        view.ivMemberIcn.setImageResource(context.getResources().getIdentifier("space.cloud4b.ctw:drawable/${IconMapper().getIcnName(entry.MemberSex)}",null,null))
         val lp = LinearLayout.LayoutParams(60, 60)
         lp.setMargins(10, 10, 10, 10)
         view.ivMemberIcn.setLayoutParams(lp)
+
+        view.tvAlias.text = entry.MemberAlias
 
         return view
     }

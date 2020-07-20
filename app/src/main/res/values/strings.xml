@@ -14,7 +14,7 @@
     <string name="bu_register">Register</string>
     <string name="bu_dashboard">open Dashboard</string>
     <string name="back_to_dashboard">back to dashboard</string>
-    <string name="tv_register_msg">Welcome to Register Fragment!</string>
+    <string name="tv_register_msg">Neuen User anlegen</string>
     <string name="et_UserEmail">E-Mail</string>
     <string name="etBenutzerName">Benutzername</string>
     <string name="datum">Datum</string>
@@ -35,6 +35,8 @@
     <string name="Geheimnis_old">Geheimnis</string>
     <string name="JustForFun">einfach so</string>
     <string name="Gemuese">Gemüse</string>
+    <string name="Registrieren_StepTwo">einem Team beitreten</string>
+    <string name="etAlias">Nickname</string>
     <!-- The order of these is important, don't reorder without changing Contacts.java --> <skip />
     <!-- Instant Message protocols/providers from android.provider.Contacts -->
     <string-array name="spOrgs">

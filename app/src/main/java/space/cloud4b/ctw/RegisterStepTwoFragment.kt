@@ -19,7 +19,10 @@ import kotlinx.android.synthetic.main.entrylist_fragment.*
 import kotlinx.android.synthetic.main.register_fragment.*
 import kotlinx.android.synthetic.main.register_fragment.buBackToRegisterStepOne
 import kotlinx.android.synthetic.main.register_fragment.etRegCode
+import kotlinx.android.synthetic.main.register_fragment.etUserEmail
+import kotlinx.android.synthetic.main.register_fragment.etUsername
 import kotlinx.android.synthetic.main.register_fragment.spTeam
+import kotlinx.android.synthetic.main.register_stepone_fragment.*
 import kotlinx.android.synthetic.main.register_steptwo_fragment.*
 import org.json.JSONObject
 import space.cloud4b.ctw.model.Cakeboard
@@ -44,7 +47,7 @@ class RegisterStepTwoFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
+        activity?.let { fillTeamSpinner(it) }
         return inflater.inflate(R.layout.register_steptwo_fragment, container, false)
     }
 
@@ -53,12 +56,13 @@ class RegisterStepTwoFragment : Fragment() {
 
 
         buRegisterFinal.setOnClickListener {
-            val editor = this.requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE).edit()
-            editor.putString("UserTeam", spTeam.selectedItem.toString())
-            editor.putString("TeamAccessCode", etRegCode.text.toString().trim())
-            editor.apply()
-            checkRegistration()
-
+            if(validation()) {
+                val editor = this.requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE).edit()
+                editor.putString("UserTeam", spTeam.selectedItem.toString())
+                editor.putString("TeamAccessCode", etRegCode.text.toString().trim())
+                editor.apply()
+                checkRegistration()
+            }
         }
 
        buBackToRegisterStepOne.setOnClickListener {
@@ -67,15 +71,43 @@ class RegisterStepTwoFragment : Fragment() {
 
     }
 
+    fun fillTeamSpinner(x : Context) {
+        var url = "https://cloud4b.space/caketowork/teamstringlist.php"
+        val preferences = requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE)
+        url += "?CompBez=${preferences.getString("UserOrg", "")}"
+        var companiesList : ArrayList<String>? = null
+        //var organisationsList : List<String> = null
+        Log.i("URL", url)
+        val requestQueue = Volley.newRequestQueue(activity)
+        // define a request
+        val request = StringRequest(
+            Request.Method.GET, url,
+            Response.Listener<String> { response ->
+                Log.i("Response from URL", response)
+                // var list = ArrayList<String>()
+                var responseNeu = "Team wählen..|" + response
+                var list = responseNeu.split("|") as ArrayList<String>
+
+                val aa = ArrayAdapter<String>(x,android.R.layout.simple_spinner_item,list)
+                spTeam.adapter = aa
+            },
+            Response.ErrorListener {
+                it.message?.let { it1 -> Log.e("******VOLLEYERROR", it1) }
+            })
+        //add the call to the request queue
+        requestQueue.add(request)
+    }
+
     fun checkRegistration() {
         var url = "https://cloud4b.space/caketowork/registration.php"
         val preferences = requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE)
-       // var teamAccessCode = preferences.getString("TeamAccessCode", "")
         url += "?TAC=${preferences.getString("TeamAccessCode", "")}"
         url += "&Username=${preferences.getString("Username", "")}"
         url += "&UserEmail=${preferences.getString("UserEmail", "")}"
         url += "&UserOrg=${preferences.getString("UserOrg", "")}"
         url += "&UserTeam=${preferences.getString("UserTeam", "")}"
+        url += "&UserSex=${preferences.getString("UserSex", "")}"
+        url += "&UserAlias=${preferences.getString("UserAlias", "NA")}"
         Log.i("URL", url)
         val requestQueue = Volley.newRequestQueue(activity)
         // define a request
@@ -98,5 +130,21 @@ class RegisterStepTwoFragment : Fragment() {
             })
         //add the call to the request queue
         requestQueue.add(request)
+    }
+
+    fun validation() : Boolean {
+
+        if(spTeam.selectedItem.toString().equals("Team wählen..")) {
+                spTeam.requestFocus()
+            return false
+            }
+
+        // TeamCode
+        if(etRegCode.getText().toString().trim().isEmpty()){
+            etRegCode.error = "Bitte den Zugangscode eingeben"
+            etRegCode.requestFocus()
+            return false
+        }
+        return true
     }
 }
