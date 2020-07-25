@@ -30,7 +30,7 @@ class WebsiteOneFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        wvWebpageOne.loadUrl("https://cloud4b.space/cookwithb/index.php")
+        wvWebpageOne.loadUrl("https://cloud4b.space/caketowork/help/")
 
 
     }

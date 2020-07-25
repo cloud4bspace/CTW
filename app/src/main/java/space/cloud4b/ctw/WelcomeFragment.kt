@@ -31,11 +31,16 @@ class WelcomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        ibWelcomeLogin.setOnClickListener() {
+            findNavController().navigate(R.id.action_welcome_fragment_to_registerStepOneFragment)
+        }
+        ibWelcomeInfo.setOnClickListener() {
+            findNavController().navigate(R.id.action_welcome_fragment_to_websiteOneFragment)
+        }
         val preferences = this.requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE)
         if(preferences.getString("UserStatus", "") != "OK") {
-            findNavController().navigate(R.id.action_welcome_fragment_to_registerStepOneFragment)
+           //
         } else {
-            tv_register_title.text = preferences.getString("Username", "")
             findNavController().navigate(R.id.action_WelcomeFragment_to_DashboardFragment)
         }
     }

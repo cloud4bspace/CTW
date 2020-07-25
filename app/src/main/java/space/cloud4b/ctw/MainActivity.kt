@@ -1,38 +1,46 @@
 package space.cloud4b.ctw
 
 import android.app.PendingIntent.getActivity
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import androidx.navigation.NavController
-import androidx.navigation.NavDirections
-import androidx.navigation.findNavController
+import androidx.navigation.*
 import androidx.navigation.fragment.FragmentNavigator
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     var organisationsList = ArrayList<String>()
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
+        val preferences = getSharedPreferences("USR_INFO", Context.MODE_PRIVATE)
+        if(preferences.getString("UserStatus", "").equals("OK")) {
+            fab.setVisibility(View.VISIBLE)
+        } else {
+            fab.setVisibility(View.GONE)
+        }
+
+
 
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
-            //TODO das Fragment wird über die aktuelle Ansicht gelegt.... unbrauchbar so..
-           val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.nav_host_fragment, AdditemFragment())
-            transaction.addToBackStack("test")
-            transaction.commit()
-            //  findNavController(view.id).navigate(R.id.action_FloatingActionButton_to_AddEntryFragement)
+
+            Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.action_global_dashboard_fragment)
 
         }
 
@@ -50,14 +58,16 @@ class MainActivity : AppCompatActivity() {
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.action_settings -> {
-                Log.i("MENU", "Settings ausgewählt")
-
-                true}
+                Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.action_global_additemFragment)
+                true
+                //return super.onOptionsItemSelected(item)
+                ;}
             R.id.action_additem -> {
-                val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
-                transaction.replace(R.id.activityContentMain, AdditemFragment())
-                transaction.addToBackStack(null)
-                transaction.commit()
+                Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.action_global_additemFragment)
+                true
+            }
+            R.id.action_userinfo -> {
+                Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.action_global_userinfoFragment)
                 true
             }
             else -> super.onOptionsItemSelected(item)

@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.ImageButton
 import android.widget.RadioButton
 import android.widget.Spinner
 import androidx.navigation.fragment.findNavController
@@ -17,6 +18,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.beust.klaxon.Klaxon
+import kotlinx.android.synthetic.main.additem_steptwo_fragment.*
 import kotlinx.android.synthetic.main.entrylist_fragment.*
 import kotlinx.android.synthetic.main.register_fragment.*
 import kotlinx.android.synthetic.main.register_fragment.buRegisterStepTwo
@@ -41,6 +43,7 @@ import java.net.URL
  * in einem zweiten Schritt dann das Team mit AccessCode oder ein neues Team erfassen
  */
 class RegisterStepOneFragment : Fragment() {
+    var avatar : String = "icn_male"
 
 
 
@@ -62,9 +65,28 @@ class RegisterStepOneFragment : Fragment() {
         // define a request
         activity?.let { fillOrgSpinner(it) }
 
-        rgSex.setOnCheckedChangeListener {_, _ ->
-            rbFemale.error = null
-            rbMale.error = null
+
+        // alle ImageButtons abdunkeln, ausser den ersten
+        for(i in 1 until glAvatarSelection.childCount) {
+            var imageButton : ImageButton = glAvatarSelection.getChildAt(i) as ImageButton
+            imageButton.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
+        }
+
+        // für alle ImageButtons einen OnClick-Listener setzen
+        for(i in 0 until glAvatarSelection.childCount) {
+            var immageButton : ImageButton = glAvatarSelection.getChildAt(i) as ImageButton
+            immageButton.setOnClickListener() {
+                    immageButton.clearColorFilter()
+                    avatar = immageButton.contentDescription.toString()
+                //context.getResources().getIdentifier("space.cloud4b.ctw:drawable/$icnName",null,null)
+                    etUsername.setCompoundDrawablesWithIntrinsicBounds(this.resources.getIdentifier("space.cloud4b.ctw:drawable/rf_$avatar",null,null), 0, 0, 0)
+                    for(j in 0 until glAvatarSelection.childCount) {
+                        if(glAvatarSelection.getChildAt(j) != immageButton) {
+                            var otherImageButton : ImageButton = glAvatarSelection.getChildAt(j) as ImageButton
+                            otherImageButton.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY)
+                        }
+                    }
+                }
         }
 
         buRegisterStepTwo.setOnClickListener {
@@ -76,11 +98,7 @@ class RegisterStepOneFragment : Fragment() {
                 editor.putString("UserEmail", etUserEmail.text.toString().trim())
                 editor.putString("UserOrg", spOrg.selectedItem.toString())
                 editor.putString("UserAlias", etAlias.text.toString().trim())
-                if (rbMale.isChecked) {
-                    editor.putString("UserSex", "male")
-                } else {
-                    editor.putString("UserSex", "female")
-                }
+                editor.putString("UserAvatar", avatar.trim())
                 editor.apply()
                 findNavController().navigate(R.id.action_registerStepOneFragment_to_registerStepTwoFragment)
             }
@@ -90,11 +108,13 @@ class RegisterStepOneFragment : Fragment() {
     fun validation() : Boolean {
 
         // RadioGroup Gender
+        // TODO löschen
+        /*
         if (!rbMale.isChecked && !rbFemale.isChecked) {
             rbMale.error = "Du musst Dich entscheiden"
             rbMale.requestFocus()
             return false
-        }
+        }*/
 
         // Username
         if(etUsername.getText().toString().trim().isEmpty()){

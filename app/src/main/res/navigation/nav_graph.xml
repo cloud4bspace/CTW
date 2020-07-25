@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_welcome_fragment_to_registerStepOneFragment"
             app:destination="@id/registerStepOneFragment" />
+        <action
+            android:id="@+id/action_welcome_fragment_to_websiteOneFragment"
+            app:destination="@id/websiteOneFragment" />
     </fragment>
     <fragment
         android:id="@+id/dashboard_fragment"
@@ -57,8 +60,7 @@
         android:label="AdditemFragment" >
         <action
             android:id="@+id/action_additemFragment_to_additemStepTwoFragment"
-            app:destination="@id/additemStepTwoFragment"
-            app:enterAnim="@android:anim/fade_in" />
+            app:destination="@id/additemStepTwoFragment" />
     </fragment>
     <fragment
         android:id="@+id/viewitemFragment"
@@ -130,4 +132,22 @@
         android:id="@+id/teamlistFragment"
         android:name="space.cloud4b.ctw.TeamlistFragment"
         android:label="TeamlistFragment" />
+    <action android:id="@+id/action_global_additemFragment" app:destination="@id/additemFragment" />
+    <fragment
+        android:id="@+id/userinfoFragment"
+        android:name="space.cloud4b.ctw.UserinfoFragment"
+        android:label="userinfo_fragment"
+        tools:layout="@layout/userinfo_fragment" >
+        <action
+            android:id="@+id/action_userinfoFragment_to_welcome_fragment"
+            app:destination="@id/welcome_fragment" />
+        <action
+            android:id="@+id/action_userinfoFragment_to_emailFragment"
+            app:destination="@id/emailFragment" />
+    </fragment><action android:id="@+id/action_global_userinfoFragment" app:destination="@id/userinfoFragment"/><action android:id="@+id/action_global_dashboard_fragment" app:destination="@id/dashboard_fragment"/>
+    <fragment
+        android:id="@+id/emailFragment"
+        android:name="space.cloud4b.ctw.EmailFragment"
+        android:label="email_fragment"
+        tools:layout="@layout/email_fragment" />
 </navigation>

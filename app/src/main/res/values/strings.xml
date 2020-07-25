@@ -37,7 +37,8 @@
     <string name="Gemuese">Gemüse</string>
     <string name="Registrieren_StepTwo">einem Team beitreten</string>
     <string name="etAlias">Nickname</string>
-    <!-- The order of these is important, don't reorder without changing Contacts.java --> <skip />
+    <!-- The order of these is important, don't reorder without changing Contacts.java -->
+    <skip />
     <!-- Instant Message protocols/providers from android.provider.Contacts -->
     <string-array name="spOrgs">
         <item>Stadt Zürich</item>
@@ -45,7 +46,8 @@
         <item>Radio Beromünster</item>
         <item>Stadtpolizei</item>
     </string-array>
-    <!-- The order of these is important, don't reorder without changing Contacts.java --> <skip />
+    <!-- The order of these is important, don't reorder without changing Contacts.java -->
+    <skip />
     <!-- Instant Message protocols/providers from android.provider.Contacts -->
     <string-array name="spTeams">
         <item>Finanzkontrolle</item>
@@ -53,4 +55,12 @@
         <item>Schutz &amp; Rettung</item>
         <item>Stadtpolizei</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="et_UserOrg">Firma</string>
+    <string name="et_UserTeam">Team</string>
+    <string name="et_TAC">Team Access Code</string>
+    <string name="Userinfos">Benutzerinfos</string>
+    <string name="profil">Profil</string>
+    <string name="mnSettings">Einstellungen</string>
 </resources>

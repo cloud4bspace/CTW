@@ -4,15 +4,19 @@
     tools:context="space.cloud4b.ctw.MainActivity">
     <item
         android:id="@+id/action_settings"
+        android:icon="@drawable/icn_settings"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/mnSettings"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_additem"
+        android:icon="@drawable/icn_addone"
         android:orderInCategory="1"
-        android:title="Neuer Eintrag"
-        app:showAsAction="ifRoom" />
+        android:title="Neuer Eintrag" />
     <item
-        android:id="@+id/miUserInfo"
-        android:title="@string/miUserInfo" />
+        android:id="@+id/action_userinfo"
+        android:icon="@drawable/icn_profile2"
+        android:orderInCategory="2"
+        android:title="@string/profil"
+        app:showAsAction="withText" />
 </menu>

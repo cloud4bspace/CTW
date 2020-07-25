@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.additem_steptwo_fragment.*
-import kotlinx.android.synthetic.main.additem_steptwo_old_fragment.*
 import org.jetbrains.anko.backgroundResource
 import org.jetbrains.anko.image
 
@@ -58,9 +57,7 @@ class AdditemStepTwoFragment : Fragment() {
                     immageButton.clearColorFilter()
                     tvReason.setText(immageButton.contentDescription)
 
-                    // TODO das muss ich schlauer machen..
                     newEntryArray[2] = immageButton.contentDescription.toString()
-                    Log.i("----> img: ", newEntryArray[2]) // TODO wegnehmen
                     for(j in 0 until glReasonIcns.childCount) {
                         if(glReasonIcns.getChildAt(j) != immageButton) {
                             var otherImageButton : ImageButton = glReasonIcns.getChildAt(j) as ImageButton

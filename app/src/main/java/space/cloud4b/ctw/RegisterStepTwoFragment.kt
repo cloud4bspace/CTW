@@ -1,33 +1,23 @@
 package space.cloud4b.ctw
 
 import android.content.Context
-import android.os.AsyncTask
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.beust.klaxon.Klaxon
-import kotlinx.android.synthetic.main.entrylist_fragment.*
-import kotlinx.android.synthetic.main.register_fragment.*
 import kotlinx.android.synthetic.main.register_fragment.buBackToRegisterStepOne
 import kotlinx.android.synthetic.main.register_fragment.etRegCode
-import kotlinx.android.synthetic.main.register_fragment.etUserEmail
-import kotlinx.android.synthetic.main.register_fragment.etUsername
 import kotlinx.android.synthetic.main.register_fragment.spTeam
-import kotlinx.android.synthetic.main.register_stepone_fragment.*
 import kotlinx.android.synthetic.main.register_steptwo_fragment.*
-import org.json.JSONObject
-import space.cloud4b.ctw.model.Cakeboard
-import space.cloud4b.ctw.services.CakeboardAdapter
-import java.net.URL
 
 
 /**
@@ -106,7 +96,7 @@ class RegisterStepTwoFragment : Fragment() {
         url += "&UserEmail=${preferences.getString("UserEmail", "")}"
         url += "&UserOrg=${preferences.getString("UserOrg", "")}"
         url += "&UserTeam=${preferences.getString("UserTeam", "")}"
-        url += "&UserSex=${preferences.getString("UserSex", "")}"
+        url += "&UserAvatar=${preferences.getString("UserAvatar", "")}"
         url += "&UserAlias=${preferences.getString("UserAlias", "NA")}"
         Log.i("URL", url)
         val requestQueue = Volley.newRequestQueue(activity)
@@ -122,7 +112,12 @@ class RegisterStepTwoFragment : Fragment() {
                     etRegCode.error = "falscher Zugangscode"
                    // findNavController().navigate(R.id.action_registerStepTwoFragment_to_dashboard_fragment)
                 } else {
-                    findNavController().navigate(R.id.action_registerStepTwoFragment_to_dashboard_fragment)
+                    // restart App (fab will be visible after
+                    val i: Intent? = requireActivity().getPackageManager()
+                        .getLaunchIntentForPackage(requireActivity().getPackageName())
+                    i?.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    startActivity(i)
+                  //  findNavController().navigate(R.id.action_registerStepTwoFragment_to_dashboard_fragment)
                 }
             },
             Response.ErrorListener {

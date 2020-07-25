@@ -55,7 +55,7 @@ class AdditemStepFourFragment : Fragment() {
         tvGrund.text = newEntryArray[2]
         tvFoodAndBeverages.text = newEntryArray[4]
         buAddItemSave.setOnClickListener {
-            it.setVisibility(View.GONE);
+            it.setVisibility(View.GONE)
             buShowDashboard.setVisibility(View.VISIBLE)
             //stopButton.setVisibility(View.VISIBLE);
             postNewEntry(newEntryArray)

@@ -4,28 +4,192 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DashboardFragment">
+    tools:context=".UserinfoFragment">
 
     <LinearLayout
+        android:id="@+id/llProfileUser"
         android:layout_width="0dp"
-        android:layout_height="729dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/tvLabelBenutzername"
+            android:id="@+id/tvProfileUserH"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tvLabelBenutzername" />
+            android:padding="5dp"
+            android:text="@string/Userinfos"
+            android:textColor="@color/secondaryColor"
+            android:textSize="24sp" />
 
-        <TextView
-            android:id="@+id/tvBenutzername"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Bernhard Kämpf" />
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <EditText
+                android:id="@+id/etProfileUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/rf_icn_man"
+                android:drawablePadding="16dp"
+                android:hint="@string/etBenutzerName"
+                android:inputType="textPersonName"
+                android:paddingStart="10dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:importantForAutofill="no" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <EditText
+                android:id="@+id/etProfileAlias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/rf_icn_fun"
+                android:drawablePadding="16dp"
+                android:hint="@string/etAlias"
+                android:inputType="textPersonName"
+                android:paddingStart="10dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:autofillHints="" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <EditText
+                android:id="@+id/etProfileUserEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/rf_icn_mail"
+                android:drawablePadding="16dp"
+                android:hint="@string/et_UserEmail"
+                android:inputType="textEmailAddress"
+                android:paddingStart="10dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:singleLine="true"
+                android:importantForAutofill="no" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <EditText
+                android:id="@+id/etProfileUserOrg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/rf_icn_office"
+                android:drawablePadding="16dp"
+                android:duplicateParentState="false"
+                android:enabled="false"
+                android:hint="@string/et_UserOrg"
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress"
+                android:paddingStart="10dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <EditText
+                android:id="@+id/etProfileUserTeam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/rf_icn_team"
+                android:drawablePadding="16dp"
+                android:duplicateParentState="false"
+                android:enabled="false"
+                android:hint="@string/et_UserTeam"
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress"
+                android:paddingStart="10dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <EditText
+                android:id="@+id/etProfileTAC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/rf_icn_login"
+                android:drawablePadding="16dp"
+                android:duplicateParentState="false"
+                android:enabled="false"
+                android:hint="@string/et_TAC"
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress"
+                android:paddingStart="10dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/buShareDialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginVertical="10dp"
+            android:drawableStart="@drawable/rf_icn_mail"
+            android:drawablePadding="10dp"
+            android:text="Kolleg*innen einladen"
+            android:textAllCaps="false" />
+
+
+        <Button
+            android:id="@+id/buReset"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginVertical="10dp"
+            android:drawableStart="@drawable/rf_icn_reset"
+            android:drawablePadding="10dp"
+            android:elevation="10dp"
+            android:text="Reset &amp; neu registrieren"
+
+            android:textAllCaps="false"
+
+            android:textAppearance="@style/TextAppearance.AppCompat.Button"
+            android:textColor="@color/primaryTextColor"
+            android:tooltipText="Benutzerdaten löschen und komplett neu registrieren."
+            app:backgroundTint="@color/secondaryColor"
+            app:iconGravity="start"
+            app:iconSize="60dp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

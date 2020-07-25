@@ -23,6 +23,7 @@ import kotlinx.android.synthetic.main.welcome_fragment.*
 import org.json.JSONObject
 import space.cloud4b.ctw.model.Cakeboard
 import space.cloud4b.ctw.model.Team
+import space.cloud4b.ctw.model.TeamMember
 import space.cloud4b.ctw.services.CakeboardAdapter
 import space.cloud4b.ctw.services.CustomAdapterOne
 import space.cloud4b.ctw.services.TeamlistAdapter

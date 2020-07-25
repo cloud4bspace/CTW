@@ -6,7 +6,7 @@ class IconMapper {
         when (string) {
             "Ferien" -> return "icn_beach"
             "Geburtstag" -> return "icn_birthdaycake"
-            "Geheimnis" -> return "icn_goodbye"
+            "Geheimnis" -> return "icn_secret"
             "Abschied" -> return "icn_goodbye"
             "Nachwuchs" -> return "icn_schnuller"
             "Abschluss" -> return "icn_graduation"
