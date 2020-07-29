@@ -14,9 +14,7 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import kotlinx.android.synthetic.main.register_fragment.buBackToRegisterStepOne
-import kotlinx.android.synthetic.main.register_fragment.etRegCode
-import kotlinx.android.synthetic.main.register_fragment.spTeam
+
 import kotlinx.android.synthetic.main.register_steptwo_fragment.*
 
 

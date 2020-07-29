@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.additem_steptwo_fragment.*
+import kotlinx.android.synthetic.main.register_stepone_fragment.*
 import org.jetbrains.anko.backgroundResource
 import org.jetbrains.anko.image
 
@@ -33,9 +34,11 @@ class AdditemStepTwoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         var newEntryArray = args.newEntryArray
         buAddItemGotoStepThree.setOnClickListener {
-            newEntryArray[3] = etInfos.text.toString().trim()
-            val action = AdditemStepTwoFragmentDirections.actionAdditemStepTwoFragmentToAdditemStepThreeFragment(newEntryArray)
-            findNavController().navigate(action)
+            if(validation()) {
+                newEntryArray[3] = etInfos.text.toString().trim()
+                val action = AdditemStepTwoFragmentDirections.actionAdditemStepTwoFragmentToAdditemStepThreeFragment(newEntryArray)
+                findNavController().navigate(action)
+            }
         }
 
         // alle ImageButtons abdunkeln
@@ -69,7 +72,15 @@ class AdditemStepTwoFragment : Fragment() {
         }
     }
 
+    fun validation() : Boolean {
+        // Username
+        if(tvReason.getText().toString().trim().isEmpty()){
+            tvReason.error = "Bitte eine Kachel auswählen"
+            return false
+        }
 
+        return true
+    }
 
 }
 

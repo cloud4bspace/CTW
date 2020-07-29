@@ -17,9 +17,7 @@ import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.additem_fragment.*
 import kotlinx.android.synthetic.main.additem_steptwo_fragment.*
 import kotlinx.android.synthetic.main.dashboard_fragment.*
-import kotlinx.android.synthetic.main.register_fragment.*
-import kotlinx.android.synthetic.main.register_fragment.etRegCode
-import kotlinx.android.synthetic.main.register_fragment.spTeam
+
 import kotlinx.android.synthetic.main.register_steptwo_fragment.*
 import java.text.SimpleDateFormat
 import java.time.LocalDate
@@ -78,7 +76,8 @@ class AdditemFragment : Fragment() {
         checkDateAvailability(current.year, current.monthValue-1, current.dayOfMonth)
 
         dpDate.setOnDateChangedListener { datePicker, year, monthindex, day ->
-            checkDateAvailability(year, monthindex+1, day)
+            checkDateAvailability(year, monthindex, day)
+            Log.i("CheckDateAval", monthindex.toString())
         }
         buAddItemGotoStepTwo.setOnClickListener {
             val action = AdditemFragmentDirections.actionAdditemFragmentToAdditemStepTwoFragment(newEntryArray)
@@ -118,8 +117,9 @@ class AdditemFragment : Fragment() {
 
     // TODO Datum auch auf Tage am Weekend prüfen...
     fun checkDateAvailability(year : Int, month : Int, day : Int) {
-        val date = LocalDate.of(year, month, day)
+        val date = LocalDate.of(year, month+1, day)
         newEntryArray[0] = date.toString() // das Datum bei Index 0 speichern
+        Log.i("gespeichertes Datum", date.toString())
         val preferences = requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE)
         val tac = preferences.getString("TeamAccessCode", "")
         var url = "https://cloud4b.space/caketowork/checkdateavailability.php"

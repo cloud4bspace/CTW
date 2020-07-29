@@ -12,7 +12,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
-import kotlinx.android.synthetic.main.register_fragment.*
+
 import kotlinx.android.synthetic.main.userinfo_fragment.*
 
 

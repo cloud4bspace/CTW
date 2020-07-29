@@ -29,7 +29,8 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
         val preferences = getSharedPreferences("USR_INFO", Context.MODE_PRIVATE)
         if(preferences.getString("UserStatus", "").equals("OK")) {
-            fab.setVisibility(View.VISIBLE)
+          //  fab.setVisibility(View.VISIBLE)
+            // TODO der fab stört überall mal wieder. vielleicht besser ganz weglassen?
         } else {
             fab.setVisibility(View.GONE)
         }

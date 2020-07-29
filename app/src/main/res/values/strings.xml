@@ -1,19 +1,9 @@
 <resources>
     <string name="app_name">Cake To Work</string>
-    <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="welcome_fragment_label">Welcome Fragment</string>
     <string name="dashboard_fragment_label">Dashboard Fragment</string>
     <string name="register_fragment_label">Register Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="tv_welcome_msg">Welcome To CTW</string>
-    <string name="bu_register">Register</string>
-    <string name="bu_dashboard">open Dashboard</string>
-    <string name="back_to_dashboard">back to dashboard</string>
     <string name="tv_register_msg">Neuen User anlegen</string>
     <string name="et_UserEmail">E-Mail</string>
     <string name="etBenutzerName">Benutzername</string>
@@ -23,16 +13,6 @@
     <string name="organisation">Organisation</string>
     <string name="grund">Grund</string>
     <string name="userbild">Profilbild</string>
-    <string name="miUserInfo">User Info</string>
-    <string name="tvLabelBenutzername">Benutzername</string>
-    <string name="champagne">Champagner</string>
-    <string name="ibDescFerien">Ferien</string>
-    <string name="ibDescGeburtstag">Geburtstag</string>
-    <string name="ibDescGeheimnis">Geheimnis</string>
-    <string name="ibDescAbschied">Abschied</string>
-    <string name="ibDescNachwuchs">Nachwuchs</string>
-    <string name="ibDescAbschluss">Abschluss</string>
-    <string name="Geheimnis_old">Geheimnis</string>
     <string name="JustForFun">einfach so</string>
     <string name="Gemuese">Gemüse</string>
     <string name="Registrieren_StepTwo">einem Team beitreten</string>
@@ -40,12 +20,6 @@
     <!-- The order of these is important, don't reorder without changing Contacts.java -->
     <skip />
     <!-- Instant Message protocols/providers from android.provider.Contacts -->
-    <string-array name="spOrgs">
-        <item>Stadt Zürich</item>
-        <item>Swiss</item>
-        <item>Radio Beromünster</item>
-        <item>Stadtpolizei</item>
-    </string-array>
     <!-- The order of these is important, don't reorder without changing Contacts.java -->
     <skip />
     <!-- Instant Message protocols/providers from android.provider.Contacts -->

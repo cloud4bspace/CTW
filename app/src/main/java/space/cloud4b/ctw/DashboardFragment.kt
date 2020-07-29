@@ -82,6 +82,9 @@ class DashboardFragment : Fragment() {
         ibHelp.setOnClickListener {
             findNavController().navigate(R.id.action_dashboard_fragment_to_websiteOneFragment)
         }
+        ibOpenChat.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboard_fragment_to_chatlistFragment)
+        }
        // tvNextEvent.text = "17. Juni 2020"
         tvNextEvent.setOnClickListener {
             val text = "Hello toast!"

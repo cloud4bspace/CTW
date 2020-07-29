@@ -22,10 +22,9 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -34,16 +33,50 @@
             android:id="@+id/textView12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Znüni-Terminliste"
+            android:text="Team-Chat"
             android:textColor="@color/secondaryColor"
             android:textSize="24sp" />
 
-        <ListView
-            android:id="@+id/lvCakeboardlist"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+    </LinearLayout>
 
-        </ListView>
+    <ListView
+        android:id="@+id/lvChatlist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:stackFromBottom="true"
+        android:transcriptMode="alwaysScroll"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        tools:layout_editor_absoluteX="5dp">
+
+    </ListView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@color/primaryLightColor"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <EditText
+            android:id="@+id/etChatMessageInput"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine" />
+
+        <ImageView
+            android:id="@+id/ivSendMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            android:src="@drawable/icn_plane" />
 
     </LinearLayout>
 

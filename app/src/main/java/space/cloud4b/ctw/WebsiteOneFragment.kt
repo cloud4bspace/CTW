@@ -10,7 +10,7 @@ import android.webkit.WebView
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.dashboard_fragment.*
-import kotlinx.android.synthetic.main.register_fragment.*
+
 import kotlinx.android.synthetic.main.webone_fragment.*
 
 /**

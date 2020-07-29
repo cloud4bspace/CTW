@@ -20,11 +20,7 @@ import com.android.volley.toolbox.Volley
 import com.beust.klaxon.Klaxon
 import kotlinx.android.synthetic.main.additem_steptwo_fragment.*
 import kotlinx.android.synthetic.main.entrylist_fragment.*
-import kotlinx.android.synthetic.main.register_fragment.*
-import kotlinx.android.synthetic.main.register_fragment.buRegisterStepTwo
-import kotlinx.android.synthetic.main.register_fragment.etUserEmail
-import kotlinx.android.synthetic.main.register_fragment.etUsername
-import kotlinx.android.synthetic.main.register_fragment.spOrg
+
 import kotlinx.android.synthetic.main.register_stepone_fragment.*
 import org.json.JSONObject
 import space.cloud4b.ctw.model.Cakeboard

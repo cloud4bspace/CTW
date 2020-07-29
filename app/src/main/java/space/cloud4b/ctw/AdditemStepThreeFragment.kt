@@ -36,9 +36,11 @@ class AdditemStepThreeFragment : Fragment() {
 
 
         buAddItemGotoStepFour.setOnClickListener() {
-            newEntryArray[4] = getBeverageStringList()
-            val action = AdditemStepThreeFragmentDirections.actionAdditemStepThreeFragmentToAdditemStepFourFragment(newEntryArray)
-            findNavController().navigate(action)
+            if(validation()) {
+                newEntryArray[4] = getBeverageStringList()
+                val action = AdditemStepThreeFragmentDirections.actionAdditemStepThreeFragmentToAdditemStepFourFragment(newEntryArray)
+                findNavController().navigate(action)
+            }
         }
         // alle ImageButtons (Beverages)
         for(i in 0 until glBeverages.childCount) {
@@ -105,6 +107,16 @@ class AdditemStepThreeFragment : Fragment() {
             counter++
         }
         return beverageStringList
+    }
+
+    fun validation() : Boolean {
+        // Auswahl Food&Beverages
+        if(tvFandB.getText().toString().trim().isEmpty()){
+            tvFandB.error = "Bitte mindestens eine Kachel auswählen"
+            return false
+        }
+
+        return true
     }
 
 

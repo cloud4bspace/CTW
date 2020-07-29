@@ -31,9 +31,6 @@
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/welcome_fragment" />
         <action
-            android:id="@+id/action_dashboard_fragment_to_itemslistFragment"
-            app:destination="@id/itemslistFragment" />
-        <action
             android:id="@+id/action_dashboard_fragment_to_additemFragment"
             app:destination="@id/additemFragment" />
         <action
@@ -45,14 +42,9 @@
         <action
             android:id="@+id/action_dashboard_fragment_to_teamlistFragment"
             app:destination="@id/teamlistFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/itemslistFragment"
-        android:name="space.cloud4b.ctw.ItemslistFragment"
-        android:label="ItemslistFragment" >
         <action
-            android:id="@+id/action_itemslistFragment_to_viewitemFragment"
-            app:destination="@id/viewitemFragment" />
+            android:id="@+id/action_dashboard_fragment_to_chatlistFragment"
+            app:destination="@id/chatlistFragment" />
     </fragment>
     <fragment
         android:id="@+id/additemFragment"
@@ -63,13 +55,15 @@
             app:destination="@id/additemStepTwoFragment" />
     </fragment>
     <fragment
-        android:id="@+id/viewitemFragment"
-        android:name="space.cloud4b.ctw.ViewitemFragment"
-        android:label="ViewitemFragment" />
-    <fragment
         android:id="@+id/entrylistFragment"
         android:name="space.cloud4b.ctw.EntrylistFragment"
-        android:label="EntrylistFragment" />
+        android:label="EntrylistFragment" >
+        <action
+            android:id="@+id/action_entrylistFragment_to_entryItemFragment"
+            app:destination="@id/entryItemFragment"
+            app:launchSingleTop="false"
+            app:popUpToInclusive="false" />
+    </fragment>
     <fragment
         android:id="@+id/registerStepOneFragment"
         android:name="space.cloud4b.ctw.RegisterStepOneFragment"
@@ -115,7 +109,10 @@
         <action
             android:id="@+id/action_additemStepThreeFragment_to_additemStepFourFragment"
             app:destination="@id/additemStepFourFragment"
-            app:enterAnim="@android:anim/fade_in" />
+            app:enterAnim="@android:anim/fade_in"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/dashboard_fragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/additemStepFourFragment"
@@ -150,4 +147,16 @@
         android:name="space.cloud4b.ctw.EmailFragment"
         android:label="email_fragment"
         tools:layout="@layout/email_fragment" />
+    <fragment
+        android:id="@+id/chatlistFragment"
+        android:name="space.cloud4b.ctw.ChatlistFragment"
+        android:label="ChatlistFragment" />
+    <fragment
+        android:id="@+id/entryItemFragment"
+        android:name="space.cloud4b.ctw.EntryItemFragment"
+        android:label="EntryItemFragment" >
+        <argument
+            android:name="entryItemArray"
+            app:argType="string[]" />
+    </fragment>
 </navigation>
