@@ -1,6 +1,8 @@
 package space.cloud4b.ctw
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,7 +12,9 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.android.volley.Request
 import com.android.volley.Response
@@ -36,6 +40,10 @@ import java.time.format.FormatStyle
 class EntryItemFragment : Fragment() {
     val args: EntryItemFragmentArgs by navArgs()
 
+    val TEXTANGEMELDET = "Du bist bereits angemeldet"
+    val TEXTABGEMELDET = "Du hast dich abgemeldet"
+    val TEXTOHNEANTWORT = "Du hast noch nicht geantwortet"
+
 
 
     override fun onCreateView(
@@ -51,12 +59,13 @@ class EntryItemFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val preferences = requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE)
         var userEmail = preferences.getString("UserEmail", "").toString()
-
+        var teamAccessCode = preferences.getString("TeamAccessCode", "").toString()
+        var entryItemArray = args.entryItemArray
 
         // define a request
        // activity?.let { execTransaction(it) }
       //  var url : String = "https://cloud4b.space/caketowork/index.php"
-        var entryItemArray = args.entryItemArray
+
         anmeldeStatus(userEmail, entryItemArray[0])
         var icnEntryItemTime = IconMapper().getIcnName(entryItemArray[2])
         ivEntryItemTime.setImageResource(getResources().getIdentifier("space.cloud4b.ctw:drawable/$icnEntryItemTime",null,null))
@@ -99,6 +108,51 @@ class EntryItemFragment : Fragment() {
             buEntryItemDelete.visibility = View.VISIBLE
         } else {
             buEntryItemDelete.visibility = View.GONE
+        }
+
+        buEntryItemAnmelden.setOnClickListener() {
+            recalcTeilnehmer("1", entryItemArray)
+            buEntryItemAnmelden.isEnabled = false
+            buEntryItemAbmelden.isEnabled = true
+            buEntryItemReset.isEnabled = true
+            tvEntryItemStatusString.text = TEXTANGEMELDET
+            setAnmeldeStatus("1", userEmail, entryItemArray[0])
+        }
+        buEntryItemAbmelden.setOnClickListener() {
+            recalcTeilnehmer("2", entryItemArray)
+            buEntryItemAbmelden.isEnabled = false
+            buEntryItemAnmelden.isEnabled = true
+            buEntryItemReset.isEnabled = true
+            tvEntryItemStatusString.text = TEXTABGEMELDET
+            setAnmeldeStatus("2", userEmail, entryItemArray[0])
+        }
+        buEntryItemReset.setOnClickListener() {
+            recalcTeilnehmer("9", entryItemArray)
+            buEntryItemReset.isEnabled = false
+            buEntryItemAnmelden.isEnabled = true
+            buEntryItemAbmelden.isEnabled = true
+            tvEntryItemStatusString.text = TEXTOHNEANTWORT
+            setAnmeldeStatus("9", userEmail, entryItemArray[0])
+        }
+
+        buEntryItemDelete.setOnClickListener() {
+            val builder = AlertDialog.Builder(activity)
+            builder.setTitle("Diesen Eintrag löschen")
+            builder.setMessage("Soll dieser Eintrag wirklich gelöscht werden?")
+
+            builder.setPositiveButton("Ja") { dialog, which ->
+                delEntryElement(teamAccessCode, userEmail, entryItemArray[0])
+                Toast.makeText(activity,
+                    "Eintrag ${entryItemArray[0]} wird gelöscht", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_entryItemFragment_to_dashboard_fragment)
+            }
+
+            builder.setNegativeButton("Nein") { dialog, which ->
+                Toast.makeText(activity,
+                    "Aktion wurde abgebrochen", Toast.LENGTH_SHORT).show()
+            }
+
+            builder.show()
         }
       /*  entryItemArray[0] = cakeboardEntry.ListId
         entryItemArray[1] = cakeboardEntry.ListDate
@@ -153,15 +207,21 @@ class EntryItemFragment : Fragment() {
                 when (response) {
                     "1|0" -> {
                         buEntryItemAnmelden.isEnabled = false
-                        tvEntryItemStatusString.text = "Du hast Dich bereits angemeldet"
+                        buEntryItemAbmelden.isEnabled = true
+                        buEntryItemReset.isEnabled = true
+                        tvEntryItemStatusString.text = TEXTANGEMELDET
                     }
                     "0|1" -> {
                         buEntryItemAbmelden.isEnabled = false
-                        tvEntryItemStatusString.text = "Du hast Dich bereits abgemeldet"
+                        buEntryItemAnmelden.isEnabled = true
+                        buEntryItemReset.isEnabled = true
+                        tvEntryItemStatusString.text = TEXTABGEMELDET
                     }
                     "9|9" -> {
                         buEntryItemReset.isEnabled = false
-                        tvEntryItemStatusString.text = "Du hast noch nicht geantwortet"
+                        buEntryItemAnmelden.isEnabled = true
+                        buEntryItemAbmelden.isEnabled = true
+                        tvEntryItemStatusString.text = TEXTOHNEANTWORT
                     }
                 }
             },
@@ -170,5 +230,76 @@ class EntryItemFragment : Fragment() {
             })
         //add the call to the request queue
         requestQueue.add(request)
+    }
+
+    fun setAnmeldeStatus(status : String, userEmail: String, itemId: String) {
+        var url = "https://www.cloud4b.space/caketowork/ctwDoodleTrx.php"
+        url += "?ACT=setStatus"
+        url += "&Status=$status"
+        url += "&UserEmail=$userEmail"
+        url += "&ItemId=$itemId"
+        Log.i("URL", url)
+        val requestQueue = Volley.newRequestQueue(activity)
+        // define a request
+        val request = StringRequest(
+            Request.Method.GET, url,
+            Response.Listener<String> { response ->
+                Log.i("neuer Anmeldestatus = ", response)
+            },
+            Response.ErrorListener {
+                it.message?.let { it1 -> Log.e("******VOLLEYERROR", it1) }
+            })
+        //add the call to the request queue
+        requestQueue.add(request)
+    }
+
+    fun delEntryElement(teamAccessCode : String, userEmail: String, itemId: String) {
+        var url = "https://cloud4b.space/caketowork/delitem.php?TAC=1234567890&UserEmail=bernhard.kaempf@gmail.com&ItemId=53"
+    }
+
+    fun recalcTeilnehmer(status : String, entryItemArray : Array<String> ) {
+
+        // angemeldet
+        if(status == "1") {
+            entryItemArray[9] = (entryItemArray[9].toInt() + 1).toString()
+            tvEntryItemAngemeldet.text = entryItemArray[9] + " Personen sind angemeldet"
+            if(tvEntryItemStatusString.text.toString().equals(TEXTABGEMELDET)) {
+                entryItemArray[10] = (entryItemArray[10].toInt() - 1).toString()
+                tvEntryItemAbgemeldet.text = entryItemArray[10] + " Personen sind abgemeldet"
+            } else {
+                entryItemArray[11] = (entryItemArray[11].toInt() - 1).toString()
+                tvEntryItemOhneAntwort.text = entryItemArray[11] + " Personen sind unentschlossen"
+            }
+        }
+
+        // abgemeldet
+        if(status == "2") {
+            entryItemArray[10] = (entryItemArray[10].toInt() + 1).toString()
+            tvEntryItemAbgemeldet.text = entryItemArray[10] + " Personen sind abgemeldet"
+            if(tvEntryItemStatusString.text.toString().equals(TEXTANGEMELDET)) {
+                entryItemArray[9] = (entryItemArray[9].toInt() - 1).toString()
+                tvEntryItemAngemeldet.text = entryItemArray[9] + " Personen sind angemeldet"
+            } else {
+                entryItemArray[11] = (entryItemArray[11].toInt() - 1).toString()
+                tvEntryItemOhneAntwort.text = entryItemArray[11] + " Personen sind unentschlossen"
+            }
+        }
+
+        // abgemeldet
+        if(status == "9") {
+            entryItemArray[11] = (entryItemArray[11].toInt() + 1).toString()
+            tvEntryItemOhneAntwort.text = entryItemArray[11] + " Personen sind unentschlossen"
+
+            if(tvEntryItemStatusString.text.toString().equals(TEXTANGEMELDET)) {
+                entryItemArray[9] = (entryItemArray[9].toInt() - 1).toString()
+                tvEntryItemAngemeldet.text = entryItemArray[9] + " Personen sind angemeldet"
+            } else {
+                entryItemArray[10] = (entryItemArray[10].toInt() - 1).toString()
+                tvEntryItemAbgemeldet.text = entryItemArray[10] + " Personen sind abgemeldet"
+
+            }
+        }
+
+
     }
 }

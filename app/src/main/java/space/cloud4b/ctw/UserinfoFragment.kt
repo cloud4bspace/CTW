@@ -46,6 +46,7 @@ class UserinfoFragment : Fragment() {
              findNavController().navigate(R.id.action_userinfoFragment_to_emailFragment)
          }
          buReset.setOnClickListener() {
+             // TODO aus den Datenbanken muss auch alles gelöscht werden (z.B. An-/Abmeldungen für Termine)
              val builder = AlertDialog.Builder(activity)
              builder.setTitle("Profil zurücksetzen")
              builder.setMessage("Soll Dein Profil wirklich gelöscht werden?")

@@ -158,5 +158,8 @@
         <argument
             android:name="entryItemArray"
             app:argType="string[]" />
+        <action
+            android:id="@+id/action_entryItemFragment_to_dashboard_fragment"
+            app:destination="@id/dashboard_fragment" />
     </fragment>
 </navigation>
