@@ -37,6 +37,9 @@ class WelcomeFragment : Fragment() {
         ibWelcomeInfo.setOnClickListener() {
             findNavController().navigate(R.id.action_welcome_fragment_to_websiteOneFragment)
         }
+        ibWelcomeNewComp.setOnClickListener() {
+            findNavController().navigate(R.id.action_welcome_fragment_to_addCompanyFragment)
+        }
         val preferences = this.requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE)
         if(preferences.getString("UserStatus", "") != "OK") {
            //

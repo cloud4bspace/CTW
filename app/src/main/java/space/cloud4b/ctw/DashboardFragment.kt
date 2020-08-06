@@ -33,7 +33,7 @@ import java.time.format.FormatStyle
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
 class DashboardFragment : Fragment() {
-
+  // TODO app stürzt ab, wenn es noch keine Einträge in der Datebank gibt...
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
@@ -105,58 +105,96 @@ class DashboardFragment : Fragment() {
         val request = StringRequest(
             Request.Method.GET, url,
             Response.Listener<String> { response ->
+                if(response.isEmpty()) {
+                    llWatsNext.visibility = View.GONE
+                    tvDBWhatsNext.visibility = View.GONE
+                    divDBDividerI.visibility = View.GONE
+                    tvDBEventList.visibility = View.GONE
+                    divDBDividerII.visibility = View.GONE
 
-                println("Response: $response")
-                var responseList = response.split("|")
-                var date = LocalDate.parse(responseList[1])
-                tvNextEvent.text = date.format(
-                    DateTimeFormatter.ofLocalizedDate(
-                        FormatStyle.LONG))
-                tvVonWem.text = responseList[2]
+                } else {
+                    llWatsNext.visibility = View.VISIBLE
+                    tvDBWhatsNext.visibility = View.VISIBLE
+                    divDBDividerI.visibility = View.VISIBLE
+                    tvDBEventList.visibility = View.VISIBLE
+                    divDBDividerII.visibility = View.VISIBLE
+                    println("Response: $response")
+                    var responseList = response.split("|")
+                    var date = LocalDate.parse(responseList[1])
+                    tvNextEvent.text = date.format(
+                        DateTimeFormatter.ofLocalizedDate(
+                            FormatStyle.LONG
+                        )
+                    )
+                    tvVonWem.text = responseList[2]
 
-                //tvTZeit.text = getTagesZeitString(responseList[3].toInt())
-                // alle Icons auflisten
-                val lp = LinearLayout.LayoutParams(60, 60)
-                lp.setMargins(10, 10, 10, 10)
+                    //tvTZeit.text = getTagesZeitString(responseList[3].toInt())
+                    // alle Icons auflisten
+                    val lp = LinearLayout.LayoutParams(60, 60)
+                    lp.setMargins(10, 10, 10, 10)
 
-                var imageViewTime = ImageView(activity)
-                imageViewTime.setImageResource(getResources().getIdentifier("space.cloud4b.ctw:drawable/${IconMapper().getIcnName(responseList[4])}",null,null))
-                llContainerTop.addView(imageViewTime,20,20)
-                imageViewTime.setLayoutParams(lp)
+                    var imageViewTime = ImageView(activity)
+                    imageViewTime.setImageResource(
+                        getResources().getIdentifier(
+                            "space.cloud4b.ctw:drawable/${IconMapper().getIcnName(
+                                responseList[4]
+                            )}", null, null
+                        )
+                    )
+                    llContainerTop.addView(imageViewTime, 20, 20)
+                    imageViewTime.setLayoutParams(lp)
 
-                var imageViewReason = ImageView(activity)
-                imageViewReason.setImageResource(getResources().getIdentifier("space.cloud4b.ctw:drawable/${IconMapper().getIcnName(responseList[3])}",null,null))
-                llContainerTop.addView(imageViewReason, 20, 20)
-                imageViewReason.setLayoutParams(lp)
-                var newRow : LinearLayout = LinearLayout(activity)
-                for(x in 7 until responseList.size) {
+                    var imageViewReason = ImageView(activity)
+                    imageViewReason.setImageResource(
+                        getResources().getIdentifier(
+                            "space.cloud4b.ctw:drawable/${IconMapper().getIcnName(
+                                responseList[3]
+                            )}", null, null
+                        )
+                    )
+                    llContainerTop.addView(imageViewReason, 20, 20)
+                    imageViewReason.setLayoutParams(lp)
+                    var newRow: LinearLayout = LinearLayout(activity)
+                    for (x in 7 until responseList.size) {
 
-                    newRow.orientation = LinearLayout.HORIZONTAL;
+                        newRow.orientation = LinearLayout.HORIZONTAL;
 
-                    if(x<19) {
-                        var newImage = ImageView(activity)
-                        newImage.setImageResource(getResources().getIdentifier("space.cloud4b.ctw:drawable/${IconMapper().getIcnName(responseList[x])}",null,null))
-                        llIcnContainer.addView(newImage, 20, 20)
-                        newImage.setLayoutParams(lp)
-                    } else {
-                        if(x == 19) {
-                            llWatsNext.addView(newRow)
+                        if (x < 19) {
+                            var newImage = ImageView(activity)
+                            newImage.setImageResource(
+                                getResources().getIdentifier(
+                                    "space.cloud4b.ctw:drawable/${IconMapper().getIcnName(
+                                        responseList[x]
+                                    )}", null, null
+                                )
+                            )
+                            llIcnContainer.addView(newImage, 20, 20)
+                            newImage.setLayoutParams(lp)
+                        } else {
+                            if (x == 19) {
+                                llWatsNext.addView(newRow)
+                            }
+                            var newImage = ImageView(activity)
+                            newImage.setImageResource(
+                                getResources().getIdentifier(
+                                    "space.cloud4b.ctw:drawable/${IconMapper().getIcnName(
+                                        responseList[x]
+                                    )}", null, null
+                                )
+                            )
+                            newRow.addView(newImage, 20, 20)
+                            newImage.setLayoutParams(lp)
                         }
-                        var newImage = ImageView(activity)
-                        newImage.setImageResource(getResources().getIdentifier("space.cloud4b.ctw:drawable/${IconMapper().getIcnName(responseList[x])}",null,null))
-                        newRow.addView(newImage, 20, 20)
-                        newImage.setLayoutParams(lp)
                     }
-                }
 
-            /*    var newRow = LinearLayout(activity)
+                    /*    var newRow = LinearLayout(activity)
                 llWatsNext.addView(newRow)
                 var newImage = ImageView(activity)
                 newImage.setImageResource(getResources().getIdentifier("space.cloud4b.ctw:drawable/${IconMapper().getIcnName(responseList[1])}",null,null))
 
                 newRow.addView(newImage, 20, 20)
                 newImage.setLayoutParams(lp)*/
-
+                }
 
             },
             Response.ErrorListener {

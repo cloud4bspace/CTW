@@ -8,10 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.ImageButton
-import android.widget.RadioButton
-import android.widget.Spinner
+import android.widget.*
 import androidx.navigation.fragment.findNavController
 import com.android.volley.Request
 import com.android.volley.Response
@@ -99,6 +96,19 @@ class RegisterStepOneFragment : Fragment() {
                 findNavController().navigate(R.id.action_registerStepOneFragment_to_registerStepTwoFragment)
             }
         }
+        spOrg.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                val selectedItem = parent.getItemAtPosition(position).toString()
+                if (selectedItem == "Neue Firma hinzufügen..") {
+                    Log.i("debug", "neue Firma hinzufügen..")
+                    findNavController().navigate(R.id.action_registerStepOneFragment_to_addCompanyFragment)
+                }
+            } // to close the onItemSelected
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+
+            }
+        }
     }
 
     fun validation() : Boolean {
@@ -153,7 +163,8 @@ class RegisterStepOneFragment : Fragment() {
             Response.Listener<String> { response ->
                 Log.i("Response from URL", response)
                // var list = ArrayList<String>()
-                var list = response.split("|") as ArrayList<String>
+                var responseNeu = "Firma wählen..|Neue Firma hinzufügen..|" + response
+                var list = responseNeu.split("|") as ArrayList<String>
                 val aa = ArrayAdapter<String>(x,android.R.layout.simple_spinner_item,list)
                 spOrg.adapter = aa
             },

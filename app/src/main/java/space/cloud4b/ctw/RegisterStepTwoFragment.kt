@@ -73,7 +73,7 @@ class RegisterStepTwoFragment : Fragment() {
             Response.Listener<String> { response ->
                 Log.i("Response from URL", response)
                 // var list = ArrayList<String>()
-                var responseNeu = "Team wählen..|" + response
+                var responseNeu = "Team wählen..|Neues Team hinzufügen..|" + response
                 var list = responseNeu.split("|") as ArrayList<String>
 
                 val aa = ArrayAdapter<String>(x,android.R.layout.simple_spinner_item,list)

@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_welcome_fragment_to_websiteOneFragment"
             app:destination="@id/websiteOneFragment" />
+        <action
+            android:id="@+id/action_welcome_fragment_to_addCompanyFragment"
+            app:destination="@id/addCompanyFragment" />
     </fragment>
     <fragment
         android:id="@+id/dashboard_fragment"
@@ -72,6 +75,9 @@
         <action
             android:id="@+id/action_registerStepOneFragment_to_registerStepTwoFragment"
             app:destination="@id/registerStepTwoFragment" />
+        <action
+            android:id="@+id/action_registerStepOneFragment_to_addCompanyFragment"
+            app:destination="@id/addCompanyFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerStepTwoFragment"
@@ -161,5 +167,13 @@
         <action
             android:id="@+id/action_entryItemFragment_to_dashboard_fragment"
             app:destination="@id/dashboard_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCompanyFragment"
+        android:name="space.cloud4b.ctw.AddCompanyFragment"
+        android:label="AddCompanyFragment" >
+        <action
+            android:id="@+id/action_addCompanyFragment_to_welcome_fragment"
+            app:destination="@id/welcome_fragment" />
     </fragment>
 </navigation>

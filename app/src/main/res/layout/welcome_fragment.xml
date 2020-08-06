@@ -16,16 +16,20 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView14"
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_register_title2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_margin="5dp"
+            android:text="Willkommen bei Cake To Work"
+            android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/textView17"
-            android:layout_width="wrap_content"
+            android:id="@+id/textView20"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_margin="5dp"
+            android:text="Das ultimative Planungstool für Dein Team"
+            android:textColor="@color/secondaryColor" />
 
         <TableLayout
             android:layout_width="match_parent"
@@ -40,7 +44,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginRight="10dp"
                     android:gravity="center_horizontal"
                     android:orientation="vertical">
 
@@ -64,7 +68,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="10dp"
                     android:gravity="center_horizontal"
                     android:orientation="vertical">
 
@@ -98,7 +102,7 @@
                     android:id="@+id/llLogin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginRight="10dp"
                     android:gravity="center_horizontal"
                     android:orientation="vertical">
 
@@ -123,7 +127,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="10dp"
                     android:gravity="center_horizontal"
                     android:orientation="vertical">
 

@@ -27,7 +27,7 @@
             android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tvDBWhatsNext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -36,7 +36,7 @@
             android:textColor="@color/secondaryColor" />
 
         <View
-            android:id="@+id/divider3"
+            android:id="@+id/divDBDividerI"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="?android:attr/listDivider" />
@@ -153,7 +153,7 @@
         </androidx.gridlayout.widget.GridLayout>
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/tvDBEventList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -162,7 +162,7 @@
             android:textColor="@color/secondaryColor" />
 
         <View
-            android:id="@+id/divider12"
+            android:id="@+id/divDBDividerII"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="?android:attr/listDivider" />
