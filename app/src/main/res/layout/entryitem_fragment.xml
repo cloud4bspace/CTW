@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F4F0EF">
 
     <ProgressBar
         android:id="@+id/pbEntryItem"
@@ -76,8 +76,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="TextView"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
@@ -100,14 +99,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
                         android:text="TextView"
-                        android:textSize="14sp" />
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/tvEntryItemAlias"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="TextView"
-                        android:textSize="14sp" />
+                        android:textSize="18sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -128,7 +127,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="TextView"
-                        android:textSize="14sp" />
+                        android:textSize="18sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -149,7 +148,7 @@
                         android:id="@+id/tvEntryItemDescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="14sp" />
+                        android:textSize="18sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -157,7 +156,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
-                    android:padding="5dp"/>
+                    android:padding="5dp" />
 
             </LinearLayout>
 
@@ -209,7 +208,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
                         android:text="TextView"
-                        android:textSize="14sp" />
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
@@ -230,7 +229,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="TextView"
-                        android:textSize="14sp" />
+                        android:textSize="18sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -251,7 +250,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
                         android:text="TextView"
-                        android:textSize="14sp" />
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
@@ -261,7 +260,8 @@
                     android:layout_height="wrap_content"
                     android:paddingStart="5dp"
                     android:paddingEnd="5dp"
-                    android:text="du bist schon angemeldet" />
+                    android:text="du bist schon angemeldet"
+                    android:textSize="18sp" />
 
             </LinearLayout>
 
@@ -307,48 +307,100 @@
                         android:layout_weight="1"
                         android:orientation="horizontal">
 
-                        <Button
-                            android:id="@+id/buEntryItemAnmelden"
-                            style="@style/Widget.AppCompat.Button.Small"
+                        <LinearLayout
+                            android:id="@+id/llAnmelden"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_margin="5dp"
                             android:layout_weight="1"
-                            android:drawableStart="@drawable/rf_icn_good"
-                            android:drawablePadding="5dp"
-                            android:elevation="10dp"
-                            android:gravity="fill_vertical"
-                            android:text="anmelden"
-                            android:textAllCaps="false"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textColorLink="@color/secondaryColor" />
+                            android:orientation="vertical">
 
-                        <Button
-                            android:id="@+id/buEntryItemAbmelden"
-                            style="@style/Widget.AppCompat.Button.Small"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_weight="1"
-                            android:drawableStart="@drawable/rf_icn_bad"
-                            android:drawablePadding="5dp"
-                            android:text="abmelden"
-                            android:textAllCaps="false"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="anmelden"
+                                android:textSize="18sp" />
 
-                        <Button
-                            android:id="@+id/buEntryItemReset"
-                            style="@style/Widget.AppCompat.Button.Small"
+                            <ImageView
+                                android:id="@+id/ivAnmelden"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:srcCompat="@drawable/icn_good" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/llAbmelden"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
                             android:layout_weight="1"
-                            android:drawableStart="@drawable/rf_icn_question"
-                            android:drawablePadding="5dp"
-                            android:text="reset"
-                            android:textAllCaps="false"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="abmelden"
+                                android:textSize="18sp" />
+
+                            <ImageView
+                                android:id="@+id/imageView"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:srcCompat="@drawable/icn_bad" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/llReset"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="reset"
+                                android:textSize="18sp" />
+
+                            <ImageView
+                                android:id="@+id/imageView"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:srcCompat="@drawable/icn_question" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/llShowParticipants"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Teilnehmer"
+                                android:textSize="18sp" />
+
+                            <ImageView
+                                android:id="@+id/imageView"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:srcCompat="@drawable/icn_myteam" />
+                        </LinearLayout>
+
                     </LinearLayout>
 
                     <Button

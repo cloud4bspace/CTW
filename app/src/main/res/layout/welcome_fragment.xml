@@ -62,7 +62,7 @@
                         android:id="@+id/ibWelcomeNewComp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/icn_newb2" />
+                        android:src="@drawable/icn_company128" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -86,7 +86,7 @@
                         android:id="@+id/ibWelcomeNewTeam"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/icn_newa2" />
+                        android:src="@drawable/icn_team128" />
 
                 </LinearLayout>
 

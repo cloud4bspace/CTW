@@ -18,7 +18,7 @@ import java.net.URL
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class ItemslistFragment : Fragment() {
-    var dataList = ArrayList<HashMap<String, String>>()
+   /* var dataList = ArrayList<HashMap<String, String>>()
 
 
     override fun onCreateView(
@@ -81,7 +81,7 @@ class ItemslistFragment : Fragment() {
 
             lvItemlist.adapter = activity?.let { CustomAdapterOne(it, dataList) }
         }
-    }
+    }*/
 
 }
 

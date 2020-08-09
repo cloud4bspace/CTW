@@ -109,8 +109,37 @@ class EntryItemFragment : Fragment() {
         } else {
             buEntryItemDelete.visibility = View.GONE
         }
+        llAnmelden.setOnClickListener() {
+            recalcTeilnehmer("1", entryItemArray)
+            llAnmelden.visibility = View.GONE
+            llAbmelden.visibility = View.VISIBLE
+            llReset.visibility = View.VISIBLE
+            tvEntryItemStatusString.text = TEXTANGEMELDET
+            setAnmeldeStatus("1", userEmail, entryItemArray[0])
+        }
 
-        buEntryItemAnmelden.setOnClickListener() {
+        llAbmelden.setOnClickListener() {
+            recalcTeilnehmer("2", entryItemArray)
+            llAbmelden.visibility = View.GONE
+            llAnmelden.visibility = View.VISIBLE
+            llReset.visibility = View.VISIBLE
+            tvEntryItemStatusString.text = TEXTABGEMELDET
+            setAnmeldeStatus("2", userEmail, entryItemArray[0])
+        }
+
+        llReset.setOnClickListener() {
+            recalcTeilnehmer("9", entryItemArray)
+            llReset.visibility = View.GONE
+            llAbmelden.visibility = View.VISIBLE
+            llAnmelden.visibility = View.VISIBLE
+            tvEntryItemStatusString.text = TEXTOHNEANTWORT
+            setAnmeldeStatus("9", userEmail, entryItemArray[0])
+        }
+
+        llShowParticipants.setOnClickListener() {
+            findNavController().navigate(R.id.action_entryItemFragment_to_participantslistFragment)
+        }
+    /*    buEntryItemAnmelden.setOnClickListener() {
             recalcTeilnehmer("1", entryItemArray)
             buEntryItemAnmelden.isEnabled = false
             buEntryItemAbmelden.isEnabled = true
@@ -134,6 +163,8 @@ class EntryItemFragment : Fragment() {
             tvEntryItemStatusString.text = TEXTOHNEANTWORT
             setAnmeldeStatus("9", userEmail, entryItemArray[0])
         }
+
+     */
 
         buEntryItemDelete.setOnClickListener() {
             val builder = AlertDialog.Builder(activity)
@@ -206,21 +237,15 @@ class EntryItemFragment : Fragment() {
                 Log.i("Response from URL", response)
                 when (response) {
                     "1|0" -> {
-                        buEntryItemAnmelden.isEnabled = false
-                        buEntryItemAbmelden.isEnabled = true
-                        buEntryItemReset.isEnabled = true
+                        llAnmelden.visibility = View.GONE
                         tvEntryItemStatusString.text = TEXTANGEMELDET
                     }
                     "0|1" -> {
-                        buEntryItemAbmelden.isEnabled = false
-                        buEntryItemAnmelden.isEnabled = true
-                        buEntryItemReset.isEnabled = true
+                        llAbmelden.visibility = View.GONE
                         tvEntryItemStatusString.text = TEXTABGEMELDET
                     }
                     "9|9" -> {
-                        buEntryItemReset.isEnabled = false
-                        buEntryItemAnmelden.isEnabled = true
-                        buEntryItemAbmelden.isEnabled = true
+                        llReset.visibility = View.GONE
                         tvEntryItemStatusString.text = TEXTOHNEANTWORT
                     }
                 }
@@ -253,8 +278,22 @@ class EntryItemFragment : Fragment() {
         requestQueue.add(request)
     }
 
-    fun delEntryElement(teamAccessCode : String, userEmail: String, itemId: String) {
-        var url = "https://cloud4b.space/caketowork/delitem.php?TAC=1234567890&UserEmail=bernhard.kaempf@gmail.com&ItemId=53"
+    fun delEntryElement(teamAccessCode: String, userEmail: String, entryId: String) {
+        var url = "https://cloud4b.space/caketowork/delitem.php?TAC=$teamAccessCode&UserEmail=$userEmail&ItemId=$entryId"
+        Log.i("URL", url)
+        Log.i("Debug", "fun delEntryElement")
+        val requestQueue = Volley.newRequestQueue(activity)
+        // define a request
+        val request = StringRequest(
+            Request.Method.GET, url,
+            Response.Listener<String> { response ->
+                Log.i("Response from URL (delitem.php)", response)
+            },
+            Response.ErrorListener {
+                it.message?.let { it1 -> Log.e("******VOLLEYERROR", it1) }
+            })
+        //add the call to the request queue
+        requestQueue.add(request)
     }
 
     fun recalcTeilnehmer(status : String, entryItemArray : Array<String> ) {

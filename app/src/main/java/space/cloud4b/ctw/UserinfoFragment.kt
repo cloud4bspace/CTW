@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,11 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import kotlinx.android.synthetic.main.add_team_fragment.*
 
 import kotlinx.android.synthetic.main.userinfo_fragment.*
 
@@ -54,8 +60,10 @@ class UserinfoFragment : Fragment() {
              builder.setPositiveButton("Ja") { dialog, which ->
                  Toast.makeText(activity,
                      "Ja", Toast.LENGTH_SHORT).show()
+                 val preferences = this.requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE)
+                 deleteUser(preferences.getString("UserEmail", ""), preferences.getString("TeamAccessCode", ""))
                  val editor = this.requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE).edit()
-                 editor.putString("UserStatus", "DEL")
+                 editor.clear()
                  editor.apply()
                  // restart App (fab will be invisible after
                  val i: Intent? = requireActivity().getPackageManager()
@@ -73,6 +81,26 @@ class UserinfoFragment : Fragment() {
              builder.show()
 
          }
+
+    }
+
+    private fun deleteUser(userEmail: String?, teamAccessCode: String?) {
+        var url = "https://cloud4b.space/caketowork/deleteuser.php"
+        url += "?UserEmail=$userEmail"
+        url += "&TAC=$teamAccessCode"
+        Log.i("Debug", "fun deleteUser")
+        val requestQueue = Volley.newRequestQueue(activity)
+        // define a request
+        val request = StringRequest(
+            Request.Method.GET, url,
+            Response.Listener<String> { response ->
+                Log.i("Response from URL (deleteuser.php)", response)
+            },
+            Response.ErrorListener {
+                it.message?.let { it1 -> Log.e("******VOLLEYERROR", it1) }
+            })
+        //add the call to the request queue
+        requestQueue.add(request)
 
     }
 

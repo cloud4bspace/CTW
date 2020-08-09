@@ -40,6 +40,11 @@ class WelcomeFragment : Fragment() {
         ibWelcomeNewComp.setOnClickListener() {
             findNavController().navigate(R.id.action_welcome_fragment_to_addCompanyFragment)
         }
+        ibWelcomeNewTeam.setOnClickListener()
+        {
+            findNavController().navigate(R.id.action_welcome_fragment_to_addTeamFragment)
+        }
+
         val preferences = this.requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE)
         if(preferences.getString("UserStatus", "") != "OK") {
            //

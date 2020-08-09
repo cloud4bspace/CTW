@@ -1,6 +1,7 @@
 package space.cloud4b.ctw
 
 import android.content.Context
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -33,6 +34,7 @@ import java.time.format.FormatStyle
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
 class DashboardFragment : Fragment() {
+    var entryItemArray = Array<String>(13){"9999"}
   // TODO app stürzt ab, wenn es noch keine Einträge in der Datebank gibt...
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -92,6 +94,14 @@ class DashboardFragment : Fragment() {
             val toast = Toast.makeText(activity,text,  duration)
             toast.show()
         }
+
+        cvWhatsNext.setOnClickListener() {
+
+            val action = DashboardFragmentDirections.actionDashboardFragmentToEntryItemFragment(entryItemArray)
+
+            findNavController().navigate(action)
+
+        }
     }
 
 
@@ -113,6 +123,7 @@ class DashboardFragment : Fragment() {
                     divDBDividerII.visibility = View.GONE
 
                 } else {
+
                     llWatsNext.visibility = View.VISIBLE
                     tvDBWhatsNext.visibility = View.VISIBLE
                     divDBDividerI.visibility = View.VISIBLE
@@ -120,13 +131,29 @@ class DashboardFragment : Fragment() {
                     divDBDividerII.visibility = View.VISIBLE
                     println("Response: $response")
                     var responseList = response.split("|")
+                    entryItemArray[0] = responseList[0]
+                    entryItemArray[6] = responseList[2]
+                    entryItemArray[1] = responseList[1]
+                    entryItemArray[3] = responseList[3]
+                    entryItemArray[2] = responseList[4]
+                    entryItemArray[4] = responseList[6]
+                    entryItemArray[7] = responseList[7] // UserAlias
+                    entryItemArray[8] = responseList[8] // Avatar
+                    entryItemArray[12] = responseList[9] // UserEmail
+                    entryItemArray[9] = responseList[10] // angemeldet
+                    entryItemArray[10] = responseList[11] // abgemeldet
+                    entryItemArray[11] = responseList[12] // keine antwort
+                    entryItemArray[5] = responseList[13] // FoodList
+
                     var date = LocalDate.parse(responseList[1])
+
                     tvNextEvent.text = date.format(
                         DateTimeFormatter.ofLocalizedDate(
                             FormatStyle.LONG
                         )
                     )
                     tvVonWem.text = responseList[2]
+
 
                     //tvTZeit.text = getTagesZeitString(responseList[3].toInt())
                     // alle Icons auflisten
@@ -155,7 +182,7 @@ class DashboardFragment : Fragment() {
                     llContainerTop.addView(imageViewReason, 20, 20)
                     imageViewReason.setLayoutParams(lp)
                     var newRow: LinearLayout = LinearLayout(activity)
-                    for (x in 7 until responseList.size) {
+                    for (x in 13 until responseList.size) {
 
                         newRow.orientation = LinearLayout.HORIZONTAL;
 
@@ -187,13 +214,6 @@ class DashboardFragment : Fragment() {
                         }
                     }
 
-                    /*    var newRow = LinearLayout(activity)
-                llWatsNext.addView(newRow)
-                var newImage = ImageView(activity)
-                newImage.setImageResource(getResources().getIdentifier("space.cloud4b.ctw:drawable/${IconMapper().getIcnName(responseList[1])}",null,null))
-
-                newRow.addView(newImage, 20, 20)
-                newImage.setLayoutParams(lp)*/
                 }
 
             },

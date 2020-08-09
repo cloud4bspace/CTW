@@ -1,6 +1,7 @@
 package space.cloud4b.ctw
 
 import android.graphics.drawable.BitmapDrawable
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,9 +12,12 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.additem_steptwo_fragment.*
+import kotlinx.android.synthetic.main.entryitem_fragment.*
 import kotlinx.android.synthetic.main.register_stepone_fragment.*
 import org.jetbrains.anko.backgroundResource
 import org.jetbrains.anko.image
+import space.cloud4b.ctw.services.IconMapper
+import space.cloud4b.ctw.services.SoundMapper
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -59,7 +63,6 @@ class AdditemStepTwoFragment : Fragment() {
                 } else {
                     immageButton.clearColorFilter()
                     tvReason.setText(immageButton.contentDescription)
-
                     newEntryArray[2] = immageButton.contentDescription.toString()
                     for(j in 0 until glReasonIcns.childCount) {
                         if(glReasonIcns.getChildAt(j) != immageButton) {

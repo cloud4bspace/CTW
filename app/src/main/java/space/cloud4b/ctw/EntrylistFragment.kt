@@ -51,8 +51,6 @@ class EntrylistFragment : Fragment() {
         //add the call to the request queue
         requestQueue.add(request)
 
-
-
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.entrylist_fragment, container, false)
     }

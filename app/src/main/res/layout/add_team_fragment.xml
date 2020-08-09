@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterStepOneFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_register_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Neues Team anlegen"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Organisation wählen und Teambezeichnung eingeben"
+            android:textColor="@color/secondaryColor" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/icn_office" />
+
+            <Spinner
+                android:id="@+id/spAddTeamOrg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:dropDownWidth="wrap_content"
+                android:minHeight="40dp"
+                android:spinnerMode="dialog" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/etAddTeamTeam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/rf_icn_team"
+            android:drawablePadding="16dp"
+            android:enabled="false"
+            android:hint="Teambezeichnung"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:paddingStart="10dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:singleLine="true" />
+
+        <EditText
+            android:id="@+id/etAddTeamRegCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:drawableStart="@drawable/rf_icn_login"
+            android:drawablePadding="16dp"
+            android:hint="Registrierungscode"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:paddingStart="10dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:singleLine="true"
+            android:textColor="@color/secondaryColor"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvAddTeamInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:padding="5dp"
+            android:textColor="@color/secondaryColor"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/buAddTeamSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:capitalize="characters"
+            android:text="weiter" />
+
+        <Button
+            android:id="@+id/buAddTeamWelcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="zurück"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,6 +23,9 @@
         <action
             android:id="@+id/action_welcome_fragment_to_addCompanyFragment"
             app:destination="@id/addCompanyFragment" />
+        <action
+            android:id="@+id/action_welcome_fragment_to_addTeamFragment"
+            app:destination="@id/addTeamFragment" />
     </fragment>
     <fragment
         android:id="@+id/dashboard_fragment"
@@ -48,6 +51,9 @@
         <action
             android:id="@+id/action_dashboard_fragment_to_chatlistFragment"
             app:destination="@id/chatlistFragment" />
+        <action
+            android:id="@+id/action_dashboard_fragment_to_entryItemFragment"
+            app:destination="@id/entryItemFragment" />
     </fragment>
     <fragment
         android:id="@+id/additemFragment"
@@ -167,6 +173,9 @@
         <action
             android:id="@+id/action_entryItemFragment_to_dashboard_fragment"
             app:destination="@id/dashboard_fragment" />
+        <action
+            android:id="@+id/action_entryItemFragment_to_participantslistFragment"
+            app:destination="@id/participantslistFragment" />
     </fragment>
     <fragment
         android:id="@+id/addCompanyFragment"
@@ -176,4 +185,19 @@
             android:id="@+id/action_addCompanyFragment_to_welcome_fragment"
             app:destination="@id/welcome_fragment" />
     </fragment>
+    <fragment
+        android:id="@+id/addTeamFragment"
+        android:name="space.cloud4b.ctw.AddTeamFragment"
+        android:label="AddTeamFragment" >
+        <action
+            android:id="@+id/action_addTeamFragment_to_welcome_fragment"
+            app:destination="@id/welcome_fragment" />
+        <action
+            android:id="@+id/action_addTeamFragment_to_addCompanyFragment"
+            app:destination="@id/addCompanyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/participantslistFragment"
+        android:name="space.cloud4b.ctw.ParticipantslistFragment"
+        android:label="ParticipantslistFragment" />
 </navigation>
