@@ -7,6 +7,7 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
@@ -28,7 +29,8 @@ import space.cloud4b.ctw.services.DoodleAdapter
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class ParticipantslistFragment : Fragment() {
-    var entryItemArray = Array<String>(13){"9999"}
+    val args: EntryItemFragmentArgs by navArgs()
+  //  var entryItemArray = Array<String>(13){"9999"}
 
 
    // https://cloud4b.space/caketowork/ctwdoodle.php?ItemId=17
@@ -37,9 +39,11 @@ class ParticipantslistFragment : Fragment() {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
+        var entryItemArray = args.entryItemArray
+        Log.i("Debug ParticipanslistFragment", entryItemArray[0])
         val requestQueue = Volley.newRequestQueue(activity)
         var url = "https://cloud4b.space/caketowork/ctwdoodle.php"
-        url += "?ItemId=17" // TODO das muss dynamisch sein dann..
+        url += "?ItemId=${entryItemArray[0]}" 
         // define a request
         val request = StringRequest(Request.Method.GET, url,
             Response.Listener<String> { response ->

@@ -137,7 +137,10 @@ class EntryItemFragment : Fragment() {
         }
 
         llShowParticipants.setOnClickListener() {
-            findNavController().navigate(R.id.action_entryItemFragment_to_participantslistFragment)
+           // findNavController().navigate(R.id.action_entryItemFragment_to_participantslistFragment)
+            val action = EntryItemFragmentDirections.actionEntryItemFragmentToParticipantslistFragment(entryItemArray)
+            findNavController().navigate(action)
+         //   val action = EntrylistFragmentDirections.actionEntrylistFragmentToEntryItemFragment(entryItemArray)
         }
     /*    buEntryItemAnmelden.setOnClickListener() {
             recalcTeilnehmer("1", entryItemArray)

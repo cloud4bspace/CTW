@@ -199,5 +199,9 @@
     <fragment
         android:id="@+id/participantslistFragment"
         android:name="space.cloud4b.ctw.ParticipantslistFragment"
-        android:label="ParticipantslistFragment" />
+        android:label="ParticipantslistFragment" >
+        <argument
+            android:name="entryItemArray"
+            app:argType="string[]" />
+    </fragment>
 </navigation>
