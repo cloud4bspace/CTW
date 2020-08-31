@@ -24,12 +24,6 @@
             android:padding="5dp">
 
             <ImageView
-                android:id="@+id/ivParticipantStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_baseline_cake_24" />
-
-            <ImageView
                 android:id="@+id/ivParticipantAvatar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -43,6 +37,12 @@
                 android:text="TextView"
                 android:textColor="@color/secondaryColor"
                 android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/ivParticipantStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_baseline_cake_24" />
 
         </LinearLayout>
 

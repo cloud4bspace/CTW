@@ -1,6 +1,7 @@
 package space.cloud4b.ctw
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.additem_stepthree_fragment.*
 import kotlinx.android.synthetic.main.additem_steptwo_fragment.*
 import kotlinx.android.synthetic.main.additem_steptwo_fragment.tvReason
+import space.cloud4b.ctw.model.NewCakeboardEntry
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -38,6 +40,7 @@ class AdditemStepThreeFragment : Fragment() {
         buAddItemGotoStepFour.setOnClickListener() {
             if(validation()) {
                 newEntryArray[4] = getBeverageStringList()
+                NewCakeboardEntry.beverages = getBeverageStringList()
                 val action = AdditemStepThreeFragmentDirections.actionAdditemStepThreeFragmentToAdditemStepFourFragment(newEntryArray)
                 findNavController().navigate(action)
             }

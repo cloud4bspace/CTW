@@ -19,7 +19,10 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.additem_stepfour_fragment.*
 import kotlinx.android.synthetic.main.dashboard_fragment.*
+import space.cloud4b.ctw.model.NewCakeboardEntry
 import space.cloud4b.ctw.services.IconMapper
+import java.net.URLDecoder
+import java.net.URLEncoder
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
@@ -58,7 +61,7 @@ class AdditemStepFourFragment : Fragment() {
             it.setVisibility(View.GONE)
             buShowDashboard.setVisibility(View.VISIBLE)
             //stopButton.setVisibility(View.VISIBLE);
-            postNewEntry(newEntryArray)
+            postNewEntry(newEntryArray) // TODO übergabe des Arrays ist am Ende obsolet
         }
 
         buShowDashboard.setOnClickListener() {
@@ -69,7 +72,9 @@ class AdditemStepFourFragment : Fragment() {
     fun postNewEntry(newEntryArray: Array<String>) {
         val preferences = requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE)
         val tac = preferences.getString("TeamAccessCode", "")
+        NewCakeboardEntry.tac = preferences.getString("TeamAccessCode", "").toString()
         val userEmail = preferences.getString("UserEmail", "")
+        NewCakeboardEntry.userEmail = preferences.getString("UserEmail", "").toString()
         var url = "https://cloud4b.space/caketowork/addnewitem.php"
         url += "?TAC=$tac"
         url += "&UserEmail=$userEmail"
@@ -78,8 +83,21 @@ class AdditemStepFourFragment : Fragment() {
         url += "&Reason=${newEntryArray[2]}"
         url += "&Infos=${newEntryArray[3]}"
         url += "&Beverages=${newEntryArray[4]}"
-        Log.i("SQL", url)
 
+        // TODO URLDecoder: es ist mir unklar, was zu tun ist..
+        Log.i("Regex.escapeReplacement()", Regex.escapeReplacement(url))
+        Log.i("Regex escape-Test", Regex.escape(url))
+        Log.i("Result of URLEncoder", URLEncoder.encode(url))
+        Log.i("Result of URLDecoder", URLDecoder.decode(URLEncoder.encode(url)))
+
+        Log.i("SQL", url)
+        Log.i("Step 4 Summary", "tac: ${NewCakeboardEntry.tac}")
+        Log.i("Step 4 Summary", "userEmail: ${NewCakeboardEntry.userEmail}")
+        Log.i("Step 4 Summary", "date: ${NewCakeboardEntry.date}")
+        Log.i("Step 4 Summary", "time: ${NewCakeboardEntry.time}")
+        Log.i("Step 4 Summary", "reason: ${NewCakeboardEntry.reason}")
+        Log.i("Step 4 Summary", "infos: ${NewCakeboardEntry.infos}")
+        Log.i("Step 4 Summary", "beverages: ${NewCakeboardEntry.beverages}")
         val requestQueue = Volley.newRequestQueue(activity)
         // define a request
         val request = StringRequest(
@@ -87,12 +105,16 @@ class AdditemStepFourFragment : Fragment() {
             Response.Listener<String> { response ->
               // Log.i("Response", response)
                 if(response.equals("1")) {
+                    // object NewCakeBoardEntry zurücksetzen (soweit notwendig)
+                    NewCakeboardEntry.infos = ""
+                    // Rückmeldung anzeigen
                     val toast = Toast.makeText(activity, "Dein Team freut sich!", Toast.LENGTH_LONG)
                     toast.show()
+                    // Bild anzeigen
                     val lp = LinearLayout.LayoutParams(700, 700)
                     lp.setMargins(10, 10, 10, 10)
                     lp.gravity = Gravity.HORIZONTAL_GRAVITY_MASK;
-                    lp.marginStart = 150 // TODO Bild sollte eigentlich zentriert werden können...
+                    lp.marginStart = 150
                     var newImage = ImageView(activity)
                     newImage.setImageResource(
                         getResources().getIdentifier(
@@ -106,18 +128,6 @@ class AdditemStepFourFragment : Fragment() {
                 } else {
                     val toast = Toast.makeText(activity, "Da hat etwas nicht geklappt", Toast.LENGTH_SHORT)
                     toast.show()
-                    val lp = LinearLayout.LayoutParams(700, 700)
-                    lp.setMargins(10, 10, 10, 10)
-                    var newImage = ImageView(activity)
-                    newImage.setImageResource(
-                        getResources().getIdentifier(
-                            "space.cloud4b.ctw:drawable/icn_happyteam",
-                            null,
-                            null
-                        )
-                    )
-                    llSummaryContainer.addView(newImage, 20, 20)
-                    newImage.setLayoutParams(lp)
                 }
 
             },

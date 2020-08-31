@@ -64,7 +64,7 @@ class EntrylistFragment : Fragment() {
             // val toast = Toast.makeText(activity,selectedEntry.toString(),  duration)
             var adapter = parent.getAdapter()
             var cakeboardEntry : CakeboardEntry = adapter.getItem(position) as CakeboardEntry
-            // TODO ich muss das hier casten damit ich auf der ChatMEssage-Klasse die methoden aufrufen kann!
+
             // val toast = Toast.makeText(activity, selectedEntry.toString(), duration)
             val toast = Toast.makeText(activity, "öffne Eintrag # ${cakeboardEntry.ListId}", duration)
             toast.show()

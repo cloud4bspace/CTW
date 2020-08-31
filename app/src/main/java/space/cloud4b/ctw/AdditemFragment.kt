@@ -19,6 +19,8 @@ import kotlinx.android.synthetic.main.additem_steptwo_fragment.*
 import kotlinx.android.synthetic.main.dashboard_fragment.*
 
 import kotlinx.android.synthetic.main.register_steptwo_fragment.*
+import space.cloud4b.ctw.model.NewCakeboardEntry
+import java.net.URLEncoder
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -92,33 +94,36 @@ class AdditemFragment : Fragment() {
         when(progress) {
             1 -> {
                 tvTageszeit.text = "Znüni (Vormittag)"
-                newEntryArray[1] = "1"
+                newEntryArray[1] = "1"                // TODO bereinigen
+                NewCakeboardEntry.time = "1"
                 ivAM.clearColorFilter()
                 ivPM.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY)
                 ivApero.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY)
             }
             2 -> {
                 tvTageszeit.text = "Zvieri (Nachmittag)"
-                newEntryArray[1] = "2"
+                newEntryArray[1] = "2"                // TODO bereinigen
+                NewCakeboardEntry.time = "2"
                 ivPM.clearColorFilter()
                 ivAM.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY)
                 ivApero.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY)
             }
             3 -> {
                 tvTageszeit.text = "Apéro (Abend)"
-                newEntryArray[1] = "3"
+                newEntryArray[1] = "3"                // TODO bereinigen
+                NewCakeboardEntry.time = "3"
                 ivApero.clearColorFilter()
                 ivPM.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY)
                 ivAM.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY)
             }
         }
-
     }
 
     // TODO Datum auch auf Tage am Weekend prüfen...
     fun checkDateAvailability(year : Int, month : Int, day : Int) {
         val date = LocalDate.of(year, month+1, day)
         newEntryArray[0] = date.toString() // das Datum bei Index 0 speichern
+        NewCakeboardEntry.date = date.toString()
         Log.i("gespeichertes Datum", date.toString())
         val preferences = requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE)
         val tac = preferences.getString("TeamAccessCode", "")

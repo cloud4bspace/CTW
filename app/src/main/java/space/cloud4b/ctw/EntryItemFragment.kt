@@ -105,9 +105,9 @@ class EntryItemFragment : Fragment() {
         pbEntryItem.visibility = View.GONE
 
         if(userEmail.equals(entryItemArray[12])) {
-            buEntryItemDelete.visibility = View.VISIBLE
+            llDeleteItem.visibility = View.VISIBLE
         } else {
-            buEntryItemDelete.visibility = View.GONE
+            llDeleteItem.visibility = View.GONE
         }
         llAnmelden.setOnClickListener() {
             recalcTeilnehmer("1", entryItemArray)
@@ -142,34 +142,8 @@ class EntryItemFragment : Fragment() {
             findNavController().navigate(action)
          //   val action = EntrylistFragmentDirections.actionEntrylistFragmentToEntryItemFragment(entryItemArray)
         }
-    /*    buEntryItemAnmelden.setOnClickListener() {
-            recalcTeilnehmer("1", entryItemArray)
-            buEntryItemAnmelden.isEnabled = false
-            buEntryItemAbmelden.isEnabled = true
-            buEntryItemReset.isEnabled = true
-            tvEntryItemStatusString.text = TEXTANGEMELDET
-            setAnmeldeStatus("1", userEmail, entryItemArray[0])
-        }
-        buEntryItemAbmelden.setOnClickListener() {
-            recalcTeilnehmer("2", entryItemArray)
-            buEntryItemAbmelden.isEnabled = false
-            buEntryItemAnmelden.isEnabled = true
-            buEntryItemReset.isEnabled = true
-            tvEntryItemStatusString.text = TEXTABGEMELDET
-            setAnmeldeStatus("2", userEmail, entryItemArray[0])
-        }
-        buEntryItemReset.setOnClickListener() {
-            recalcTeilnehmer("9", entryItemArray)
-            buEntryItemReset.isEnabled = false
-            buEntryItemAnmelden.isEnabled = true
-            buEntryItemAbmelden.isEnabled = true
-            tvEntryItemStatusString.text = TEXTOHNEANTWORT
-            setAnmeldeStatus("9", userEmail, entryItemArray[0])
-        }
 
-     */
-
-        buEntryItemDelete.setOnClickListener() {
+        llDeleteItem.setOnClickListener() {
             val builder = AlertDialog.Builder(activity)
             builder.setTitle("Diesen Eintrag löschen")
             builder.setMessage("Soll dieser Eintrag wirklich gelöscht werden?")
@@ -188,19 +162,7 @@ class EntryItemFragment : Fragment() {
 
             builder.show()
         }
-      /*  entryItemArray[0] = cakeboardEntry.ListId
-        entryItemArray[1] = cakeboardEntry.ListDate
-        entryItemArray[2] = cakeboardEntry.ListDaytime
-        entryItemArray[3] = cakeboardEntry.ListReason
-        entryItemArray[4] = cakeboardEntry.ListDescription
-        entryItemArray[5] = cakeboardEntry.ListFoodAndBev
-        entryItemArray[6] = cakeboardEntry.MemberName
-        entryItemArray[7] = cakeboardEntry.MemberAlias
-        entryItemArray[8] = cakeboardEntry.MemberAvatar
-                    entryItemArray[9] = cakeboardEntry.ListAngemeldet
-            entryItemArray[10] = cakeboardEntry.ListAbgemeldet
-            entryItemArray[11] = "0"
-        entryItemArray[12] = cakeboardEntry.MemberEmail*/
+
     }
 
     fun edxecTransaction(context : Context) {

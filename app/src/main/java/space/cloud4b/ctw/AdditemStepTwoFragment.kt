@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.entryitem_fragment.*
 import kotlinx.android.synthetic.main.register_stepone_fragment.*
 import org.jetbrains.anko.backgroundResource
 import org.jetbrains.anko.image
+import space.cloud4b.ctw.model.NewCakeboardEntry
 import space.cloud4b.ctw.services.IconMapper
 import space.cloud4b.ctw.services.SoundMapper
 
@@ -40,6 +41,7 @@ class AdditemStepTwoFragment : Fragment() {
         buAddItemGotoStepThree.setOnClickListener {
             if(validation()) {
                 newEntryArray[3] = etInfos.text.toString().trim()
+                NewCakeboardEntry.infos = etInfos.text.toString().trim()
                 val action = AdditemStepTwoFragmentDirections.actionAdditemStepTwoFragmentToAdditemStepThreeFragment(newEntryArray)
                 findNavController().navigate(action)
             }
@@ -64,6 +66,7 @@ class AdditemStepTwoFragment : Fragment() {
                     immageButton.clearColorFilter()
                     tvReason.setText(immageButton.contentDescription)
                     newEntryArray[2] = immageButton.contentDescription.toString()
+                    NewCakeboardEntry.reason = immageButton.contentDescription.toString()
                     for(j in 0 until glReasonIcns.childCount) {
                         if(glReasonIcns.getChildAt(j) != immageButton) {
                             var otherImageButton : ImageButton = glReasonIcns.getChildAt(j) as ImageButton
