@@ -15,6 +15,12 @@ import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import kotlin.math.absoluteValue
 
+/**
+ * Die Klasse stellt einen Adapter zur Verfügung, um die ListView (entrylist_fragment.xml)
+ * mit Daten zu befüllen.
+ *
+ * @author Serge Kaulitz & Bernhard Kämpf
+ */
 class CakeboardAdapter(var entries: MutableList<CakeboardEntry>, var context: Context) : BaseAdapter() {
 
     var layoutInflater : LayoutInflater
@@ -29,6 +35,7 @@ class CakeboardAdapter(var entries: MutableList<CakeboardEntry>, var context: Co
             view = oldView
         }
         val entry:CakeboardEntry = getItem(index)
+
         var infoText = entry.ListFoodAndBev
         if(!entry.ListDescription.isEmpty()){
             infoText += "\n" + entry.ListDescription
@@ -36,24 +43,25 @@ class CakeboardAdapter(var entries: MutableList<CakeboardEntry>, var context: Co
 
         view.tvInfos.text = infoText.trim()
         view.tvEntryId.text = "#${entry.entryId.toString()}"
-        view.tvEntryDate.text = entry.entryDate.toString()
         var date = LocalDate.parse(entry.entryDate.toString())
         view.tvEntryDate.text = date.format(
             DateTimeFormatter.ofLocalizedDate(
                 FormatStyle.LONG))
         view.tvName.text = entry.MemberName
+
+        // Icon für Grund ermitteln
         var icnName = IconMapper().getIcnName(entry.ListReason)
-        view.ivReason.setImageResource(context.getResources().getIdentifier("space.cloud4b.ctw:drawable/$icnName",null,null))
+        view.ivReason.setImageResource(context.getResources().getIdentifier(
+            "space.cloud4b.ctw:drawable/$icnName",null,null))
         val lp = LinearLayout.LayoutParams(60, 60)
         lp.setMargins(10, 10, 10, 10)
         view.ivReason.setLayoutParams(lp)
 
+        // Icon für Tageszeit
         icnName = IconMapper().getIcnName(entry.ListDaytime)
-        view.ivDayTime.setImageResource(context.getResources().getIdentifier("space.cloud4b.ctw:drawable/$icnName",null,null))
+        view.ivDayTime.setImageResource(context.getResources().getIdentifier(
+            "space.cloud4b.ctw:drawable/$icnName",null,null))
         view.ivDayTime.setLayoutParams(lp)
-
-
-
 
         return view
     }

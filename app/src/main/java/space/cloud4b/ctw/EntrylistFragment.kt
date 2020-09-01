@@ -27,7 +27,7 @@ import space.cloud4b.ctw.services.CakeboardAdapter
 class EntrylistFragment : Fragment() {
     var entryItemArray = Array<String>(13){"9999"}
 
-    var url = "https://cloud4b.space/caketowork/ctwboard.php"
+
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -36,6 +36,7 @@ class EntrylistFragment : Fragment() {
         val preferences = requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE)
         var teamAccessCode = preferences.getString("TeamAccessCode", "")
         val requestQueue = Volley.newRequestQueue(activity)
+        var url = "https://cloud4b.space/caketowork/ctwboard.php"
         url += "?TAC=$teamAccessCode"
         // define a request
         val request = StringRequest(Request.Method.GET, url,

@@ -1,7 +1,5 @@
 package space.cloud4b.ctw.model
 
-import android.util.Log
-
 /**
  * Ein object in Kotlin entspricht der Implementierung eines Singleton und ist Thread-safe
  *

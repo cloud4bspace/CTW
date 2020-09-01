@@ -17,6 +17,12 @@ import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import kotlin.math.absoluteValue
 
+/**
+ * Die Klasse stellt einen Adapter zur Verfügung, um die ListView (chatlist_fragment.xml)
+ * mit Daten zu befüllen.
+ *
+ * @author Serge Kaulitz & Bernhard Kämpf
+ */
 class ChatlistAdapter(var entries: MutableList<ChatMessage>, var context: Context) : BaseAdapter() {
 
     var layoutInflater : LayoutInflater
@@ -26,11 +32,7 @@ class ChatlistAdapter(var entries: MutableList<ChatMessage>, var context: Contex
     override fun getView(index: Int, oldView: View?, viewGroup: ViewGroup?): View {
         var view : View
         view = layoutInflater.inflate(R.layout.chatlist_cell, null)
-     /*   if(oldView == null) {
-            view = layoutInflater.inflate(R.layout.chatlist_cell, null)
-        } else {
-            view = oldView
-        }*/
+
         val entry:ChatMessage = getItem(index)
         view.tvChatcellAlias.setText(entry.MemberAlias)
         view.tvChatcellMessage.setText(entry.ChatMessage)
@@ -38,8 +40,8 @@ class ChatlistAdapter(var entries: MutableList<ChatMessage>, var context: Contex
         view.tvChatInfos.setText(entry.ChatTimestamp)
 
         var icnName = entry.MemberAvatar
-        view.ivChatcellAvatar.setImageResource(context.getResources().getIdentifier("space.cloud4b.ctw:drawable/rf_$icnName",null,null))
-
+        view.ivChatcellAvatar.setImageResource(context.getResources().getIdentifier(
+            "space.cloud4b.ctw:drawable/rf_$icnName",null,null))
 
         return view
     }
