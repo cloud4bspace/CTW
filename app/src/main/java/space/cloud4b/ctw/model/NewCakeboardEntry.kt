@@ -2,30 +2,20 @@ package space.cloud4b.ctw.model
 
 import android.util.Log
 
+/**
+ * Ein object in Kotlin entspricht der Implementierung eines Singleton und ist Thread-safe
+ *
+ * Dieses Objekt wird verwendet bei der Erfassung eines neuen Termins/Anlasses und sammelt
+ * die User-Eingaben über die 4 Eingabe-Fragments hinweg, bevor diese gespeichert werden.
+ *
+ * @author Serge Kaulitz & Bernhard Kämpf
+ */
 object NewCakeboardEntry {
-    var a: Int = 0
-    var b: Int = 1
     var tac: String = ""
     var userEmail: String = ""
     var date: String = ""
-
     var time: String = ""
-
     var reason: String = ""
     var infos: String = ""
     var beverages: String = ""
-
-    init {
-        Log.i("NewCakeboardEntry", "init complete")
-        // hier kann man ggf. auch tac und userEmail setzen..
-    }
-
-
-    fun makeMe12(): Int {
-        a = 12
-        return a
-    }
-
-
-
 }

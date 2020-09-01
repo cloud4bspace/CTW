@@ -1,7 +1,6 @@
 package space.cloud4b.ctw
 
 import android.content.Context
-import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -15,17 +14,8 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.beust.klaxon.Klaxon
-import kotlinx.android.synthetic.main.additem_steptwo_fragment.*
-import kotlinx.android.synthetic.main.entrylist_fragment.*
 
 import kotlinx.android.synthetic.main.register_stepone_fragment.*
-import org.json.JSONObject
-import space.cloud4b.ctw.model.Cakeboard
-import space.cloud4b.ctw.model.Companies
-import space.cloud4b.ctw.services.CakeboardAdapter
-
-import java.net.URL
 
 
 /**
