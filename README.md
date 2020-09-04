@@ -1,5 +1,7 @@
 # CTW
 ## Kurzbeschreibung
+## Eingereichte Projektidee
+[Kurzspezifikation](https://github.com/cloud4bspace/CTW/blob/master/MobileApp_Projektidee_Kaulitz%26Kaempf.pdf)
 ## Online-Hilfe
 [Link zur Online-Hilfe](https://www.cloud4b.space/caketowork/help/)
 
