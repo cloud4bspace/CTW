@@ -1,7 +1,18 @@
 package space.cloud4b.ctw.services
 
+/**
+ * Die Klasse dient der Zuordnung von Icons zu den übergebenen Suchstrings
+ *
+ * @author Serge Kaulitz & Bernhard Kämpf
+ */
 class IconMapper {
 
+    /**
+     * Gibt zum übergebenen String die Bezeichnung des Icons zurück.
+     *
+     * @param string Suchstring
+     * @return string Bezeichnung des Icons
+     */
     fun getIcnName(string : String) : String {
         when (string) {
             "Ferien" -> return "icn_beach"

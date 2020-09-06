@@ -59,6 +59,7 @@ class RegisterStepTwoFragment : Fragment() {
 
     }
 
+    // TODO interessante Textstelle: Spinner füllen
     fun fillTeamSpinner(x : Context) {
         var url = "https://cloud4b.space/caketowork/teamstringlist.php"
         val preferences = requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE)
@@ -124,6 +125,8 @@ class RegisterStepTwoFragment : Fragment() {
         //add the call to the request queue
         requestQueue.add(request)
     }
+
+
 
     fun validation() : Boolean {
 

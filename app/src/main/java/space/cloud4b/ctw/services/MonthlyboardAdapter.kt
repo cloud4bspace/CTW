@@ -16,6 +16,12 @@ import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import kotlin.math.absoluteValue
 
+/**
+ * Die Klasse stellt einen Adapter zur Verfügung, um die ListView (dashboard_fragment.xml)
+ * mit Daten zu befüllen.
+ *
+ * @author Serge Kaulitz & Bernhard Kämpf
+ */
 class MonthlyboardAdapter(var entries: MutableList<MonthlyReason>, var context: Context) : BaseAdapter() {
 
     var layoutInflater : LayoutInflater
@@ -31,7 +37,8 @@ class MonthlyboardAdapter(var entries: MutableList<MonthlyReason>, var context: 
         }
         val entry:MonthlyReason = getItem(index)
         view.tvMonthlyReasonText.text = entry.Anzahl + " x " + entry.ListReason
-        view.ivMonthlyReasonIcn.setImageResource(context.getResources().getIdentifier("space.cloud4b.ctw:drawable/${IconMapper().getIcnName(entry.ListReason)}",null,null))
+        view.ivMonthlyReasonIcn.setImageResource(context.getResources().getIdentifier(
+            "space.cloud4b.ctw:drawable/${IconMapper().getIcnName(entry.ListReason)}",null,null))
         val lp = LinearLayout.LayoutParams(60, 60)
         lp.setMargins(5, 5, 5, 5)
         view.ivMonthlyReasonIcn.setLayoutParams(lp)

@@ -17,6 +17,12 @@ import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import kotlin.math.absoluteValue
 
+/**
+ * Die Klasse stellt einen Adapter zur Verfügung, um die ListView (participantslist_fragment.xml)
+ * mit Daten zu befüllen.
+ *
+ * @author Serge Kaulitz & Bernhard Kämpf
+ */
 class DoodleAdapter(var entries: MutableList<DoodleResponse>, var context: Context) : BaseAdapter() {
 
     var layoutInflater : LayoutInflater
@@ -33,9 +39,8 @@ class DoodleAdapter(var entries: MutableList<DoodleResponse>, var context: Conte
 
         val entry : DoodleResponse = getItem(index)
         view.tvParticipantName.text = entry.MemberName
-        Log.i("Debut DoodleAdapter Zeile 26", entry.MemberAvatar)
-       // var icnName = IconMapper().getIcnName(entry.MemberAvatar)
-        view.ivParticipantAvatar.setImageResource(context.getResources().getIdentifier("space.cloud4b.ctw:drawable/${entry.MemberAvatar}",null,null))
+        view.ivParticipantAvatar.setImageResource(context.getResources().getIdentifier(
+            "space.cloud4b.ctw:drawable/${entry.MemberAvatar}",null,null))
         val lp = LinearLayout.LayoutParams(60, 60)
         lp.setMargins(10, 10, 10, 10)
         view.ivParticipantAvatar.setLayoutParams(lp)
@@ -48,7 +53,8 @@ class DoodleAdapter(var entries: MutableList<DoodleResponse>, var context: Conte
             icnName = "icn_bad"
         }
 
-        view.ivParticipantStatus.setImageResource(context.getResources().getIdentifier("space.cloud4b.ctw:drawable/$icnName",null,null))
+        view.ivParticipantStatus.setImageResource(context.getResources().getIdentifier(
+            "space.cloud4b.ctw:drawable/$icnName",null,null))
         view.ivParticipantStatus.setLayoutParams(lp)
         return view
     }

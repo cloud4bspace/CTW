@@ -72,7 +72,7 @@ class RegisterStepOneFragment : Fragment() {
                     }
                 }
         }
-
+        // TODO wenn in den Preferences schon was eingetragen ist, dass soll es bereits in den Eingabefldern angezeigt werden..
         buRegisterStepTwo.setOnClickListener {
             if(validation()) {
                 val editor =
@@ -103,17 +103,9 @@ class RegisterStepOneFragment : Fragment() {
         }
     }
 
+    // TODO interessante Codestelle -> validation
     fun validation() : Boolean {
-
-        // RadioGroup Gender
-        // TODO löschen
-        /*
-        if (!rbMale.isChecked && !rbFemale.isChecked) {
-            rbMale.error = "Du musst Dich entscheiden"
-            rbMale.requestFocus()
-            return false
-        }*/
-
+        
         // Username
         if(etUsername.getText().toString().trim().isEmpty()){
             etUsername.error = "Bitte gib Deinen Namen an"

@@ -1,7 +1,6 @@
 package space.cloud4b.ctw
 
 import android.content.Context
-import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -16,7 +15,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.beust.klaxon.Klaxon
 import kotlinx.android.synthetic.main.entrylist_fragment.*
-import kotlinx.android.synthetic.main.itemslist_fragment.*
+
 import kotlinx.android.synthetic.main.teamlist_fragment.*
 import kotlinx.android.synthetic.main.teamlist_fragment.pbProgressBar
 import kotlinx.android.synthetic.main.welcome_fragment.*
@@ -25,7 +24,7 @@ import space.cloud4b.ctw.model.Cakeboard
 import space.cloud4b.ctw.model.Team
 import space.cloud4b.ctw.model.TeamMember
 import space.cloud4b.ctw.services.CakeboardAdapter
-import space.cloud4b.ctw.services.CustomAdapterOne
+
 import space.cloud4b.ctw.services.TeamlistAdapter
 import java.net.URL
 

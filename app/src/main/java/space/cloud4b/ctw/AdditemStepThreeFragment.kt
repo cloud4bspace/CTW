@@ -45,6 +45,8 @@ class AdditemStepThreeFragment : Fragment() {
                 findNavController().navigate(action)
             }
         }
+
+        // TODO Interessante Codestelle -> .childCount -> Array zusammenstellen usw..
         // alle ImageButtons (Beverages)
         for(i in 0 until glBeverages.childCount) {
             var imageButton : ImageButton = glBeverages.getChildAt(i) as ImageButton
