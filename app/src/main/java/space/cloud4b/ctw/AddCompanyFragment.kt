@@ -16,15 +16,11 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.add_company_fragment.*
+import kotlinx.android.synthetic.main.register_stepone_fragment.*
 
 
 /**
- * A simple [Fragment] subclass as the default destination in the navigation.
- *
- * in einem ersten Schritt soll hier Username, EMail und Firma abgefragt werden
- * --> gibt es die Kompination vo User-Email und Firma schon? -> kein neuer User
- * -->    sonst User neu anlegen..
- * in einem zweiten Schritt dann das Team mit AccessCode oder ein neues Team erfassen
+ * Fragement für die Erfassung einer neuen Firma
  */
 class AddCompanyFragment : Fragment() {
 
@@ -40,7 +36,6 @@ class AddCompanyFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // Spinner mit Firmennamen aus der DB füllen
 
         buAddCompany.setOnClickListener() {
             if(validation()) {
@@ -93,18 +88,25 @@ class AddCompanyFragment : Fragment() {
                     buAddCompany.visibility = View.GONE
                     buAddCompanyGoBack.visibility = View.VISIBLE
                     etNewCompany.isEnabled = false
-
+                    val editor =
+                        this.requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE)
+                            .edit()
+                    editor.putString("UserOrg", etNewCompany.text.toString())
                 }
             },
             Response.ErrorListener {
-                it.message?.let { it1 -> Log.e("******VOLLEYERROR", it1) }
+                it.message?.let { it1 -> Log.e("VOLLEYERROR: AddCompanyFragment", it1)
+                    val toast = Toast.makeText(activity,
+                        "da hat etwas nicht geklappt", Toast.LENGTH_LONG)
+                    toast.show()}
             })
         //add the call to the request queue
         requestQueue.add(request)
     }
 
     fun View.hideKeyboard() {
-        val inputManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val inputManager =
+            context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputManager.hideSoftInputFromWindow(windowToken, 0)
     }
 

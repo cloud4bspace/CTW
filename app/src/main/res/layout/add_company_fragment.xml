@@ -50,9 +50,7 @@
             android:id="@+id/buAddCompany"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="10dp"
             android:drawableStart="@drawable/rf_icn_save"
             android:drawablePadding="10dp"
             android:text="@string/buFirmaAdd"
@@ -65,7 +63,9 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="10dp"
-            android:text="zurück"
+            android:drawableLeft="@drawable/rf_icn_start"
+            android:text="@string/zurueck"
+            android:textAllCaps="false"
             android:visibility="gone" />
 
     </LinearLayout>

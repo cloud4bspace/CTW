@@ -54,4 +54,7 @@
     <string name="neuerEintrag">neuer Eintrag</string>
     <string name="details">Details</string>
     <string name="headingTeilnehmerliste">Liste An-/Abmeldungen</string>
+    <string name="zurueck">Zurück</string>
+    <string name="heading_newUserStep1">Als Teammitglied registrieren</string>
+    <string name="regspeichern">Anmeldung abschliessen</string>
 </resources>

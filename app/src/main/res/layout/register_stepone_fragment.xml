@@ -21,7 +21,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="@string/tv_register_msg"
+            android:text="@string/heading_newUserStep1"
+            android:textColor="@color/secondaryColor"
             android:textSize="24sp" />
 
         <TextView
@@ -30,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="Bitte registriere Dich für eine Organisation und ein Team"
-            android:textColor="@color/secondaryColor" />
+            android:textColor="@color/secondaryDarkColor" />
 
         <androidx.gridlayout.widget.GridLayout
             android:id="@+id/glAvatarSelection"
