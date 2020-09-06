@@ -40,8 +40,7 @@ class DashboardFragment : Fragment() {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        // das nächste Znüni anzeigen
-        setNextEntry()
+
 
         val preferences = requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE)
         var teamAccessCode = preferences.getString("TeamAccessCode", "")
@@ -67,6 +66,9 @@ class DashboardFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        cvWhatsNext.visibility = View.GONE
+        // das nächste Znüni anzeigen
+        setNextEntry()
 /*
         view.findViewById<Button>(R.id.bu_back).setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
@@ -81,12 +83,7 @@ class DashboardFragment : Fragment() {
         ibMeinTeam.setOnClickListener(){
             findNavController().navigate(R.id.action_dashboard_fragment_to_teamlistFragment)
         }
-        ibHelp.setOnClickListener {
-            findNavController().navigate(R.id.action_dashboard_fragment_to_websiteOneFragment)
-        }
-        ibOpenChat.setOnClickListener {
-            findNavController().navigate(R.id.action_dashboard_fragment_to_chatlistFragment)
-        }
+
        // tvNextEvent.text = "17. Juni 2020"
         tvNextEvent.setOnClickListener {
             val text = "Hello toast!"
@@ -121,6 +118,7 @@ class DashboardFragment : Fragment() {
                     divDBDividerI.visibility = View.GONE
                     tvDBEventList.visibility = View.GONE
                     divDBDividerII.visibility = View.GONE
+                    cvWhatsNext.visibility = View.GONE
 
                 } else {
 
@@ -129,6 +127,7 @@ class DashboardFragment : Fragment() {
                     divDBDividerI.visibility = View.VISIBLE
                     tvDBEventList.visibility = View.VISIBLE
                     divDBDividerII.visibility = View.VISIBLE
+                    cvWhatsNext.visibility = View.VISIBLE
                     println("Response: $response")
                     var responseList = response.split("|")
                     entryItemArray[0] = responseList[0]

@@ -59,7 +59,7 @@ class UserinfoFragment : Fragment() {
 
              builder.setPositiveButton("Ja") { dialog, which ->
                  Toast.makeText(activity,
-                     "Ja", Toast.LENGTH_SHORT).show()
+                     "Profil wird gelöscht", Toast.LENGTH_SHORT).show()
                  val preferences = this.requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE)
                  deleteUser(preferences.getString("UserEmail", ""), preferences.getString("TeamAccessCode", ""))
                  val editor = this.requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE).edit()
@@ -75,7 +75,7 @@ class UserinfoFragment : Fragment() {
 
              builder.setNegativeButton("Nein") { dialog, which ->
                  Toast.makeText(activity,
-                     "Nein", Toast.LENGTH_SHORT).show()
+                     "Profil wurde nicht gelöscht", Toast.LENGTH_SHORT).show()
              }
 
              builder.show()

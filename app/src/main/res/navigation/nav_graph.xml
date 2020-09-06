@@ -204,4 +204,8 @@
             android:name="entryItemArray"
             app:argType="string[]" />
     </fragment>
+    <action
+        android:id="@+id/action_global_websiteOneFragment"
+        app:destination="@id/websiteOneFragment"
+        app:enterAnim="@anim/fragment_open_enter" /><action android:id="@+id/action_global_emailFragment" app:destination="@id/emailFragment"/>
 </navigation>

@@ -9,14 +9,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="5dp">
 
         <TextView
             android:id="@+id/tvProfileUserH2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="@string/Userinfos"
+            android:text="@string/heading_email"
             android:textColor="@color/secondaryColor"
             android:textSize="24sp" />
 
@@ -24,7 +25,16 @@
             android:id="@+id/textView13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:padding="5dp"
+            android:text="Zugangsdaten per E-Mail teilen"
+            android:textColor="@color/secondaryDarkColor" />
+
+        <View
+            android:id="@+id/divider12"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="10dp"
+            android:background="?android:attr/listDivider" />
 
         <EditText
             android:id="@+id/etEmailRecipient"
@@ -63,7 +73,9 @@
             android:ems="10"
             android:gravity="start|top"
             android:inputType="textMultiLine"
-            android:singleLine="false" />
+            android:singleLine="false"
+            android:textSize="12sp"
+            android:textStyle="italic" />
 
         <Button
             android:id="@+id/buShareTAC"

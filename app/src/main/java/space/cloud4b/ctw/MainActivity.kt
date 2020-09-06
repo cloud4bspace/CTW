@@ -28,23 +28,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
         val preferences = getSharedPreferences("USR_INFO", Context.MODE_PRIVATE)
-        if(preferences.getString("UserStatus", "").equals("OK")) {
-          //  fab.setVisibility(View.VISIBLE)
-            // TODO der fab stört überall mal wieder. vielleicht besser ganz weglassen?
-        } else {
-            fab.setVisibility(View.GONE)
-        }
-
-
-
-        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-
-            Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.action_global_dashboard_fragment)
-
-        }
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -58,17 +41,21 @@ class MainActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-            R.id.action_settings -> {
-                Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.action_global_additemFragment)
+
+            R.id.action_help -> {
+                Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.action_global_websiteOneFragment)
                 true
-                //return super.onOptionsItemSelected(item)
-                ;}
-            R.id.action_additem -> {
-                Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.action_global_additemFragment)
+            }
+            R.id.action_dashboard -> {
+                Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.action_global_dashboard_fragment)
                 true
             }
             R.id.action_userinfo -> {
                 Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.action_global_userinfoFragment)
+                true
+            }
+            R.id.action_invite -> {
+                Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.action_global_emailFragment)
                 true
             }
             else -> super.onOptionsItemSelected(item)

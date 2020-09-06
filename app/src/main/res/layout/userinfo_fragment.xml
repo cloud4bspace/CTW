@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="@string/Userinfos"
+            android:text="@string/heading_userinfos"
             android:textColor="@color/secondaryColor"
             android:textSize="24sp" />
 
@@ -38,12 +38,14 @@
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/rf_icn_man"
                 android:drawablePadding="16dp"
+                android:enabled="false"
                 android:hint="@string/etBenutzerName"
+                android:importantForAutofill="no"
                 android:inputType="textPersonName"
                 android:paddingStart="10dp"
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp"
-                android:importantForAutofill="no" />
+                android:textColor="@color/primaryDarkColor" />
 
         </LinearLayout>
 
@@ -57,14 +59,16 @@
                 android:id="@+id/etProfileAlias"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints=""
                 android:drawableStart="@drawable/rf_icn_fun"
                 android:drawablePadding="16dp"
+                android:enabled="false"
                 android:hint="@string/etAlias"
                 android:inputType="textPersonName"
                 android:paddingStart="10dp"
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp"
-                android:autofillHints="" />
+                android:textColor="@color/primaryDarkColor" />
 
         </LinearLayout>
 
@@ -80,13 +84,15 @@
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/rf_icn_mail"
                 android:drawablePadding="16dp"
+                android:enabled="false"
                 android:hint="@string/et_UserEmail"
+                android:importantForAutofill="no"
                 android:inputType="textEmailAddress"
                 android:paddingStart="10dp"
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp"
                 android:singleLine="true"
-                android:importantForAutofill="no" />
+                android:textColor="@color/primaryDarkColor" />
         </LinearLayout>
 
         <LinearLayout
@@ -109,7 +115,8 @@
                 android:paddingStart="10dp"
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:textColor="@color/primaryDarkColor" />
         </LinearLayout>
 
         <LinearLayout
@@ -132,7 +139,8 @@
                 android:paddingStart="10dp"
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:textColor="@color/primaryDarkColor" />
         </LinearLayout>
 
         <LinearLayout
@@ -155,39 +163,35 @@
                 android:paddingStart="10dp"
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:textColor="@color/primaryDarkColor" />
         </LinearLayout>
 
         <Button
             android:id="@+id/buShareDialog"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
             android:layout_marginVertical="10dp"
             android:drawableStart="@drawable/rf_icn_mail"
             android:drawablePadding="10dp"
-            android:text="Kolleg*innen einladen"
+            android:text="@string/btn_invite"
             android:textAllCaps="false" />
 
 
         <Button
             android:id="@+id/buReset"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginVertical="10dp"
             android:drawableStart="@drawable/rf_icn_reset"
             android:drawablePadding="10dp"
             android:elevation="10dp"
-            android:text="Reset &amp; neu registrieren"
+            android:text="@string/buReset"
 
             android:textAllCaps="false"
 
             android:textAppearance="@style/TextAppearance.AppCompat.Button"
-            android:textColor="@color/primaryTextColor"
             android:tooltipText="Benutzerdaten löschen und komplett neu registrieren."
-            app:backgroundTint="@color/secondaryColor"
             app:iconGravity="start"
             app:iconSize="60dp" />
     </LinearLayout>

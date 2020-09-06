@@ -37,11 +37,11 @@ class EmailFragment : Fragment() {
         val preferences = requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE)
         var message = "Liebe/r Kolleg/in"
         message += "\n\nMit dem Zugangs-Code \"" + preferences.getString("TeamAccessCode", "").toString()
-        message += "\" <b>kannst Du Dich für unser Team \"" + preferences.getString("UserTeam", "").toString() + "\" anmelden."
+        message += "\" kannst Du Dich für unser Team \"" + preferences.getString("UserTeam", "").toString() + "\" anmelden."
         message += "\n\nLiebe Grüsse " + preferences.getString("Username", "").toString() +
                 " (Alias " + preferences.getString("UserAlias", "").toString() + ")"
         etEmailMessage.setText(message)
-        etEmailSubject.setText("Einladung für Cake To Work (von " + preferences.getString("UserAlias", "").toString() + ")")
+        etEmailSubject.setText("Einladung für CakeToWork (von " + preferences.getString("UserAlias", "").toString() + ")")
 
         buShareTAC.setOnClickListener() {
             val recipient = etEmailRecipient.text.toString().trim()
@@ -61,6 +61,7 @@ class EmailFragment : Fragment() {
 
         try{
             startActivity((Intent.createChooser(mIntent, "Choose EMail Client")))
+            Toast.makeText(activity, "Einladung wurde verschickt", Toast.LENGTH_LONG).show()
         } catch(e: Exception) {
             Toast.makeText(activity, e.message, Toast.LENGTH_LONG).show()
         }

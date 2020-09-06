@@ -13,7 +13,7 @@
         android:layout_height="0dp"
         android:gravity="start|top"
         android:orientation="vertical"
-        android:padding="5dp"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,6 +23,7 @@
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="5dp"
             android:text="Dashboard"
             android:textColor="@color/secondaryColor"
             android:textSize="24sp" />
@@ -34,7 +35,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:text="what's next"
-            android:textColor="@color/secondaryColor" />
+            android:textColor="@color/secondaryDarkColor" />
 
         <View
             android:id="@+id/divDBDividerI"
@@ -107,8 +108,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:text="Links"
-            android:textColor="@color/secondaryColor" />
+            android:text="@string/actions"
+            android:textColor="@color/secondaryDarkColor" />
 
         <View
             android:id="@+id/divider2"
@@ -126,23 +127,9 @@
             <androidx.gridlayout.widget.GridLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="center"
                 app:columnCount="4"
                 app:rowCount="2">
-
-                <ImageButton
-                    android:id="@+id/ibHelp"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:backgroundTint="#FFFFFF"
-                    android:src="@drawable/icn_help" />
-
-                <ImageButton
-                    android:id="@+id/ibSettings"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:backgroundTint="#FFFFFF"
-                    android:src="@drawable/icn_settings" />
 
                 <ImageButton
                     android:id="@+id/ibAddItem"
@@ -155,6 +142,8 @@
                     android:id="@+id/ibMeinTeam"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:backgroundTint="#FFFFFF"
                     android:src="@drawable/icn_myteam" />
 
@@ -164,13 +153,6 @@
                     android:layout_height="80dp"
                     android:backgroundTint="#FFFFFF"
                     android:src="@drawable/icn_list" />
-
-                <ImageButton
-                    android:id="@+id/ibOpenChat"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:backgroundTint="#FFFFFF"
-                    android:src="@drawable/icn_message" />
 
             </androidx.gridlayout.widget.GridLayout>
         </androidx.cardview.widget.CardView>
@@ -182,7 +164,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:text="in diesem Monat"
-            android:textColor="@color/secondaryColor" />
+            android:textColor="@color/secondaryDarkColor" />
 
         <View
             android:id="@+id/divDBDividerII"

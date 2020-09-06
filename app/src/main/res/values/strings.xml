@@ -37,4 +37,16 @@
     <string name="Userinfos">Benutzerinfos</string>
     <string name="profil">Profil</string>
     <string name="mnSettings">Einstellungen</string>
+    <string name="actions">Aktionen</string>
+    <string name="teilen">Einladung senden</string>
+    <string name="help">Hilfe</string>
+    <string name="action_dashboard">Dashboard</string>
+    <string name="icn_avatar5">icn_avatar5</string>
+    <string name="welcome_text">Willkommen bei CakeToWork (CTW)</string>
+    <string name="heading_email">Kolleg*in einladen</string>
+    <string name="heading_userinfos">meine Benutzerinfos</string>
+    <string name="btn_invite">Kolleg*innen zu CTW einladen</string>
+    <string name="buReset">Profil löschen</string>
+    <string name="buFirmaAdd">Hinzufügen</string>
+    <string name="weiter">Weiter</string>
 </resources>

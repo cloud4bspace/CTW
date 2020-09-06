@@ -20,7 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="Willkommen bei Cake To Work"
+            android:text="@string/welcome_text"
+            android:textColor="@color/secondaryColor"
             android:textSize="24sp" />
 
         <TextView
@@ -29,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="Das ultimative Planungstool für Dein Team"
-            android:textColor="@color/secondaryColor" />
+            android:textColor="@color/primaryColor" />
 
         <TableLayout
             android:layout_width="match_parent"

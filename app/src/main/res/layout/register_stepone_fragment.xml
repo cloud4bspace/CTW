@@ -79,7 +79,7 @@
                 android:id="@+id/imageButton8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="icn_avatar5"
+                android:contentDescription="@string/icn_avatar5"
                 android:src="@drawable/rf_icn_avatar5" />
 
             <ImageButton

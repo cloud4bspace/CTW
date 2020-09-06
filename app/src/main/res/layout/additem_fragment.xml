@@ -24,14 +24,17 @@
             android:layout_marginBottom="10dp"
             android:text="Znüni anmelden (Schritt 1/4)"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/secondaryColor"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:text="Datum"
-            android:textColor="@color/secondaryColor"
+            android:textColor="@color/secondaryDarkColor"
             android:textSize="14sp" />
 
         <View
@@ -88,9 +91,11 @@
             android:id="@+id/textView7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
             android:text="Tageszeit"
-            android:textColor="@color/secondaryColor"
+            android:textColor="@color/secondaryDarkColor"
             android:textSize="14sp" />
 
         <View
@@ -150,8 +155,9 @@
             android:id="@+id/buAddItemGotoStepTwo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="weiter"
-            android:textAllCaps="true" />
+            android:drawableStart="@drawable/rf_icn_next"
+            android:text="@string/weiter"
+            android:textAllCaps="false" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

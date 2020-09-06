@@ -3,20 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="space.cloud4b.ctw.MainActivity">
     <item
-        android:id="@+id/action_settings"
-        android:icon="@drawable/icn_settings"
+        android:id="@+id/action_dashboard"
+        android:icon="@drawable/icn_global"
         android:orderInCategory="100"
-        android:title="@string/mnSettings"
+        android:title="@string/action_dashboard"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_invite"
+        android:icon="@drawable/icn_mail"
+        android:orderInCategory="100"
+        android:title="@string/teilen"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_additem"
-        android:icon="@drawable/icn_addone"
+        android:id="@+id/action_help"
+        android:icon="@drawable/icn_help"
         android:orderInCategory="1"
-        android:title="Neuer Eintrag" />
+        android:title="@string/help"
+        app:showAsAction="withText" />
     <item
         android:id="@+id/action_userinfo"
         android:icon="@drawable/icn_profile2"
         android:orderInCategory="2"
         android:title="@string/profil"
-        app:showAsAction="withText" />
+        app:showAsAction="collapseActionView|withText" />
 </menu>

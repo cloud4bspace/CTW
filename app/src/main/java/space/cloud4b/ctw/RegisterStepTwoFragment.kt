@@ -116,7 +116,7 @@ class RegisterStepTwoFragment : Fragment() {
                         .getLaunchIntentForPackage(requireActivity().getPackageName())
                     i?.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                     startActivity(i)
-                  //  findNavController().navigate(R.id.action_registerStepTwoFragment_to_dashboard_fragment)
+                    //  findNavController().navigate(R.id.action_registerStepTwoFragment_to_dashboard_fragment)
                 }
             },
             Response.ErrorListener {

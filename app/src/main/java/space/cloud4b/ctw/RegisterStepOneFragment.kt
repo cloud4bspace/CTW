@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
@@ -35,14 +36,14 @@ class RegisterStepOneFragment : Fragment() {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-
-
+        setHasOptionsMenu(true)
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.register_stepone_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         // Spinner mit Firmennamen aus der DB füllen
 
 
@@ -101,6 +102,16 @@ class RegisterStepOneFragment : Fragment() {
 
             }
         }
+    }
+
+    /**
+     * In diesem Fragment soll das Optionsmenu nicht angzeigt werden.
+     * Unter onCreateView ist zusätzlich setHasOptionsMenu(true) anzubringen
+     * @param menu
+     */
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        super.onPrepareOptionsMenu(menu)
+        menu.clear()
     }
 
     // TODO interessante Codestelle -> validation
