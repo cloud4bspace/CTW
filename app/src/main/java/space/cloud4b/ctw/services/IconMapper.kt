@@ -9,24 +9,11 @@ class IconMapper {
 
     /**
      * Gibt zum übergebenen String die Bezeichnung des Icons zurück.
-     *
      * @param string Suchstring
      * @return string Bezeichnung des Icons
      */
     fun getIcnName(string : String) : String {
         when (string) {
-            "Ferien" -> return "icn_beach"
-            "Geburtstag" -> return "icn_birthdaycake"
-            "Geheimnis" -> return "icn_secret"
-            "Abschied" -> return "icn_goodbye"
-            "Nachwuchs" -> return "icn_schnuller"
-            "Abschluss" -> return "icn_graduation"
-            "Hochzeit" -> return "icn_wedding"
-            "Auszeichnung" -> return "icn_medal"
-            "Beförderung" -> return "icn_motivation"
-            "Pensionierung" -> return "icn_retirement"
-            "Lottogewinn" -> return "icn_jackpot"
-            "einfach so" -> return "icn_dinosaur"
             "Wein" -> return "icn_wine"
             "Limonade" -> return "icn_food"
             "Bier" -> return "icn_beers"
@@ -43,6 +30,18 @@ class IconMapper {
             "Sushi" -> return "icn_sushi"
             "Früchte" -> return "icn_fruits"
             "Burger" -> return "icn_burger"
+            "Ferien" -> return "icn_beach"
+            "Geburtstag" -> return "icn_birthdaycake"
+            "Geheimnis" -> return "icn_secret"
+            "Abschied" -> return "icn_goodbye"
+            "Nachwuchs" -> return "icn_schnuller"
+            "Abschluss" -> return "icn_graduation"
+            "Hochzeit" -> return "icn_wedding"
+            "Auszeichnung" -> return "icn_medal"
+            "Beförderung" -> return "icn_motivation"
+            "Pensionierung" -> return "icn_retirement"
+            "Lottogewinn" -> return "icn_jackpot"
+            "einfach so" -> return "icn_dinosaur"
             "1" -> return "icn_am"
             "2" -> return "icn_pm"
             "3" -> return "icn_afternoon"

@@ -50,7 +50,7 @@ class ParticipantslistFragment : Fragment() {
                 val entry : Doodle? = Klaxon().parse<Doodle>(response)
                 val adapter = activity?.let { DoodleAdapter(entry?.doodle!!, it) }
                 lvParticipantsList.adapter = adapter
-               // pbProgressBar.visibility = View.GONE // TODO progressbar wäre schön hier
+                pbPartList.visibility = View.GONE
             },
             Response.ErrorListener {
                 it.message?.let { it1 -> Log.e("VOLLEYERROR", it1) }

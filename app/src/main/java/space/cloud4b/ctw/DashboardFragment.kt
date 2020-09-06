@@ -172,21 +172,20 @@ class DashboardFragment : Fragment() {
                     )
                     llContainerTop.addView(imageViewReason, 20, 20)
                     imageViewReason.setLayoutParams(lp)
-                    var newRow: LinearLayout = LinearLayout(activity)
+                    val newRow: LinearLayout = LinearLayout(activity)
                     for (x in 13 until responseList.size) {
                         newRow.orientation = LinearLayout.HORIZONTAL;
 
                         if (x < 19) {
-                            var newImage = ImageView(activity)
-                            newImage.setImageResource(
-                                getResources().getIdentifier(
-                                    "space.cloud4b.ctw:drawable/${IconMapper().getIcnName(
-                                        responseList[x]
-                                    )}", null, null
-                                )
-                            )
-                            llIcnContainer.addView(newImage, 20, 20)
-                            newImage.setLayoutParams(lp)
+                val newImage = ImageView(activity)
+                newImage.setImageResource(
+                    resources.getIdentifier(
+                    "space.cloud4b.ctw:drawable/${IconMapper().getIcnName(responseList[x])}",
+                    null, null
+                    )
+                )
+                llIcnContainer.addView(newImage, 20, 20)
+                newImage.layoutParams = lp
                         } else {
                             if (x == 19) {
                                 llWatsNext.addView(newRow)

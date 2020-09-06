@@ -46,20 +46,24 @@ class AdditemStepThreeFragment : Fragment() {
             }
         }
 
-        // TODO Interessante Codestelle -> .childCount -> Array zusammenstellen usw..
-        // alle ImageButtons (Beverages)
+        // alle ImageButtons innerhalb des GridLayouts "glBeverages" durchlaufen
         for(i in 0 until glBeverages.childCount) {
             var imageButton : ImageButton = glBeverages.getChildAt(i) as ImageButton
+
+            // alle Buttons abdunkeln
             imageButton.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
 
             imageButton.setOnClickListener() {
+                // prüfen, ob das Getränk in der Liste bereits vorhanden ist oder nicht
                 if(beverageList.contains(imageButton.contentDescription.toString()))  {
-                    imageButton.setColorFilter(R.color.black,android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imageButton.setColorFilter(R.color.black,
+                        android.graphics.PorterDuff.Mode.MULTIPLY);
                     beverageList.remove(imageButton.contentDescription.toString())
                 } else {
                     imageButton.clearColorFilter()
                     beverageList.add(imageButton.contentDescription.toString())
                 }
+                // Liste der gewählten Getränke als String aufbereiten und ausgeben
                 generateTvOutput()
             }
         }
