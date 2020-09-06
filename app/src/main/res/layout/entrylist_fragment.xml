@@ -34,6 +34,7 @@
             android:id="@+id/textView12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="5dp"
             android:text="Znüni-Terminliste"
             android:textColor="@color/secondaryColor"
             android:textSize="24sp" />
@@ -41,7 +42,8 @@
         <ListView
             android:id="@+id/lvCakeboardlist"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
 
         </ListView>
 

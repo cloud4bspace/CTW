@@ -28,15 +28,18 @@
             android:layout_marginBottom="10dp"
             android:text="Znüni anmelden (Schritt 3/4)"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/secondaryColor"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:text="Getränkeangebot"
-            android:textColor="@color/secondaryColor"
+            android:textColor="@color/secondaryDarkColor"
             android:textSize="14sp" />
 
         <View
@@ -127,9 +130,11 @@
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:text="Speisen"
-            android:textColor="@color/secondaryColor"
+            android:textColor="@color/secondaryDarkColor"
             android:textSize="14sp" />
 
         <View
@@ -231,15 +236,16 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:textAlignment="center"
-            android:textColor="@color/primaryDarkColor"
+            android:textColor="@color/secondaryDarkColor"
             android:textSize="18sp" />
 
         <Button
             android:id="@+id/buAddItemGotoStepFour"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="weiter"
-            android:textAllCaps="true" />
+            android:drawableStart="@drawable/rf_icn_next"
+            android:text="@string/weiter"
+            android:textAllCaps="false" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

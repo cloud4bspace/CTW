@@ -17,7 +17,6 @@ import com.beust.klaxon.Klaxon
 import kotlinx.android.synthetic.main.entrylist_fragment.*
 
 import kotlinx.android.synthetic.main.teamlist_fragment.*
-import kotlinx.android.synthetic.main.teamlist_fragment.pbProgressBar
 import kotlinx.android.synthetic.main.welcome_fragment.*
 import org.json.JSONObject
 import space.cloud4b.ctw.model.Cakeboard
@@ -49,7 +48,7 @@ class TeamlistFragment : Fragment() {
                 val entry : Team? = Klaxon().parse<Team>(response)
                 val adapter = activity?.let { TeamlistAdapter(entry?.teamlist!!, it) }
                 lvTeamlist.adapter = adapter
-                pbProgressBar.visibility = View.GONE
+                pbProgressBarTLF.visibility = View.GONE
             },
             Response.ErrorListener {
                 it.message?.let { it1 -> Log.e("VOLLEYERROR", it1) }
@@ -75,7 +74,7 @@ class TeamlistFragment : Fragment() {
             toast.show()
 
         }
-        //  pbProgressBarI.visibility = View.GONE
+
     }
 
 }

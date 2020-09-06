@@ -40,8 +40,6 @@ class DashboardFragment : Fragment() {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-
-
         val preferences = requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE)
         var teamAccessCode = preferences.getString("TeamAccessCode", "")
         val requestQueue = Volley.newRequestQueue(activity)
@@ -67,12 +65,9 @@ class DashboardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         cvWhatsNext.visibility = View.GONE
-        // das nächste Znüni anzeigen
+
+        // das nächste Znüni anzeigen in der obersten CardView
         setNextEntry()
-/*
-        view.findViewById<Button>(R.id.bu_back).setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-        }*/
 
         ibAddItem.setOnClickListener() {
             findNavController().navigate(R.id.action_dashboard_fragment_to_additemFragment)
@@ -85,19 +80,17 @@ class DashboardFragment : Fragment() {
         }
 
        // tvNextEvent.text = "17. Juni 2020"
+        /* TODO das hier braucht es wohl nicht mehr..
         tvNextEvent.setOnClickListener {
             val text = "Hello toast!"
             val duration = Toast.LENGTH_SHORT
             val toast = Toast.makeText(activity,text,  duration)
             toast.show()
-        }
+        }*/
 
         cvWhatsNext.setOnClickListener() {
-
             val action = DashboardFragmentDirections.actionDashboardFragmentToEntryItemFragment(entryItemArray)
-
             findNavController().navigate(action)
-
         }
     }
 
@@ -121,7 +114,6 @@ class DashboardFragment : Fragment() {
                     cvWhatsNext.visibility = View.GONE
 
                 } else {
-
                     llWatsNext.visibility = View.VISIBLE
                     tvDBWhatsNext.visibility = View.VISIBLE
                     divDBDividerI.visibility = View.VISIBLE
@@ -154,7 +146,6 @@ class DashboardFragment : Fragment() {
                     tvVonWem.text = responseList[2]
 
 
-                    //tvTZeit.text = getTagesZeitString(responseList[3].toInt())
                     // alle Icons auflisten
                     val lp = LinearLayout.LayoutParams(60, 60)
                     lp.setMargins(10, 10, 10, 10)
@@ -167,6 +158,7 @@ class DashboardFragment : Fragment() {
                             )}", null, null
                         )
                     )
+
                     llContainerTop.addView(imageViewTime, 20, 20)
                     imageViewTime.setLayoutParams(lp)
 
@@ -182,7 +174,6 @@ class DashboardFragment : Fragment() {
                     imageViewReason.setLayoutParams(lp)
                     var newRow: LinearLayout = LinearLayout(activity)
                     for (x in 13 until responseList.size) {
-
                         newRow.orientation = LinearLayout.HORIZONTAL;
 
                         if (x < 19) {

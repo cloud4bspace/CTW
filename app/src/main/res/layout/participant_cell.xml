@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:text="TextView"
-                android:textColor="@color/secondaryColor"
+                android:textColor="@color/primaryDarkColor"
                 android:textSize="18sp" />
 
             <ImageView

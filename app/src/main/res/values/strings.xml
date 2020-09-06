@@ -11,7 +11,7 @@
     <string name="img1desc">cake</string>
     <string name="wer">Wer</string>
     <string name="organisation">Organisation</string>
-    <string name="grund">Grund</string>
+    <string name="begruendung">Grund</string>
     <string name="userbild">Profilbild</string>
     <string name="JustForFun">einfach so</string>
     <string name="Gemuese">Gemüse</string>
@@ -49,4 +49,9 @@
     <string name="buReset">Profil löschen</string>
     <string name="buFirmaAdd">Hinzufügen</string>
     <string name="weiter">Weiter</string>
+    <string name="speichern">Speichern</string>
+    <string name="grund">Grund</string>
+    <string name="neuerEintrag">neuer Eintrag</string>
+    <string name="details">Details</string>
+    <string name="headingTeilnehmerliste">Liste An-/Abmeldungen</string>
 </resources>

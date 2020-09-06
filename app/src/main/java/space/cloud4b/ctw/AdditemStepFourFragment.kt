@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.core.view.marginRight
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -56,7 +57,32 @@ class AdditemStepFourFragment : Fragment() {
                 FormatStyle.LONG)) + " | " + IconMapper().getText(newEntryArray[1])
        // tvDatumTageszeit.text = newEntryArray[0] + " | " + newEntryArray[1]
         tvGrund.text = newEntryArray[2]
-        tvFoodAndBeverages.text = newEntryArray[4]
+        tvBemerkungen.text = NewCakeboardEntry.infos
+
+
+        // tvFoodAndBeverages.text = newEntryArray[4]
+        var foodAndBeveragesList = newEntryArray[4].split("|")
+        val lp = LinearLayout.LayoutParams(60, 60)
+        lp.setMargins(10, 20, 10, 0)
+
+
+
+
+        for (x in 0 until foodAndBeveragesList.size) {
+                var newImage = ImageView(activity)
+                newImage.setImageResource(
+                    getResources().getIdentifier(
+                        "space.cloud4b.ctw:drawable/${IconMapper().getIcnName(
+                            foodAndBeveragesList.get(x)
+                        )}", null, null
+                    )
+                )
+
+                llFoodBeverageIcons.addView(newImage, 20, 20)
+                newImage.setLayoutParams(lp)
+
+        }
+
         buAddItemSave.setOnClickListener {
             it.setVisibility(View.GONE)
             buShowDashboard.setVisibility(View.VISIBLE)

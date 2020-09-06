@@ -158,7 +158,11 @@
         android:id="@+id/emailFragment"
         android:name="space.cloud4b.ctw.EmailFragment"
         android:label="email_fragment"
-        tools:layout="@layout/email_fragment" />
+        tools:layout="@layout/email_fragment" >
+        <action
+            android:id="@+id/action_emailFragment_to_dashboard_fragment"
+            app:destination="@id/dashboard_fragment" />
+    </fragment>
     <fragment
         android:id="@+id/chatlistFragment"
         android:name="space.cloud4b.ctw.ChatlistFragment"
@@ -207,5 +211,6 @@
     <action
         android:id="@+id/action_global_websiteOneFragment"
         app:destination="@id/websiteOneFragment"
-        app:enterAnim="@anim/fragment_open_enter" /><action android:id="@+id/action_global_emailFragment" app:destination="@id/emailFragment"/>
+        app:enterAnim="@anim/fragment_open_enter" />
+    <action android:id="@+id/action_global_emailFragment" app:destination="@id/emailFragment" />
 </navigation>

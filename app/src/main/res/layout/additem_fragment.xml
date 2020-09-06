@@ -148,7 +148,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:textAlignment="center"
-            android:textColor="@color/secondaryColor"
+            android:textColor="@color/secondaryDarkColor"
             android:textSize="18sp" />
 
         <Button

@@ -36,7 +36,8 @@ class CakeboardAdapter(var entries: MutableList<CakeboardEntry>, var context: Co
         }
         val entry:CakeboardEntry = getItem(index)
 
-        var infoText = entry.ListFoodAndBev
+        // Infotext zusammenstellen aus der Liste an Food&Beverages und den Bemerkungen
+        var infoText = entry.ListFoodAndBev.replace("|", ", ")
         if(!entry.ListDescription.isEmpty()){
             infoText += "\n" + entry.ListDescription
         }
