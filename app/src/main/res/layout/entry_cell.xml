@@ -15,6 +15,16 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/tvEntryId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="TextView"
+            android:textAlignment="viewEnd"
+            android:textSize="14sp"
+            android:textStyle="italic" />
+
+        <TextView
             android:id="@+id/tvEntryDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -68,22 +78,12 @@
 
             <TextView
                 android:id="@+id/tvInfos"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:text="TextView"
                 android:textColor="@color/primaryDarkColor"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tvEntryId"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="3dp"
-                android:text="TextView"
-                android:textSize="14sp"
-                android:textStyle="italic" />
+                android:textSize="12sp" />
 
         </RelativeLayout>
 
