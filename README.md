@@ -1,4 +1,4 @@
-# CTW
+# Mobile App (Android) «CakeToWork CTW»
 
 ## Kurzbeschreibung der App
 Angestellte in der Schweiz haben ein Anrecht auf regelmässige Arbeitspausen. Kolleginnen und Kollegen treffen sich dazu meist in Gruppen im Pausenraum. Bei speziellen Anlässen wie z.B. an Geburtstagen oder am Ferienende ist es üblich, ein Znüni zu offerieren oder zu einem Apéro einzuladen. Aufgrund von fehlenden Absprachen kommt es immer wieder zu ungewollten Terminkollisionen. Um dieser Problematik zu begegnen, stellen wir mit der App «CakeToWork (CTW)» ein einfaches nd effizientes Planungstool zur Verfügung.
