@@ -13,8 +13,8 @@ Angestellte in der Schweiz haben ein Anrecht auf regelmässige Arbeitspausen. Ko
 [Link zur Online-Hilfe](https://www.cloud4b.space/caketowork/help/)
 
 ## Internet Server Calls
-[Übersicht der verwendeten PHP-Skripte](https://www.cloud4b.space/caketowork/help/scripttable.php)
-[PHP-Skripte: Repository auf GitHub](https://github.com/cloud4bspace/CakeToWork_PHP)
+* [Übersicht der verwendeten PHP-Skripte](https://www.cloud4b.space/caketowork/help/scripttable.php)
+* [PHP-Skripte: Repository auf GitHub](https://github.com/cloud4bspace/CakeToWork_PHP)
 
 ## MySQL-Datenbank Tabellen
 [Übersicht über die verwendeten MySQL-Tabellen](https://cloud4b.space/caketowork/help/sqltables.php)
