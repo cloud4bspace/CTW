@@ -21,7 +21,7 @@ import space.cloud4b.ctw.services.IconMapper
 import space.cloud4b.ctw.services.SoundMapper
 
 /**
- * A simple [Fragment] subclass as the default destination in the navigation.
+ * Zweiter Schritt für die Erfassung eines neuen Eintrags (Termin)
  */
 class AdditemStepTwoFragment : Fragment() {
     val args: AdditemStepTwoFragmentArgs by navArgs()

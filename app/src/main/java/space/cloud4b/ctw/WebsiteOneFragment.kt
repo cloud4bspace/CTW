@@ -14,7 +14,8 @@ import kotlinx.android.synthetic.main.dashboard_fragment.*
 import kotlinx.android.synthetic.main.webone_fragment.*
 
 /**
- * A simple [Fragment] subclass as the second destination in the navigation.
+ * Das WebsiteOneFragment dient der Darstellung einer Webseite mit Informationen und
+ * Hilfe zur App
  */
 class WebsiteOneFragment : Fragment() {
 

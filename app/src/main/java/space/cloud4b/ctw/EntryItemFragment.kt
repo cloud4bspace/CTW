@@ -30,12 +30,9 @@ import java.time.format.FormatStyle
 
 
 /**
- * A simple [Fragment] subclass as the default destination in the navigation.
- *
- * in einem ersten Schritt soll hier Username, EMail und Firma abgefragt werden
- * --> gibt es die Kompination vo User-Email und Firma schon? -> kein neuer User
- * -->    sonst User neu anlegen..
- * in einem zweiten Schritt dann das Team mit AccessCode oder ein neues Team erfassen
+ * Fragement mit der Detailsansicht zu einem Termin
+ * - zeigt die Termininfos und den Stand der An-/Abmeldungen
+ * - stellt Funktionen für die An-/Abmeldung zur Verfügung
  */
 class EntryItemFragment : Fragment() {
     val args: EntryItemFragmentArgs by navArgs()

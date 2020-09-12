@@ -9,7 +9,8 @@ import kotlinx.android.synthetic.main.welcome_fragment.*
 
 
 /**
- * A simple [Fragment] subclass as the default destination in the navigation.
+ * Das Welcome Fragment dient als Einstiegspunkt, wenn der User noch nicht registriert ist.
+ * Wenn der User bereits registriert ist, wird er zum Dashboard weitergeleitet.
  */
 class WelcomeFragment : Fragment() {
 
@@ -40,7 +41,8 @@ class WelcomeFragment : Fragment() {
             findNavController().navigate(R.id.action_welcome_fragment_to_addTeamFragment)
         }
 
-        val preferences = this.requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE)
+        val preferences = this.requireActivity().getSharedPreferences(
+            "USR_INFO", Context.MODE_PRIVATE)
         if(preferences.getString("UserStatus", "") != "OK") {
            //
         } else {

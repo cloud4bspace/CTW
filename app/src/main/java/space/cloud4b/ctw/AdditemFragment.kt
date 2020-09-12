@@ -30,7 +30,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 /**
- * A simple [Fragment] subclass as the default destination in the navigation.
+ * Schritt 1 für die Erfassung eines neuen Eintrags (Termin)
  */
 class AdditemFragment : Fragment() {
     var newEntryArray = Array<String>(10){"9999"}

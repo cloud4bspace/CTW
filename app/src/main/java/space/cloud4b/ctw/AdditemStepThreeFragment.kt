@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.additem_steptwo_fragment.tvReason
 import space.cloud4b.ctw.model.NewCakeboardEntry
 
 /**
- * A simple [Fragment] subclass as the default destination in the navigation.
+ * Dritter Schritt für die Erfassung eines neuen Eintrags (Termin)
  */
 class AdditemStepThreeFragment : Fragment() {
     val args: AdditemStepThreeFragmentArgs by navArgs()

@@ -23,12 +23,9 @@ import kotlinx.android.synthetic.main.register_steptwo_fragment.*
 
 
 /**
- * A simple [Fragment] subclass as the default destination in the navigation.
- *
- * in einem ersten Schritt soll hier Username, EMail und Firma abgefragt werden
- * --> gibt es die Kompination vo User-Email und Firma schon? -> kein neuer User
- * -->    sonst User neu anlegen..
- * in einem zweiten Schritt dann das Team mit AccessCode oder ein neues Team erfassen
+ * Neues Team erfassen
+ * User kann zu einer bestehenden Organisation ein neues Team erfassen.
+ * User erhält anschliessend den für den Zugriff notwendigen TeamAccessCode TAC
  */
 class AddTeamFragment : Fragment() {
     var avatar : String = "icn_male"

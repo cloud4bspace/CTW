@@ -31,7 +31,9 @@ import java.time.format.FormatStyle
 
 
 /**
- * A simple [Fragment] subclass as the second destination in the navigation.
+ * Dashboard ist der zentrale Einstiegspunkt, wenn der User bereits registriert ist
+ * (d.h. SharedPreferences "USR_INFO" -> "UserStatus" = "OK")
+ * Dashboard zeigt den nächsten Termin, die Navigationsfunktionen und eine Monatsstatistik
  */
 class DashboardFragment : Fragment() {
     var entryItemArray = Array<String>(13){"9999"}

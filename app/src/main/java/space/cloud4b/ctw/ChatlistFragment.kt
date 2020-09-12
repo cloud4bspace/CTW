@@ -27,7 +27,7 @@ import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 
 /**
- * A simple [Fragment] subclass as the default destination in the navigation.
+ * Bereitstellung der Chatlist (wurde nicht realisiert)
  */
 class ChatlistFragment : Fragment() {
     var anzMessages : Int = 0
@@ -39,7 +39,8 @@ class ChatlistFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
 
-        val preferences = requireActivity().getSharedPreferences("USR_INFO", Context.MODE_PRIVATE)
+        val preferences = requireActivity().getSharedPreferences(
+            "USR_INFO", Context.MODE_PRIVATE)
         var teamAccessCode = preferences.getString("TeamAccessCode", "")
         val requestQueue = Volley.newRequestQueue(activity)
         url += "?TAC=$teamAccessCode"

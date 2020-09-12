@@ -29,7 +29,8 @@ import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 
 /**
- * A simple [Fragment] subclass as the default destination in the navigation.
+ * Letzter Schritt für die Erfassung eines neuen Eintrags (Termin)
+ * Zusammenfassung wird angezeigt und User kann den Eintrag speichern.
  */
 class AdditemStepFourFragment : Fragment() {
     val args: AdditemStepFourFragmentArgs by navArgs()
