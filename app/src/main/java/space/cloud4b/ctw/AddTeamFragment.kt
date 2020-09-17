@@ -28,8 +28,6 @@ import kotlinx.android.synthetic.main.register_steptwo_fragment.*
  * User erhält anschliessend den für den Zugriff notwendigen TeamAccessCode TAC
  */
 class AddTeamFragment : Fragment() {
-    var avatar : String = "icn_male"
-
 
 
     override fun onCreateView(
@@ -71,7 +69,9 @@ class AddTeamFragment : Fragment() {
 
         buAddTeamSave.setOnClickListener() {
             it.hideKeyboard()
-            trySaveNewTeam()
+            if(validation()) {
+                 trySaveNewTeam()
+            }
         }
 
         buAddTeamWelcome.setOnClickListener() {
@@ -81,38 +81,10 @@ class AddTeamFragment : Fragment() {
 
     fun validation() : Boolean {
 
-        // RadioGroup Gender
-        // TODO löschen
-        /*
-        if (!rbMale.isChecked && !rbFemale.isChecked) {
-            rbMale.error = "Du musst Dich entscheiden"
-            rbMale.requestFocus()
-            return false
-        }*/
-
-        // Username
-        if(etUsername.getText().toString().trim().isEmpty()){
-            etUsername.error = "Bitte gib Deinen Namen an"
-            etUsername.requestFocus()
-            return false
-        }
-
-        // Alias
-        if(etAlias.getText().toString().trim().isEmpty()){
-            etAlias.error = "Bitte einen Nickname eingeben"
-            etAlias.requestFocus()
-            return false
-        }
-
-        // E-Mail-Adresse
-        if(etUserEmail.getText().toString().trim().isEmpty()){
-            etUserEmail.error = "Bitte gib Deine E-Mail-Adresse an"
-            etUserEmail.requestFocus()
-            return false
-        }
-        if(!android.util.Patterns.EMAIL_ADDRESS.matcher(etUserEmail.text).matches()) {
-            etUserEmail.error = "Das ist aber keine gültige E-Mail-Adresse"
-            etUserEmail.requestFocus()
+        // Team
+        if(etAddTeamTeam.text.toString().trim().isEmpty()){
+            etAddTeamTeam.error = "Bitte Teambezeichnung eingeben"
+            etAddTeamTeam.requestFocus()
             return false
         }
 

@@ -87,7 +87,6 @@ class AdditemStepFourFragment : Fragment() {
         buAddItemSave.setOnClickListener {
             it.setVisibility(View.GONE)
             buShowDashboard.setVisibility(View.VISIBLE)
-            //stopButton.setVisibility(View.VISIBLE);
             postNewEntry(newEntryArray) // TODO übergabe des Arrays ist am Ende obsolet
         }
 
@@ -110,12 +109,6 @@ class AdditemStepFourFragment : Fragment() {
         url += "&Reason=${newEntryArray[2]}"
         url += "&Infos=${newEntryArray[3]}"
         url += "&Beverages=${newEntryArray[4]}"
-
-        // TODO URLDecoder: es ist mir unklar, was zu tun ist..
-        Log.i("Regex.escapeReplacement()", Regex.escapeReplacement(url))
-        Log.i("Regex escape-Test", Regex.escape(url))
-        Log.i("Result of URLEncoder", URLEncoder.encode(url))
-        Log.i("Result of URLDecoder", URLDecoder.decode(URLEncoder.encode(url)))
 
         Log.i("SQL", url)
         Log.i("Step 4 Summary", "tac: ${NewCakeboardEntry.tac}")

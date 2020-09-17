@@ -59,10 +59,6 @@ class EntryItemFragment : Fragment() {
         var teamAccessCode = preferences.getString("TeamAccessCode", "").toString()
         var entryItemArray = args.entryItemArray
 
-        // define a request
-       // activity?.let { execTransaction(it) }
-      //  var url : String = "https://cloud4b.space/caketowork/index.php"
-
         anmeldeStatus(userEmail, entryItemArray[0])
         var icnEntryItemTime = IconMapper().getIcnName(entryItemArray[2])
         ivEntryItemTime.setImageResource(getResources().getIdentifier("space.cloud4b.ctw:drawable/$icnEntryItemTime",null,null))

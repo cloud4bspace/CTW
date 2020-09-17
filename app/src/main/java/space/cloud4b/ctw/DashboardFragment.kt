@@ -106,7 +106,7 @@ class DashboardFragment : Fragment() {
         // define a request
         val request = StringRequest(
             Request.Method.GET, url,
-            Response.Listener<String> { response ->
+            { response ->
                 if(response.isEmpty()) {
                     llWatsNext.visibility = View.GONE
                     tvDBWhatsNext.visibility = View.GONE
@@ -136,7 +136,12 @@ class DashboardFragment : Fragment() {
                     entryItemArray[9] = responseList[10] // angemeldet
                     entryItemArray[10] = responseList[11] // abgemeldet
                     entryItemArray[11] = responseList[12] // keine antwort
-                    entryItemArray[5] = responseList[13] // FoodList
+                    var foodListString = ""
+                    for(i in 13 until (responseList.size)) {
+                        foodListString += responseList[i]
+                        if(i < (responseList.size-1)) {foodListString += "|"}
+                    }
+                    entryItemArray[5] = foodListString // FoodList
 
                     var date = LocalDate.parse(responseList[1])
 
@@ -208,7 +213,7 @@ class DashboardFragment : Fragment() {
                 }
 
             },
-            Response.ErrorListener {
+            {
                 it.message?.let { it1 -> Log.e("VOLLEYERROR", it1) }
             })
         //add the call to the request queue
