@@ -14,7 +14,7 @@ Angestellte in der Schweiz haben ein Anrecht auf regelmässige Arbeitspausen. Ko
 [Link zur Online-Hilfe](https://www.cloud4b.space/caketowork/help/)
 
 ## Webseite (CTW-Screen im Pausenraum
-[Link zum CTW-Board (Bsp. Team "Finanzkontrolle"](https://www.cloud4b.space/caketowork/ctwOutputBoard.php?TAC=1234567890)
+[Link zum CTW-Board (Bsp. Team "Finanzkontrolle")](https://www.cloud4b.space/caketowork/ctwOutputBoard.php?TAC=1234567890)
 
 ## Internet Server Calls
 * [Übersicht der verwendeten PHP-Skripte](https://www.cloud4b.space/caketowork/help/scripttable.php)
