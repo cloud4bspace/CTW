@@ -9,8 +9,12 @@ Angestellte in der Schweiz haben ein Anrecht auf regelmässige Arbeitspausen. Ko
 
 ## Eingereichte Projektidee
 [Eingereichte Projektidee (Kurzspezifikation)](https://github.com/cloud4bspace/CTW/blob/master/MobileApp_Projektidee_Kaulitz%26Kaempf.pdf)
+
 ## Online-Hilfe
 [Link zur Online-Hilfe](https://www.cloud4b.space/caketowork/help/)
+
+## Webseite (CTW-Screen im Pausenraum
+[Link zum CTW-Board (Bsp. Team "Finanzkontrolle"](https://www.cloud4b.space/caketowork/ctwOutputBoard.php?TAC=1234567890)
 
 ## Internet Server Calls
 * [Übersicht der verwendeten PHP-Skripte](https://www.cloud4b.space/caketowork/help/scripttable.php)
